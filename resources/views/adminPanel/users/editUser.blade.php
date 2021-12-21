@@ -1,10 +1,10 @@
 @extends('adminPanel.layouts.master')
-@section('title','Update Admin')
+@section('title','Update User')
 @section('content')
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Update: {{$user->username}}</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Updating user: {{$user->username}}</h6>
     </div>
     <div class="card-body">
         @if(count($errors)>0)
@@ -16,7 +16,7 @@
             </ul>    
         </div>
         @endif
-        <form action="{{route('admin.userCustomers.update',$user->id)}}" method="POST">
+        <form action="{{route('admin.user.update',$user->id)}}" method="POST">
             @method('PUT')
             @csrf
             <div class="form-group">

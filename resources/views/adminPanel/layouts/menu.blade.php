@@ -32,26 +32,12 @@
                 <a class="nav-link @if(Request::segment(2)=="user") in @else collapsed @endif" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-users"></i>
-                    <span>Customers</span>
+                    <span>Users</span>
                 </a>
-                <div id="collapseTwo" class="collapse @if(Request::segment(2)=="userCustomers") show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse @if(Request::segment(2)=="user") show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item @if(Request::segment(2)=="userCustomers" && !Request::segment(3)) active @endif" href="{{route('admin.userCustomers.index')}}">List Customers</a>
-                        <a class="collapse-item @if(Request::segment(2)=="userCustomers" && Request::segment(3)=="create") active @endif" href="{{route('admin.userCustomers.create')}}">Add Customer</a>
-                    </div>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link @if(Request::segment(2)=="user") in @else collapsed @endif" href="#" data-toggle="collapse" data-target="#collapseTwoa"
-                    aria-expanded="true" aria-controls="collapseTwoa">
-                    <i class="fas fa-users-cog"></i>
-                    <span>Admins</span>
-                </a>
-                <div id="collapseTwoa" class="collapse @if(Request::segment(2)=="userAdmins") show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item @if(Request::segment(2)=="userAdmins" && !Request::segment(3)) active @endif" href="{{route('admin.userAdmins.index')}}">List Admins</a>  
-                        <a class="collapse-item @if(Request::segment(2)=="userAdmins" && Request::segment(3)=="create") active @endif" href="{{route('admin.userAdmins.create')}}">Add Admin</a>
+                    <a class="collapse-item @if(Request::segment(2)=="user" && !Request::segment(3)) active @endif" href="{{route('admin.user.index')}}">List Users</a>
+                        <a class="collapse-item @if(Request::segment(2)=="user" && Request::segment(3)=="create") active @endif" href="{{route('admin.user.create')}}">Add User</a>
                     </div>
                 </div>
             </li>

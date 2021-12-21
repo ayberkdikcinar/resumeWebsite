@@ -3,7 +3,7 @@
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminPanelController;
-use App\Http\Controllers\UserCustomerController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserAdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,8 +33,10 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
       Route::get('/dashboard',[AdminPanelController::class, 'index'])->name('dashboard');
       Route::get('/settings/{id}',[AdminPanelController::class, 'settings'])->name('settings');
       Route::resource('userAdmins',UserAdminController::class);
+      
       //Route::get('userAdmins/delete/{id}',[UserAdminController::class,'delete'])->name('delete.admin');
-      Route::resource('userCustomers',UserCustomerController::class);
+      Route::resource('user',UserController::class);
+      Route::post('user/{val}',[UserController::class,'indexPost'])->name('indexPost');
       //Route::get('userCustomers/delete/{id}',[UserCustomerController::class,'delete'])->name('delete.customer');
    });
 });

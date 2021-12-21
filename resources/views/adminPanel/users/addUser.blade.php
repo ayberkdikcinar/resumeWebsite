@@ -1,5 +1,5 @@
 @extends('adminPanel.layouts.master')
-@section('title','Add Customer')
+@section('title','Add User')
 @section('content')
 
 <div class="card shadow mb-4">
@@ -16,7 +16,7 @@
             </ul>    
         </div>
         @endif
-        <form action="{{route('admin.userCustomers.store')}}" method="POST">
+        <form action="{{route('admin.user.store')}}" method="POST">
             @csrf
             <div class="form-group">
                 <label>Username <label style="color: red" title="must containt at least 3, at most 15 character">*</label> </label>
@@ -24,19 +24,26 @@
             </div>
             <div class="form-group">
                 <label>Email <label style="color: red" title="Example: example@example.com">*</label></label>
-                <input type="text" name="email" class="form-control" required>
+                <input type="email" name="email" class="form-control" required>
             </div>
             <div class="form-group">
                 <label>Password <label style="color: red" title="must contain at least one number and one letter, and at least 8 or more characters">*</label></label>
-                <input type="password" name="password" class="form-control" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                <input type="password" name="password" class="form-control" pattern="^(?=\D*\d)(?=.*?[a-zA-Z]).*[\W_].{8,}$" required>
             </div>
             <div class="form-group">
                 <label>Retype-Password <label style="color: red" title="Should be same with your password">*</label></label>
-                <input type="password" name="password_confirmation" class="form-control " pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                <input type="password" name="password_confirmation" class="form-control " pattern="^(?=\D*\d)(?=.*?[a-zA-Z]).*[\W_].{8,}$" required>
+            </div>
+            <div class="form-group">
+                <select name="whatIs" id="">
+                    <option>Customer</option>
+                    <option>Admin</option>
+                </select>
             </div>
             <div class="form-group">
                 <button type="submit" name="submit" class="btn-block btn btn-primary">Add</button>
             </div>
+
 
         </form>
 

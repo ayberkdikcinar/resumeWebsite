@@ -95,13 +95,29 @@ aria-hidden="true">
     <!-- Page level custom scripts -->
 <script src="{{asset('back/')}}/js/demo/datatables-demo.js"></script>
 
+<script>
+    var form = document.getElementsByName("myForm")[0];
+    var checkBox = document.getElementById("checkboxid");
+
+    checkBox.onchange = function(){
+    if(this.checked){
+        form.action =  `{{route('admin.indexPost','1')}}`;
+       
+    }else{
+        form.action = "{{route('admin.indexPost','0')}}";
+    }
+    form.submit();
+    };
+    
+</script>
+
 <script> 
     $(document).on('click', '.delete', function(e) {
         e.preventDefault();
         const id = $(this).data('url');
         $('#deleteFormClient').attr('action', id);
     })
-    </script>
+</script>
 @toastr_js
 @toastr_render
 @yield('js')
