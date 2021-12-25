@@ -55,13 +55,14 @@ $(document).ready(function () {
 		setProgressBar(--current);
 	});
 
+	/*
 	function setProgressBar(currentStep) {
 		var percent = parseFloat(100 / steps) * current;
 		percent = percent.toFixed();
 		$(".progress-bar")
 			.css("width", percent + "%")
 	}
-
+*/
 	$("#submit").click(function () {
 		alert('submitted');
 		return false;
