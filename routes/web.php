@@ -42,7 +42,7 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
       
       //Route::get('userCustomers/delete/{id}',[UserCustomerController::class,'delete'])->name('delete.customer');
    });
-   Route::resource('course',CourseController::class);
+   //Route::resource('course',CourseController::class);
    
    //multi-step form pages
    Route::prefix('resume')->group(function(){
