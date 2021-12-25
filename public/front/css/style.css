@@ -3447,7 +3447,14 @@ html .ui-button.ui-state-disabled:active {
     background-color: #2F8D46
 }
 
-
+.profile-picture {
+	vertical-align: middle;
+	padding: 0.5%;
+	background-color: #2F8D46;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
 /* Dropdown */
 
 
@@ -3497,4 +3504,12 @@ html .ui-button.ui-state-disabled:active {
 	background-color: #473fb6;
   }
 
-
+  
+  input[type="date"] {
+	-webkit-align-items: center;
+	display: -webkit-inline-flex;
+	font-family: monospace;
+	overflow: hidden;
+	padding: 0;
+	-webkit-padding-start: 1px;
+}
