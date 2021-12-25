@@ -12,11 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
     
-
-
-
-
-
+   
 
 
     // Getters & Relations

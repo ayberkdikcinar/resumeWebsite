@@ -124,5 +124,6 @@
 @section('js')
 <script src="{{asset('front')}}/js/resume.js"></script>
 <script src="{{asset('front')}}/js/bootstrap.bundle.min.js"></script>
+
 @endsection
 @endsection

@@ -5,6 +5,7 @@ $(document).ready(function () {
 	var steps = $("fieldset").length;
 
 	setProgressBar(current);
+  
 
 	$(".next-step").click(function () {
 
