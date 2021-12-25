@@ -90,6 +90,7 @@
       <script src="{{asset('front')}}/js/wow.min.js"></script>
       <!--custom js--> 
       <script src="{{asset('front')}}/js/custom.js"></script>
+
       @yield('js')
    </body>
 </html>

@@ -38,6 +38,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item @if(Request::segment(2)=="user" && !Request::segment(3)) active @endif" href="{{route('admin.user.index')}}">List Users</a>
                         <a class="collapse-item @if(Request::segment(2)=="user" && Request::segment(3)=="create") active @endif" href="{{route('admin.user.create')}}">Add User</a>
+                        <a class="collapse-item @if(Request::segment(2)=="user" && Request::segment(3)=="create") active @endif" href="{{route('course.create')}}">Add Course</a>
                     </div>
                 </div>
             </li>

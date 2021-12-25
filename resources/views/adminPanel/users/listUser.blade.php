@@ -6,7 +6,7 @@
  <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary"><strong>{{$users->count()}} </strong>
-            @if ($checked == 1)
+            @if ($checked == "on")
                 admins have been found!
             @else
                 customers have been found!
@@ -16,9 +16,8 @@
     <div class="card-body">
         
         <div class="checkbox-usertype" style="text-align: center; vertical-align: middle;">
-            <form name="myForm" action="" method="post">
-                @csrf
-            <label for=""><input type="checkbox" id="checkboxid" name="checkbox_val" style="margin: 5px; width:20px; heigth:20px;" @if ($checked==1) ? checked : @endif>Show Only Admins</label>
+            <form name="myForm" action="" method="get">
+            <label for=""><input type="checkbox" id="checkboxid" name="checkbox_val" style="margin: 5px; width:20px; heigth:20px;" @if ($checked=="on") ? checked : @endif>Show Only Admins</label>
             </form>
         </div>
        
@@ -68,5 +67,27 @@
         </div>
     </div>
 </div>
+@endsection
+@section('js')
+<script>
+    var form = document.getElementsByName("myForm")[0];
+    var checkBox = document.getElementById("checkboxid");
 
+    checkBox.onchange = function(){
+    if(this.checked){
+        form.action =  `{{route('admin.user.index')}}`;   
+    }else{
+        form.action = `{{route('admin.user.index')}}`;
+    }
+    form.submit();
+    };
+    
+</script>
+<script> 
+    $(document).on('click', '.delete', function(e) {
+        e.preventDefault();
+        const id = $(this).data('url');
+        $('#deleteFormClient').attr('action', id);
+    })
+</script>
 @endsection

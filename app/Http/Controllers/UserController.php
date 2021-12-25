@@ -11,27 +11,22 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param int $checked
      * @return \Illuminate\Http\Response
      */
-    public function indexPost($checked)
-    {
-        
-        if($checked==0){
+    public function index(Request $request)
+    {   
+       
+        $checked=$request->checkbox_val;
+
+        if($checked==null){
             $users= User::where('isAdmin','0')->get();
         }
         else
             $users= User::where('isAdmin','1')->get();
-        
+
         return view('adminPanel.users.listUser',compact('users','checked'));
     }
 
-    public function index()
-    {
-        $users= User::where('isAdmin','0')->get();
-        $checked=0;
-        return view('adminPanel.users.listUser',compact('users','checked'));
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -55,10 +50,10 @@ class UserController extends Controller
         $request->validate([
             'username'=>['min:5','max:15','required'],
             'email'=>['required','regex:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/'],
-            'password'=>['required','confirmed','regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/'], //Minimum eight characters, at least one letter and one number
+            'password'=>['required','confirmed','min:8'], //Minimum eight characters, at least one letter and one number
             
         ]);
-        dd($request->whatIs);
+      
 
         $user = new User();
         $user->username = $request->username;
@@ -66,7 +61,8 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         if($request->whatIs=="Admin")
             $user->isAdmin=1;
-        else $user->isAdmin=0;
+        else 
+            $user->isAdmin=0;
     
         try {
             $user->save();
@@ -126,7 +122,7 @@ class UserController extends Controller
             'surname'=>'min:3',
             'email'=>['required','regex:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/'],
             'old_password'=>['required_with:password','nullable','sometimes'],
-            'password'=>['required_with:old_password','nullable','sometimes','confirmed','regex:^(?=\D*\d)(?=.*?[a-zA-Z]).*[\W_].{8,}$'], //Minimum eight characters, at least one letter and one number
+            'password'=>['required_with:old_password','nullable','sometimes','confirmed'], //Minimum eight characters, at least one letter and one number
             
         ]);
         if($request->password && $request->old_password){
