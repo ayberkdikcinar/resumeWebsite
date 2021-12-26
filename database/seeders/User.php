@@ -17,6 +17,7 @@ class User extends Seeder
         $admin = new ModelsUser();
         $admin->username='admin';
         $admin->email='admin@admin';
+        $admin->isAdmin=1;
         $admin->password=bcrypt('admin');
         $admin->save();
     }

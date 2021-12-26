@@ -86,9 +86,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
-        return $id;
+    {   
+        $user = User::findOrFail($id);
+        return view('adminPanel.users.userdetails',compact('user'));
+        //return $id;
     }
 
     /**

@@ -51,7 +51,7 @@
                         <td>{{$user->phone}}</td>
                         <td>{{$user->current_position}}</td>
                         <td style="text-align: center; vertical-align: middle;">
-                            <a href="#" title="Show Details" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
+                            <a href="{{ route('admin.user.show', $user->id)}}" title="Show Details" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
                             <a href="{{ route('admin.user.edit', $user->id)}}" title="Update" class="btn btn-sm btn-primary"><i class="fa fa-pen"></i></a>
                             <a href="#" title="Send Email" class="btn btn-sm btn-warning"><i class="fa fa-envelope-open"></i></a>
                             <a href="#!" data-toggle="modal" data-url="{{ route('admin.user.destroy', $user->id)}}" 
