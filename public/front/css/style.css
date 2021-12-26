@@ -3457,6 +3457,17 @@ html .ui-button.ui-state-disabled:active {
 	border-radius: 50%;
 	border-width: thick;
 }
+
+.profile-picture-thumb {
+	vertical-align: middle;
+	
+	width: 45px;
+	height: 45px;
+	border-style:solid;
+	border-color: #2F8D46;
+	border-radius: 50%;
+	border-width:thin;
+}
 /* Dropdown */
 
 

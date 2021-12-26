@@ -67,7 +67,7 @@
                                  <div class="dropdown">
                                     <a aria-haspopup="true" aria-expanded="false">
                                        <span class="mr-2 d-none d-lg-inline text-gray-600 large">{{Auth::User()->username}}</span>
-                                       <img width="30" height="40" class="" src="{{asset('back/')}}/img/undraw_profile.svg">
+                                       <img width="30" height="40" src="{{asset('')}}{{Auth::User()->photo_url}}" class="profile-picture-thumb">
                                     </a>
                                     <div class="dropdown-content">
                                        <a class="dropdown-item" href="{{route('profile')}}">
