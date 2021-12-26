@@ -2,7 +2,7 @@
 @section('title','')
 @section('content')
 @section('css')
-  <link href="{{asset('back/')}}/css/profile.css" rel="stylesheet">  
+  <link href="{{asset('back/')}}/css/view-detailed-user.css" rel="stylesheet">  
 @endsection
 <div class="container emp-profile">
             
@@ -30,6 +30,12 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false">Education</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="courses-tab" data-toggle="tab" href="#courses" role="tab" aria-controls="courses" aria-selected="false">Courses</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="documents-tab" data-toggle="tab" href="#documents" role="tab" aria-controls="documents" aria-selected="false">Documents</a>
                                 </li>
                             </ul>
                         </div>
@@ -89,7 +95,7 @@
                             <hr>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" style="margin-top: -7%;">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
@@ -146,6 +152,20 @@
                                                 <p>{{$user->about}}</p>
                                             </div>
                                         </div>
+                                        <label>Job Preferences</label>     
+                                        <ul style="list-style-type:none; padding: 0;">
+                                        @foreach ($user->jobPreferences as $item)
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <li>Field <p>{{$item->field}}</p></li> 
+                                            </div>
+                                            <div class="col-md-6">
+                                                <li>Desired Location <p>{{$item->desired_location}}</p></li>   
+                                            </div>
+                                        </div>   
+                                        <hr>  
+                                        @endforeach                                        
+                                        </ul>                  
                             </div>
                             <div class="tab-pane fade" id="experience" role="tabpanel" aria-labelledby="experience-tab">
                                         @foreach ($user->experiences as $item)    
@@ -184,6 +204,27 @@
                                               <li class="list-group-item"><h6>Area of study</h6><p>{{$item->area_of_study}}</p></li>
                                               <li class="list-group-item"><h6>Location</h6><p>{{$item->location}}</p></li>
                                               <li class="list-group-item"><h6>Activities and societies</h6><p>{{$item->activities_societies}}</p></li>
+                                            </ul>
+                                          </div>
+                                    </div>      
+                                </div>
+                                @endforeach
+
+                            </div>
+                            <div class="tab-pane fade" id="courses" role="tabpanel" aria-labelledby="courses-tab">
+                                
+                                @foreach ($user->courses as $item)    
+                                <div class="row">  
+                                    <div class="col-md-12">
+                                        <div class="card" style="width: 32rem; margin-bottom:5%;">
+                                            <div class="card-body">
+                                              <h5 class="card-title"><strong>{{$item->name}}</strong></h5>
+                                              <h6>Description</h6>
+                                              <p class="card-text">{{$item->description}}</p>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                              <li class="list-group-item"><h6>Provider</h6><p>{{$item->provider}}</p></li>
+                                              <li class="list-group-item"><h6>Completed date</h6><p>{{$item->completed_time}}</p></li>
                                             </ul>
                                           </div>
                                     </div>      
