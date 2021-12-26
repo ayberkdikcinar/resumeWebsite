@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="px-4 pt-4 pb-0 mt-3 mb-3">
-      <form id="form" action="{{route('resume.about.post')}}" method="POST">
+      <form id="form" action="{{route('resume.about.post')}}" enctype="multipart/form-data" method="POST">
         @csrf
         <ul id="progressbar">
           <li class="active" id="step1"><strong>About Me</strong></li>
@@ -25,12 +25,11 @@
           <div class="form-row">
             <h2>ABOUT ME</h2>
             <hr width="15%" />
-            <!-- <img src="{{asset('back/')}}/img/undraw_profile.svg" alt="Profile-Picture" class="profile-picture"> -->
             <div class="image-upload">
               <label for="file-input">
-                <img src="{{asset('front')}}/images/list-img-01.png" class="profile-picture"/>
+                <img src="{{asset('')}}{{Auth::User()->photo_url}}" class="profile-picture"/>
               </label>
-              <input id="file-input" type="file" accept="image/*"/>
+              <input id="file-input" type="file" name="image" accept="image/*"/>
             </div>
             <label>(click on image to add a photo)</label>
             <hr />
@@ -50,11 +49,11 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="date-of-birth">Date of Birth</label>
-              <input type="date" class="form-control" name="date_of_birth" value="{{Auth::User()->date_of_birth}}" required>
+              <input type="date" class="form-control" name="date_of_birth" value="{{Auth::User()->date_of_birth}}" min="1900-01-01" max="2021-01-01" required>
             </div>
             <div class="form-group col-md-6">
               <label for="marital-status">Marital Status*</label>
-              <select id="marital-status" name="marital_status" class="form-control">
+              <select id="marital-status" name="marital_status" class="form-control" value="{{Auth::User()->marital_status}}">
                 <option value="Single">Single</option>
                 <option value="Engaged">Engaged</option>
                 <option value="Married">Married</option>
@@ -570,11 +569,11 @@
           <div class="form-row">
             <div class="form-group col-md-8">
               <label for="email">EMAIL*</label>
-              <input type="email" name="phone" class="form-control" placeholder="contact@mail.com" required>
+              <input type="email" name="email" class="form-control" placeholder="contact@mail.com" value="{{Auth::User()->email}}" required>
             </div>
             <div class="form-group col-md-4">
               <label for="phone">Phone*</label><br>
-              <input type="tel" name="phone" id="phone" class="form-control" required>
+              <input type="tel" name="phone" id="phone" class="form-control" value="{{Auth::User()->phone}}" required>
             </div>
 
           </div>

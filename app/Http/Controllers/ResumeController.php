@@ -45,11 +45,15 @@ class ResumeController extends Controller
         $user->country_of_birth =$request->country_of_birth;
         $user->country_of_residence =$request->country_of_residence;
         $user->marital_status =$request->marital_status;
+        $user->email =$request->email;
+        $user->phone =$request->phone;
         $user->about =$request->about;
         
         
         if($request->hasFile('image')){
+            
             $imagename=Str::slug($user->username).'_profile_photo.'.$request->image->getClientOriginalExtension();
+            
             $request->image->move(public_path('uploads'),$imagename);
             $user->photo_url='uploads/'.$imagename;
         }
