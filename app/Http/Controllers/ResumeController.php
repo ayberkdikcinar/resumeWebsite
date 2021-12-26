@@ -11,17 +11,30 @@ use App\Models\Experience;
 use App\Models\Job_preference;
 use App\Models\Language;
 use App\Models\Skill;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class ResumeController extends Controller
 {
     
 
+    /*public function contact(){
+        return view('resume.contact');
+    }*/
+
+    public function documents(){
+        return view('resume.documents');
+    }
+
+    ///////////////
+    
+    public function about(){
+        $user = Auth::user();
+        return view('resume.about',compact('user'));
+    }
+
     public function addUserAbout(Request $request){ //next butonunu post olarak verilcek!
 
         //validation
-
-        
 
         $user = User::findOrFail(Auth::user()->id);
         
@@ -33,8 +46,13 @@ class ResumeController extends Controller
         $user->country_of_residence =$request->country_of_residence;
         $user->marital_status =$request->marital_status;
         $user->about =$request->about;
-        $user->photo_url =$request->photo_url;
         
+        
+        if($request->hasFile('image')){
+            $imagename=Str::slug($user->username).'_profile_photo.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('uploads'),$imagename);
+            $user->photo_url='uploads/'.$imagename;
+        }
         try {
             $user->save();
 
@@ -43,6 +61,13 @@ class ResumeController extends Controller
         }
         return redirect()->route('resume.experience');
 
+    }
+
+    ////////////////
+
+    public function experience(){
+        $experiences = Auth::user()->experiences;
+        return view('resume.experience',compact('experiences'));
     }
 
     public function addExperience(Request $request){//add experience butonunu post olarak verilcek!
@@ -66,10 +91,17 @@ class ResumeController extends Controller
         } catch (\Exception $th) {
             return back()->withErrors($th->getMessage()); 
         }
-        $experiences = Auth::user()->experiences;
+            
+        return redirect()->route('resume.experience');
         
-        return redirect()->back()->with(compact('experiences'));
-        
+    }
+
+    ////////////////
+
+    public function education(){
+
+        $educations = Auth::user()->educations;
+        return view('resume.education',compact('educations'));
     }
 
     public function addEducation(Request $request){ //add education butonunu post olarak verilcek!
@@ -96,11 +128,19 @@ class ResumeController extends Controller
         } catch (\Exception $th) {
             return back()->withErrors($th->getMessage()); 
         }
-        $educations = Auth::user()->educations;
-        return redirect()->back()->with(compact('educations'));
+        
+        return redirect()->route('resume.education');
 
 
     }
+
+    ////////////////
+
+    public function languages(){
+        $languages = Auth::user()->languages;
+        return view('resume.languages',compact('languages'));
+    }
+
 
     public function addLanguage(Request $request){ ///language next butonunun oraya verilcek post olarak!
 
@@ -119,15 +159,21 @@ class ResumeController extends Controller
         } catch (\Exception $th) {
             return back()->withErrors($th->getMessage()); 
         }
-        $languages = Auth::user()->languages;
-        return redirect()->route('resume.skills',compact('user'));
+        
+        return redirect()->route('resume.skills');
 
+    }
+
+    ////////////////
+
+    public function skills(){
+        $skills = Auth::user()->skills;
+        return view('resume.skills',compact('skills'));
     }
 
     public function addSkill(Request $request){
 
-        //validation
-        
+        //validation  
         $skill = new Skill;
 
         $skill->type= $request->type;
@@ -144,6 +190,13 @@ class ResumeController extends Controller
 
         return redirect()->route('courses');
 
+    }
+    
+    ////////////////
+
+    public function courses(){
+        $courses = Auth::user()->courses;
+        return view('resume.courses',compact('courses'));
     }
 
     public function addCourse(Request $request){
@@ -163,10 +216,17 @@ class ResumeController extends Controller
         } catch (\Exception $th) {
             return back()->withErrors($th->getMessage()); 
         }
-        return redirect()->route('job_preferences',compact('course'));
+        return redirect()->route('job_preferences');
 
     }
     
+    ////////////////
+
+    public function job_preferences(){
+        return view('resume.job_preferences');
+    }
+
+
     public function addJobPreference(Request $request){
         //validation
         
@@ -183,10 +243,11 @@ class ResumeController extends Controller
         } catch (\Exception $th) {
             return back()->withErrors($th->getMessage()); 
         }
-        return redirect()->route('index',compact('jobPreference'));
+        return redirect()->route('index');
 
     }
 
+    ////////////
 
 
 }

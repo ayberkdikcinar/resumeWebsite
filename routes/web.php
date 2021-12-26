@@ -47,17 +47,31 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
    
    //multi-step form pages
    Route::prefix('resume')->name('resume.')->group(function(){
-      Route::get('/about',[UserResumeController::class, 'index'])->name('about');
+
+      Route::get('/about',[ResumeController::class, 'about'])->name('about');
       Route::post('/about',[ResumeController::class, 'addUserAbout'])->name('about.post');
-      Route::get('/contact',[UserResumeController::class, 'contact'])->name('contact');
-      Route::get('/courses',[UserResumeController::class, 'courses'])->name('courses');
-      Route::get('/documents',[UserResumeController::class, 'documents'])->name('documents');
-      Route::get('/education',[UserResumeController::class, 'education'])->name('education');
-      Route::get('/experience',[UserResumeController::class, 'experience'])->name('experience');
+
+      Route::get('/contact',[ResumeController::class, 'contact'])->name('contact');
+
+      Route::get('/courses',[ResumeController::class, 'courses'])->name('courses');
+      Route::post('/courses',[ResumeController::class, 'addCourse'])->name('courses.post');
+
+      Route::get('/documents',[ResumeController::class, 'documents'])->name('documents');
+
+      Route::get('/education',[ResumeController::class, 'education'])->name('education');
+      Route::post('/education',[ResumeController::class, 'addEducation'])->name('education.post');
+
+      Route::get('/experience',[ResumeController::class, 'experience'])->name('experience');
       Route::post('/experience',[ResumeController::class, 'addExperience'])->name('experience.post');
-      Route::get('/job_preferences',[UserResumeController::class, 'job_references'])->name('job_preferences');
-      Route::get('/languages',[UserResumeController::class, 'languages'])->name('languages');
-      Route::get('/skills',[UserResumeController::class, 'skills'])->name('skills');
+
+      Route::get('/job_preferences',[ResumeController::class, 'job_references'])->name('job_preferences');
+      Route::post('/job_preferences',[ResumeController::class, 'addJobPreference'])->name('job_preferences.post');
+
+      Route::get('/languages',[ResumeController::class, 'languages'])->name('languages');
+      Route::post('/languages',[ResumeController::class, 'addLanguage'])->name('languages.post');
+
+      Route::get('/skills',[ResumeController::class, 'skills'])->name('skills');
+      Route::post('/skills',[ResumeController::class, 'addSkill'])->name('skills.post');
    });
 
 });
