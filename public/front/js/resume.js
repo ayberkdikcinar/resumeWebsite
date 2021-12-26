@@ -64,8 +64,5 @@ $(document).ready(function () {
 			.css("width", percent + "%")
 	}
 */
-	$("#submit").click(function () {
-		alert('submitted');
-		return false;
-	})
+
 });

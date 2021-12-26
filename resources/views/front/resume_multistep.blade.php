@@ -25,6 +25,8 @@
 						<h2>ABOUT ME</h2>
 						<hr width="15%" />
 						<img src="{{asset('back/')}}/img/undraw_profile.svg" alt="Profile-Picture" class="profile-picture">
+						<input type="image" src="{{asset('back')}}/img/undraw_profile.svg" alt="Profile-Picture" class="profile-picture" />
+            			<input type="file" name="my_file" accept="image/*" style="display:none;" /><br/>
 						<hr />
 						<div class="form-group col-md-12">
 							<label for="current-position">Current Position</label>

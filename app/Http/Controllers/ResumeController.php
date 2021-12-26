@@ -20,6 +20,9 @@ class ResumeController extends Controller
     public function addUserAbout(Request $request){ //next butonunu post olarak verilcek!
 
         //validation
+
+        
+
         $user = User::findOrFail(Auth::user()->id);
         
         $user->current_position = $request->current_position;
@@ -38,14 +41,13 @@ class ResumeController extends Controller
         } catch (\Exception $th) {
             return back()->withErrors($th->getMessage()); 
         }
-        return redirect()->route('resume.experience',compact('user'));
+        return redirect()->route('resume.experience');
 
     }
 
     public function addExperience(Request $request){//add experience butonunu post olarak verilcek!
 
         //validation
-
         $experience = new Experience;
 
         $experience->company_name= $request->company_name;
@@ -65,6 +67,7 @@ class ResumeController extends Controller
             return back()->withErrors($th->getMessage()); 
         }
         $experiences = Auth::user()->experiences;
+        
         return redirect()->back()->with(compact('experiences'));
         
     }

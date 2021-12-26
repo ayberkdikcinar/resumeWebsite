@@ -3,7 +3,8 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="px-4 pt-4 pb-0 mt-3 mb-3">
-      <form id="form">
+      <form id="form" action="{{route('resume.about.post')}}" method="POST">
+        @csrf
         <ul id="progressbar">
           <li class="active" id="step1"><strong>About Me</strong></li>
           <li id="step2"><strong>My Experience</strong></li>
@@ -26,30 +27,30 @@
             <hr width="15%" />
             <!-- <img src="{{asset('back/')}}/img/undraw_profile.svg" alt="Profile-Picture" class="profile-picture"> -->
             <input type="image" src="{{asset('back')}}/img/undraw_profile.svg" alt="Profile-Picture" class="profile-picture" />
-            <input type="file" id="my_file" accept="image/*" style="display:none;" /><br/>
+            <input type="file" name="my_file" accept="image/*" style="display:none;" /><br/>
             <label>(click on image to add a photo)</label>
             <hr />
             <div class="form-group col-md-12">
               <label for="current-position">Current Position</label>
-              <input type="text" class="form-control" id="current-position" placeholder="Current Position">
+              <input type="text" class="form-control" name="current_position" placeholder="Current Position" value="{{Auth::User()->current_position}}">
             </div>
             <div class="form-group col-md-6">
               <label for="first-name">First Name</label>
-              <input type="text" class="form-control" id="first-name" placeholder="First Name">
+              <input type="text" class="form-control" name="firstname" placeholder="First Name" value="{{Auth::User()->name}}">
             </div>
             <div class="form-group col-md-6">
               <label for="last-name">Last Name</label>
-              <input type="text" class="form-control" id="last-name" placeholder="Last Name">
+              <input type="text" class="form-control" name="lastname" placeholder="Last Name" value="{{Auth::User()->surname}}">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="date-of-birth">Date of Birth</label>
-              <input type="date" class="form-control" name="date-of-birth">
+              <input type="date" class="form-control" name="date_of_birth" value="{{Auth::User()->date_of_birth}}">
             </div>
             <div class="form-group col-md-6">
               <label for="marital-status">Marital Status</label><span style="color: red !important; display: inline; float: none;">*</span>
-              <select id="marital-status" name="Marital Status" class="form-control">
+              <select id="marital-status" name="marital_status" class="form-control">
                 <option value="Single">Single</option>
                 <option value="Engaged">Engaged</option>
                 <option value="Single">Single</option>
@@ -65,7 +66,7 @@
             <div class="form-group col-md-6">
               <label for="country">Country of Birth</label><span style="color: red !important; display: inline; float: none;">*</span>
 
-              <select id="country" name="country" class="form-control">
+              <select id="country" name="country_of_birth" class="form-control">
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
@@ -315,7 +316,7 @@
             <div class="form-group col-md-6">
               <label for="country">Country of Residence</label><span style="color: red !important; display: inline; float: none;">*</span>
 
-              <select id="country" name="country" class="form-control">
+              <select id="country" name="country_of_residence" class="form-control">
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
@@ -565,12 +566,12 @@
           </div>
           <div class="form-row">
             <div class="form-group col-md-12">
-              <label for="marital-status">Say something about yourself</label>
-              <textarea class="form-control" id="current-position" placeholder="You can say anything you would like. Ex. Father, book lover, Star Wars fan, cook and just a cool guy."></textarea>
+              <label >Say something about yourself</label>
+              <textarea class="form-control" name="about" placeholder="You can say anything you would like. Ex. Father, book lover, Star Wars fan, cook and just a cool guy."></textarea>
             </div>
 
           </div>
-          <input type="button" name="next-step" class="next-step" value="Next Step" />
+          <input type="submit" name="next-step" class="next-step" value="Next Step" />
         </fieldset>
       </form>
     </div>

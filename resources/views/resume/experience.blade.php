@@ -3,7 +3,8 @@
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="px-4 pt-4 pb-0 mt-3 mb-3">
-			<form id="form">
+			<form id="form" action="{{route('resume.experience.post')}}" method="POST">
+				@csrf
 				<ul id="progressbar">
 					<li class="active" id="step1"><strong>About Me</strong></li>
 					<li class="active" id="step2"><strong>My Experience</strong></li>
@@ -70,7 +71,8 @@
 							</label>
 						</div>
 					</div>
-					<input type="button" name="next-step" class="next-step" value="Next Step" />
+					<input type="submit" name="next-step" class="next-step" value="Next Step" />
+					<input type="button" name="previous-step" class="previous-step" value="Previous Step" />
 				</fieldset>
 
 				<fieldset>

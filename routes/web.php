@@ -7,6 +7,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserAdminController;
 use App\Http\Controllers\UserResumeController;
+use App\Http\Controllers\ResumeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,13 +46,15 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
    //Route::resource('course',CourseController::class);
    
    //multi-step form pages
-   Route::prefix('resume')->group(function(){
+   Route::prefix('resume')->name('resume.')->group(function(){
       Route::get('/about',[UserResumeController::class, 'index'])->name('about');
+      Route::post('/about',[ResumeController::class, 'addUserAbout'])->name('about.post');
       Route::get('/contact',[UserResumeController::class, 'contact'])->name('contact');
       Route::get('/courses',[UserResumeController::class, 'courses'])->name('courses');
       Route::get('/documents',[UserResumeController::class, 'documents'])->name('documents');
       Route::get('/education',[UserResumeController::class, 'education'])->name('education');
       Route::get('/experience',[UserResumeController::class, 'experience'])->name('experience');
+      Route::post('/experience',[ResumeController::class, 'addExperience'])->name('experience.post');
       Route::get('/job_preferences',[UserResumeController::class, 'job_references'])->name('job_preferences');
       Route::get('/languages',[UserResumeController::class, 'languages'])->name('languages');
       Route::get('/skills',[UserResumeController::class, 'skills'])->name('skills');
