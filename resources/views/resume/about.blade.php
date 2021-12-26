@@ -26,34 +26,37 @@
             <h2>ABOUT ME</h2>
             <hr width="15%" />
             <!-- <img src="{{asset('back/')}}/img/undraw_profile.svg" alt="Profile-Picture" class="profile-picture"> -->
-            <input type="image" src="{{asset('back')}}/img/undraw_profile.svg" alt="Profile-Picture" class="profile-picture" />
-            <input type="file" name="my_file" accept="image/*" style="display:none;" /><br/>
+            <div class="image-upload">
+              <label for="file-input">
+                <img src="{{asset('front')}}/images/list-img-01.png" class="profile-picture"/>
+              </label>
+              <input id="file-input" type="file" accept="image/*"/>
+            </div>
             <label>(click on image to add a photo)</label>
             <hr />
             <div class="form-group col-md-12">
-              <label for="current-position">Current Position</label>
-              <input type="text" class="form-control" name="current_position" placeholder="Current Position" value="{{Auth::User()->current_position}}">
+              <label for="current-position">Current Position*</label>
+              <input type="text" class="form-control" name="current_position" placeholder="Current Position" value="{{Auth::User()->current_position}}" required>
             </div>
             <div class="form-group col-md-6">
-              <label for="first-name">First Name</label>
-              <input type="text" class="form-control" name="firstname" placeholder="First Name" value="{{Auth::User()->name}}">
+              <label for="first-name">First Name*</label>
+              <input type="text" class="form-control" name="firstname" placeholder="First Name" value="{{Auth::User()->name}}" required>
             </div>
             <div class="form-group col-md-6">
-              <label for="last-name">Last Name</label>
-              <input type="text" class="form-control" name="lastname" placeholder="Last Name" value="{{Auth::User()->surname}}">
+              <label for="last-name">Last Name*</label>
+              <input type="text" class="form-control" name="lastname" placeholder="Last Name" value="{{Auth::User()->surname}}" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="date-of-birth">Date of Birth</label>
-              <input type="date" class="form-control" name="date_of_birth" value="{{Auth::User()->date_of_birth}}">
+              <input type="date" class="form-control" name="date_of_birth" value="{{Auth::User()->date_of_birth}}" required>
             </div>
             <div class="form-group col-md-6">
-              <label for="marital-status">Marital Status</label><span style="color: red !important; display: inline; float: none;">*</span>
+              <label for="marital-status">Marital Status*</label>
               <select id="marital-status" name="marital_status" class="form-control">
                 <option value="Single">Single</option>
                 <option value="Engaged">Engaged</option>
-                <option value="Single">Single</option>
                 <option value="Married">Married</option>
                 <option value="Divorced">Divorced</option>
                 <option value="Widowed">Widowed</option>
@@ -64,7 +67,7 @@
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="country">Country of Birth</label><span style="color: red !important; display: inline; float: none;">*</span>
+              <label for="country">Country of Birth</label>
 
               <select id="country" name="country_of_birth" class="form-control">
                 <option value="Afghanistan">Afghanistan</option>
@@ -314,9 +317,9 @@
               </select>
             </div>
             <div class="form-group col-md-6">
-              <label for="country">Country of Residence</label><span style="color: red !important; display: inline; float: none;">*</span>
+              <label for="country">Country of Residence*</label>
 
-              <select id="country" name="country_of_residence" class="form-control">
+              <select id="country" name="country_of_residence" class="form-control" required>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
@@ -565,8 +568,19 @@
             </div>
           </div>
           <div class="form-row">
+            <div class="form-group col-md-8">
+              <label for="email">EMAIL*</label>
+              <input type="email" name="phone" class="form-control" placeholder="contact@mail.com" required>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="phone">Phone*</label><br>
+              <input type="tel" name="phone" id="phone" class="form-control" required>
+            </div>
+
+          </div>
+          <div class="form-row">
             <div class="form-group col-md-12">
-              <label >Say something about yourself</label>
+              <label>Say something about yourself</label>
               <textarea class="form-control" name="about" placeholder="You can say anything you would like. Ex. Father, book lover, Star Wars fan, cook and just a cool guy."></textarea>
             </div>
 
@@ -582,6 +596,12 @@
 <script>
   $("input[type='image']").click(function() {
     $("input[id='my_file']").click();
+  });
+</script>
+<script>
+  const phoneInputField = document.querySelector("#phone");
+  const phoneInput = window.intlTelInput(phoneInputField, {
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
   });
 </script>
 <script src="{{asset('front')}}/js/resume.js"></script>

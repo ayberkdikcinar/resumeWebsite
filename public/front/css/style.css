@@ -3449,11 +3449,13 @@ html .ui-button.ui-state-disabled:active {
 
 .profile-picture {
 	vertical-align: middle;
-	padding: 0.5%;
-	background-color: #2F8D46;
+	
 	width: 150px;
 	height: 150px;
+	border-style: solid;
+	border-color: #2F8D46;
 	border-radius: 50%;
+	border-width: thick;
 }
 /* Dropdown */
 
@@ -3504,12 +3506,6 @@ html .ui-button.ui-state-disabled:active {
 	background-color: #473fb6;
   }
 
-  
-  input[type="date"] {
-	-webkit-align-items: center;
-	display: -webkit-inline-flex;
-	font-family: monospace;
-	overflow: hidden;
-	padding: 0;
-	-webkit-padding-start: 1px;
-}
+  .image-upload>input {
+	display: none;
+  }
