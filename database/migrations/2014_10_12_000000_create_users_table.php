@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('marital_status')->nullable(true);
             $table->string('current_position')->nullable(true);
             $table->longText('about')->nullable(true);
-            $table->string('photo_url')->nullable(true)->default('https://p.kindpng.com/picc/s/451-4517876_default-profile-hd-png-download.png');
+            $table->string('photo_url')->nullable(true)->default('uploads/default-user-image.png');
             $table->boolean('isAdmin')->nullable(false)->default(false);
             //$table->timestamp('email_verified_at')->nullable();
             //$table->rememberToken();

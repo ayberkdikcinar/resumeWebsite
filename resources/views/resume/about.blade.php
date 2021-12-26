@@ -572,7 +572,7 @@
               <input type="email" name="email" class="form-control" placeholder="contact@mail.com" value="{{Auth::User()->email}}" required>
             </div>
             <div class="form-group col-md-4">
-              <label for="phone">Phone*</label><br>
+              <label for="phone">Phone* (with country code e.g +44)</label><br>
               <input type="tel" name="phone" id="phone" class="form-control" value="{{Auth::User()->phone}}" required>
             </div>
 
@@ -592,18 +592,6 @@
 </div>
 </body>
 @section('js')
-<script>
-  $("input[type='image']").click(function() {
-    $("input[id='my_file']").click();
-  });
-</script>
-<script>
-  const phoneInputField = document.querySelector("#phone");
-  const phoneInput = window.intlTelInput(phoneInputField, {
-    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-  });
-</script>
-<script src="{{asset('front')}}/js/resume.js"></script>
-<script src="{{asset('front')}}/js/bootstrap.bundle.min.js"></script>
+
 @endsection
 @endsection

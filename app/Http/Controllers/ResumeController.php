@@ -93,6 +93,7 @@ class ResumeController extends Controller
             $experience->save();
 
         } catch (\Exception $th) {
+            
             return back()->withErrors($th->getMessage()); 
         }
             

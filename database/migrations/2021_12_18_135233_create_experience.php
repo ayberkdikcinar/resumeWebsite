@@ -20,8 +20,8 @@ class CreateExperience extends Migration
             $table->string('position_title')->nullable(false);
             $table->string('location')->nullable(false);
             $table->date('from_time')->nullable(false);
-            $table->date('to_time')->nullable(false);
-            $table->longText('description');
+            $table->date('to_time')->nullable(true);
+            $table->longText('description')->nullable(true);
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

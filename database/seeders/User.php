@@ -24,7 +24,7 @@ class User extends Seeder
         $admin->surname = "testsurname";
         $admin->phone = "+901518514512";
         $admin->date_of_birth = "2000-01-01";
-        $admin->county_of_birth = "Turkey";
+        $admin->country_of_birth = "Turkey";
         $admin->country_of_residence = "Turkey";
         $admin->marital_status = "Devorced";
         $admin->current_position = "Web Developer";
@@ -46,6 +46,19 @@ class User extends Seeder
             }
             $skill->user_id = 1;
             $skill->save();
+        }
+
+        for ($i = 0; $i < 2; $i++) {
+            $experience = new Experience();
+            $experience->company_name="Test Company";
+            $experience->position="Test Position";
+            $experience->position_title="Test Position Title";
+            $experience->location="USA";
+            $experience->from_time="2000-01-01";
+            $experience->to_time="2020-01-01";
+            $experience->description="Test Description";
+            $experience->user_id = 1;
+            $experience->save();
         }
     }
 }
