@@ -106,3 +106,10 @@
          <!--/.container-fluid -->
       </nav>
    </header>
+   <div id="sidebar" class="top-nav">
+      <ul id="sidebar-nav" class="sidebar-nav">
+         <li><a href="{{route('howItWorks')}}">How does it works</a></li>
+         <li><a href="{{route('aboutUs')}}">About Us</a></li>
+         <li><a href="{{route('contactUs')}}">Contact Us</a></li>
+      </ul>
+   </div>

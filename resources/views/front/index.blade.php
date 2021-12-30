@@ -4,13 +4,7 @@ BURASI BACKTEN ÇEKİLECEK
 @endsection
 @section('content')
 
-<div id="sidebar" class="top-nav">
-   <ul id="sidebar-nav" class="sidebar-nav">
-      <li><a href="{{route('howItWorks')}}">How does it works</a></li>
-      <li><a href="{{route('aboutUs')}}">About Us</a></li>
-      <li><a href="{{route('contactUs')}}">Contact Us</a></li>
-   </ul>
-</div>
+
 <div class="page-content-product">
    <div class="main-product" style="background-image: url('front/images/bg_img1.png');">
       <!-- bu fotoğrafta backten çekilecek -->
