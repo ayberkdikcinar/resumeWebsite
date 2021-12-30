@@ -42,7 +42,7 @@
                     
                     <tr>
                         <td style="text-align: center; vertical-align: middle;">
-                            <img src="{{$user->photo_url}}" width="90">
+                            <img src="{{asset('')}}{{Auth::User()->photo_url}}" width="90">
                         </td>
                         <td>{{$user->username}}</td>
                         <td>{{$user->name}}</td>

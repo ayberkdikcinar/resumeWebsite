@@ -43,7 +43,7 @@
                         <hr />
                         <div class="form-group col-md-6">
                             <label for="employer-company-name">Employer/Company name</label>
-                            <input type="text" class="form-control" name="company_name" placeholder="e.g This Company" >
+                            <input type="text" class="form-control" name="company_name" placeholder="e.g This Company">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="position">Position</label>
@@ -448,11 +448,19 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" name="description" placeholder="A short summary of what you did in this position; goals, accomplishments, projects. Boast about yourself."></textarea>
+                        <div class="form-group col-md-12">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" name="description" placeholder="A short summary of what you did in this position; goals, accomplishments, projects. Boast about yourself."></textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="submit" name="next-step" class="next-step" value="Add Experience" />
+                        </div>
+
                     </div>
-                    <input type="submit" name="next-step" class="next-step" value="Next Step" />
-                    <input type="button" name="previous-step" class="previous-step" value="Previous Step" />
+                    
+                    <a href="{{ route('resume.education')}}" class="btn btn-primary next-step">Next Step</a>
+                    <a href="{{ route('resume.about')}}" class="btn btn-primary previous-step">Previous Step</a>
+
                 </fieldset>
             </form>
         </div>

@@ -49,8 +49,8 @@
                      <div class="nav-b hidden-xs">
                         <div class="nav-box">
                            <ul>
-                              <li><a href="{{route('howItWorks')}}">How it works</a></li>
-                              <li><a href="{{route('aboutUs')}}">Chamb for Business</a></li>
+                              <li><a href="{{route('howItWorks')}}">How does it works</a></li>
+                              <li><a href="{{route('aboutUs')}}">About Us</a></li>
                               <li><a href="{{route('contactUs')}}">Contact Us</a></li>
                            </ul>
                         </div>

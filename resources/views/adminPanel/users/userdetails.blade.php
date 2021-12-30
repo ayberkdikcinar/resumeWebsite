@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="{{$user->photo_url}}" alt=""/>
+                            <img src="{{asset('')}}{{Auth::User()->photo_url}}" alt=""/>
                         </div>
                     </div>
                     <div class="col-md-6">
