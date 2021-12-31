@@ -1,15 +1,14 @@
 @extends('front.layouts.master')
 @section('title')
-About Us
+Terms Of Use
 @endsection
 @section('content')
-<div class="section-white">
+<div class="terms-conditions">
+ 
     <div class="container">
        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2">
-            {!!$aboutUs->content!!}
-         </div>
+        {!!$privacyPolicies->content!!}
        </div>
     </div>
- </div>
+ </div>   
 @endsection

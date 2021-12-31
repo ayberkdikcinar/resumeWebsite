@@ -9,15 +9,10 @@
                         <h2>COMPANY INFO</h2>
                         <ul>
                            <li><a href="{{route('aboutUs')}}">About Us</a></li>
-                           <li><a href="#">Privacy Policy</a></li>
+                           <li><a href="{{route('privacyPolicies')}}">Privacy Policy</a></li>
                            <li><a href="{{route('termsOfUse')}}">Terms of use</a></li>
                            <li><a href="{{route('contactUs')}}">Contact us</a></li>
                         </ul>
-                     </div>
-                  </div>
-                  <div class="left-f-box">
-                     <div class="col-sm-4">
-                        <h2>TEST</h2>
                      </div>
                   </div>
                </div>

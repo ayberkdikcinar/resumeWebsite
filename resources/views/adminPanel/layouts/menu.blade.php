@@ -1,5 +1,5 @@
 <body id="page-top">
-
+    
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -52,30 +52,36 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <a class="collapse-item" href="">Login</a>
                         <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <h6 class="collapse-header">Main Pages:</h6>
+                        <a class="collapse-item" href="{{route('admin.homepageUpdate')}}">Homepage</a>
+                        <a class="collapse-item" href="{{route('admin.howItWorksUpdate')}}">How It Works</a>
+                        <a class="collapse-item" href="{{route('admin.contactUsUpdate')}}">Contact Us</a>
+                        <a class="collapse-item" href="{{route('admin.termsOfUseUpdate')}}">Terms of use</a>
+                        <a class="collapse-item" href="{{route('admin.privacyPoliciesUpdate')}}">Privacy Policies</a>
+                        <a class="collapse-item" href="{{route('admin.aboutUsUpdate')}}">About Us</a>
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
+
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.settings',[Auth::User()->id])}}">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Settings</span></a>
+                <a class="nav-link @if(Request::segment(2)=="settings") in @else collapsed @endif" href="" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="true" aria-controls="collapseThree">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <div id="collapseThree" class="collapse @if(Request::segment(2)=="settings" || Request::segment(2)=="website-settings") show @endif" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item @if(Request::segment(2)=="settings" && Request::segment(3)) active @endif" href="{{route('admin.settings',[Auth::User()->id])}}">Profile</a>
+                    <a class="collapse-item @if(Request::segment(2)=="website-settings" && !Request::segment(3)) active @endif" href="{{route('admin.siteSettings')}}">Website</a>
+                    </div>
+                </div>
             </li>
+           
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>

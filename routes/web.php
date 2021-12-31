@@ -3,23 +3,11 @@
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminPanelController;
-use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\UserAdminController;
-use App\Http\Controllers\UserResumeController;
 use App\Http\Controllers\ResumeController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 //Front pages
 Route::get('/',[FrontController::class, 'index'])->name('index');
@@ -28,6 +16,7 @@ Route::get('/howitworks',[FrontController::class, 'howItWorks'])->name('howItWor
 Route::get('/aboutUs',[FrontController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/contactUs',[FrontController::class, 'contactUs'])->name('contactUs');
 Route::get('/termsOfUse',[FrontController::class, 'termsOfUse'])->name('termsOfUse');
+Route::get('/privacyPolicies',[FrontController::class, 'privacyPolicies'])->name('privacyPolicies');
 
 Route::prefix('')->middleware('isLoggedIn')->group(function(){
    Route::get('/profile',[FrontController::class, 'profile'])->name('profile');
@@ -35,9 +24,21 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
    Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
       Route::get('/dashboard',[AdminPanelController::class, 'index'])->name('dashboard');
       Route::get('/settings/{id}',[AdminPanelController::class, 'settings'])->name('settings');
-      //Route::resource('userAdmins',UserAdminController::class);
+      Route::get('/website-settings',[AdminPanelController::class, 'siteSettings'])->name('siteSettings');
+      //Route::resource('userAdmins',UserAdminController::class);ho
       //Route::get('userAdmins/delete/{id}',[UserAdminController::class,'delete'])->name('delete.admin');
       
+      ///UPDATE PAGE ROUTES
+      Route::get('/homepage_update',[AdminPanelController::class, 'homepageUpdate'])->name('homepageUpdate');
+      Route::get('/aboutus-update',[AdminPanelController::class, 'aboutUsUpdate'])->name('aboutUsUpdate');
+      Route::get('/contactus-update',[AdminPanelController::class, 'contactUsUpdate'])->name('contactUsUpdate');
+      Route::get('/howitworks-update',[AdminPanelController::class, 'howItWorksUpdate'])->name('howItWorksUpdate');
+      Route::get('/privacypolicies-update',[AdminPanelController::class, 'privacyPoliciesUpdate'])->name('privacyPoliciesUpdate');
+      Route::get('/termsofuse-update',[AdminPanelController::class, 'termsOfUseUpdate'])->name('termsOfUseUpdate');
+      
+     
+      Route::post('/page-update/{slug}',[AdminPanelController::class, 'pagesUpdatePost'])->name('pagesUpdatePost');
+   
       //Route::get('user/index',[UserController::class,'indexM'])->name('user.indexM');
       Route::resource('user',UserController::class);
       
@@ -73,6 +74,8 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
       Route::get('/skills',[ResumeController::class, 'skills'])->name('skills');
       Route::post('/skills',[ResumeController::class, 'addSkill'])->name('skills.post');
    });
+
+   
 
 });
 

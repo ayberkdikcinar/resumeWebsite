@@ -11,8 +11,8 @@ BURASI BACKTEN ÇEKİLECEK
       <div class="container">
          <div class="row clearfix">
             <div class="find-box">
-               <h1>H1 title - get db</h1>
-               <h4>H4 sub title - get db</h4>
+               <h1>{!!$homepage->bannerTitle!!}</h1>
+               <h4>{!!$homepage->bannerContext!!}</h4>
             </div>
          </div>
       </div>
