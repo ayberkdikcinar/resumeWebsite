@@ -36,20 +36,18 @@
                         <div class="form-row">
                             @foreach ($experiences as $experience)
                             <div class="form-group col-md-12">
-                            <div class="form-group col-md-3"></div>
-                                    <div class="form-group col-md-4">
-                                        <ul class="list-group">
-                                            <li class="list-group-item active" style="background-color: #2F8D46;">{{$experience->company_name}} / {{$experience->location}}</li>
-                                            <li class="list-group-item">{{$experience->position}}</li>
-                                            <li class="list-group-item">{{$experience->position_title}}</li>
-                                            <li class="list-group-item">{{$experience->from_time}} - {{$experience->to_time}}</li>
-                                        </ul>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <a href="#" class="btn btn-danger"><span class="material-icons">delete</span></a>
-                                       
-                                    </div>
-                                
+                                <div class="form-group col-md-3"></div>
+                                <div class="form-group col-md-4">
+                                    <ul class="list-group">
+                                        <li class="list-group-item active" style="background-color: #2F8D46;">{{$experience->company_name}} / {{$experience->location}}</li>
+                                        <li class="list-group-item">{{$experience->position}}</li>
+                                        <li class="list-group-item">{{$experience->position_title}}</li>
+                                        <li class="list-group-item">{{$experience->from_time}} - {{$experience->to_time}}</li>
+                                    </ul>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <a href="#" class="btn btn-danger"><span class="material-icons">delete</span></a>
+                                </div>
                             </div>
                             <hr>
                             @endforeach

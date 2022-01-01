@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Experience;
+use App\Models\Education;
 use App\Models\User as ModelsUser;
 use Illuminate\Database\Seeder;
 use App\Models\Skill;
@@ -50,15 +51,30 @@ class User extends Seeder
 
         for ($i = 0; $i < 2; $i++) {
             $experience = new Experience();
-            $experience->company_name="Test Company";
-            $experience->position="Test Position";
-            $experience->position_title="Test Position Title";
-            $experience->location="USA";
-            $experience->from_time="2000-01-01";
-            $experience->to_time="2020-01-01";
-            $experience->description="Test Description";
+            $experience->company_name = "Test Company";
+            $experience->position = "Test Position";
+            $experience->position_title = "Test Position Title";
+            $experience->location = "USA";
+            $experience->from_time = "2000-01-01";
+            $experience->to_time = "2020-01-01";
+            $experience->description = "Test Description";
             $experience->user_id = 1;
             $experience->save();
+        }
+
+        for ($i = 0; $i < 2; $i++) {
+            $education = new Education();
+            $education->education_level="PHD";
+            $education->school="DEU";
+            $education->from_time = "2018-01-01";
+            $education->to_time= "2022-01-01";
+            $education->degree = "Bachelor";
+            $education->area_of_study = "CENG";
+            $education->location = "Turkey";
+            $education->activities_societies="BLA BLA";
+            $education->description = "bla bla";
+            $education->user_id = 1;
+            $education->save();
         }
     }
 }
