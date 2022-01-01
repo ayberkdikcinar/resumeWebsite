@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Experience;
 use App\Models\Education;
 use App\Models\Language;
+use App\Models\Skills;
 use App\Models\User as ModelsUser;
 use Illuminate\Database\Seeder;
 use App\Models\Skill;
@@ -80,7 +81,7 @@ class User extends Seeder
 
 
         for ($i = 0; $i < 2; $i++) {
-            $language = new Language;
+            $language = new Language();
 
             $language->name = "English";
             $language->proficiency = "Beginner";

@@ -15,7 +15,7 @@ class CreateSkill extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('type',['hard','soft','expert']);
+            $table->enum('type',['HARD','SOFT','EXPERT']);
             $table->string('name');
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
