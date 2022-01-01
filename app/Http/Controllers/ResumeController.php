@@ -229,7 +229,7 @@ class ResumeController extends Controller
     ////////////////
 
     public function job_preferences(){
-        return view('resume.job_preferences');
+        return view('resume.job_preferences',compact('job_preferences'));
     }
 
 
@@ -249,7 +249,7 @@ class ResumeController extends Controller
         } catch (\Exception $th) {
             return back()->withErrors($th->getMessage()); 
         }
-        return redirect()->route('index');
+        return redirect()->route('resume.job_preferences');
 
     }
 

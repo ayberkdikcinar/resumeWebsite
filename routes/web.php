@@ -65,7 +65,7 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
       Route::get('/experience',[ResumeController::class, 'experience'])->name('experience');
       Route::post('/experience',[ResumeController::class, 'addExperience'])->name('experience.post');
 
-      Route::get('/job_preferences',[ResumeController::class, 'job_references'])->name('job_preferences');
+      Route::get('/job_preferences',[ResumeController::class, 'job_preferences'])->name('job_preferences');
       Route::post('/job_preferences',[ResumeController::class, 'addJobPreference'])->name('job_preferences.post');
 
       Route::get('/languages',[ResumeController::class, 'languages'])->name('languages');
