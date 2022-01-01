@@ -19,18 +19,16 @@
                     <li id="step4"><strong>Languages I Know</strong></li>
                     <li id="step5"><strong>My Skills</strong></li>
                     <li id="step6"><strong>Courses I Have Completed</strong></li>
-                    <li id="step7"><strong>Contact Details</strong></li>
-                    <li id="step8"><strong>Job Preferences</strong></li>
-                    <li id="step9"><strong>Documents</strong></li>
+                    <li id="step7"><strong>Job Preferences</strong></li>
+                    <li id="step8"><strong>Documents</strong></li>
+                    <li></li>
                 </ul>
                 <div class="progress">
-                    <div class="progress-bar" style="width: 22%;"></div>
+                    <div class="progress-bar" style="width: 25%;"></div>
                 </div> <br>
 
                 <fieldset>
-
                     <div class="form-row">
-
                         <h2>MY EXPERIENCE</h2>
                         <hr width="27%" />
                         <div class="form-row">

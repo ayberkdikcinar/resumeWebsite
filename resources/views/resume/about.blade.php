@@ -12,12 +12,12 @@
           <li id="step4"><strong>Languages I Know</strong></li>
           <li id="step5"><strong>My Skills</strong></li>
           <li id="step6"><strong>Courses I Have Completed</strong></li>
-          <li id="step7"><strong>Contact Details</strong></li>
-          <li id="step8"><strong>Job Preferences</strong></li>
-          <li id="step9"><strong>Documents</strong></li>
+          <li id="step7"><strong>Job Preferences</strong></li>
+          <li id="step8"><strong>Documents</strong></li>
+          <li></li>
         </ul>
         <div class="progress">
-          <div class="progress-bar" style="width: 11%;"></div>
+          <div class="progress-bar" style="width: 12.5%;"></div>
         </div> <br>
 
         <fieldset>
@@ -27,9 +27,9 @@
             <hr width="15%" />
             <div class="image-upload">
               <label for="file-input">
-                <img src="{{asset('')}}{{Auth::User()->photo_url}}" class="profile-picture"/>
+                <img src="{{asset('')}}{{Auth::User()->photo_url}}" class="profile-picture" />
               </label>
-              <input id="file-input" type="file" name="image" accept="image/*"/>
+              <input id="file-input" type="file" name="image" accept="image/*" />
             </div>
             <label>(click on image to add a photo)</label>
             <hr />
