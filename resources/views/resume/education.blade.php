@@ -35,9 +35,9 @@ RESUME | MY EDUCATION
                         <h2>MY EDUCATION</h2>
                         <hr width="27%" />
                         <div class="form-row">
-                            @foreach ($educations as $education)
+
                             <div class="form-group col-md-12">
-                                <div class="form-group col-md-3"></div>
+                                @foreach ($educations as $education)
                                 <div class="form-group col-md-5">
                                     <ul class="list-group">
                                         <li class="list-group-item active" style="background-color: #2F8D46;">{{$education->education_level}} / {{$education->school}} / {{$education->location}}</li>
@@ -50,9 +50,10 @@ RESUME | MY EDUCATION
                                 <div class="form-group col-md-1">
                                     <a href="#" class="btn btn-danger"><span class="material-icons">delete</span></a>
                                 </div>
+                                @endforeach
                             </div>
                             <hr>
-                            @endforeach
+
                             <hr>
                         </div>
                         <div class="form-row">

@@ -34,10 +34,10 @@ RESUME | MY EXPERIENCE
                         <h2>MY EXPERIENCE</h2>
                         <hr width="27%" />
                         <div class="form-row">
-                            @foreach ($experiences as $experience)
+
                             <div class="form-group col-md-12">
-                                <div class="form-group col-md-3"></div>
-                                <div class="form-group col-md-4">
+                                @foreach ($experiences as $experience)
+                                <div class="form-group col-md-5">
                                     <ul class="list-group">
                                         <li class="list-group-item active" style="background-color: #2F8D46;">{{$experience->company_name}} / {{$experience->location}}</li>
                                         <li class="list-group-item">{{$experience->position}}</li>
@@ -45,12 +45,13 @@ RESUME | MY EXPERIENCE
                                         <li class="list-group-item">{{$experience->from_time}} - {{$experience->to_time}}</li>
                                     </ul>
                                 </div>
-                                <div class="form-group col-md-2">
+                                <div class="form-group col-md-1">
                                     <a href="#" class="btn btn-danger"><span class="material-icons">delete</span></a>
                                 </div>
+                                @endforeach
                             </div>
                             <hr>
-                            @endforeach
+
                             <hr>
                         </div>
                         <div class="form-row">

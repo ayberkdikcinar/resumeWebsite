@@ -5,10 +5,10 @@ namespace Database\Seeders;
 use App\Models\Experience;
 use App\Models\Education;
 use App\Models\Language;
-use App\Models\Skills;
+use App\Models\Skill;
+use App\Models\Course;
 use App\Models\User as ModelsUser;
 use Illuminate\Database\Seeder;
-use App\Models\Skill;
 
 class User extends Seeder
 {
@@ -87,6 +87,17 @@ class User extends Seeder
             $language->proficiency = "Beginner";
             $language->user_id = 1;
             $language->save();
+        }
+
+        for ($i = 0; $i < 3; $i++) {
+            $course = new Course();
+            $course->name = "Test Course";
+            $course->provider = "PROVIDER";
+            $course->from_time = "2021-01-01";
+            $course->to_time = "2021-07-07";
+            $course->description = "Course Description";
+            $course->user_id = 1;
+            $course->save();
         }
     }
 }

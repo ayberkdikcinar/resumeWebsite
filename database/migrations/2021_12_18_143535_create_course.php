@@ -17,8 +17,9 @@ class CreateCourse extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('provider');
-            $table->date('completed_time'); ///its just includes year. so format should be (yy)
-            $table->longText('description');
+            $table->date('from_time');
+            $table->date('to_time');
+            $table->longText('description')->nullable(true);;
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

@@ -210,7 +210,8 @@ class ResumeController extends Controller
 
         $course->name= $request->name;
         $course->provider = $request->provider;
-        $course->completed_time = $request->completed_time;
+        $course->from_time = $request->from_time;
+        $course->to_time = $request->to_time;
         $course->description = $request->description;
       
         $course->user_id = Auth::user()->id;
@@ -221,7 +222,7 @@ class ResumeController extends Controller
         } catch (\Exception $th) {
             return back()->withErrors($th->getMessage()); 
         }
-        return redirect()->route('job_preferences');
+        return redirect()->route('resume.courses');
 
     }
     

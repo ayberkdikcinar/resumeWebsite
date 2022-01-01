@@ -33,9 +33,9 @@ RESUME | LANGUAGES I KNOW
                         <h2>LANGUAGES I KNOW</h2>
                         <hr width="27%" />
                         <div class="form-row">
-                            @foreach ($languages as $language)
+
                             <div class="form-group col-md-12">
-                                <div class="form-group col-md-3"></div>
+                                @foreach ($languages as $language)
                                 <div class="form-group col-md-5">
                                     <ul class="list-group">
                                         <li class="list-group-item active" style="background-color: #2F8D46;">{{$language->name}}</li>
@@ -45,9 +45,10 @@ RESUME | LANGUAGES I KNOW
                                 <div class="form-group col-md-1">
                                     <a href="#" class="btn btn-danger"><span class="material-icons">delete</span></a>
                                 </div>
+                                @endforeach
                             </div>
                             <hr>
-                            @endforeach
+
                             <hr>
                         </div>
                         <div class="form-row">
