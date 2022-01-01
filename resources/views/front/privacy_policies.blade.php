@@ -7,7 +7,7 @@ Terms Of Use
  
     <div class="container">
        <div class="row">
-        {!!$termsOfUse->content!!}
+        {!!$privacyPolicies->content!!}
        </div>
     </div>
  </div>   
