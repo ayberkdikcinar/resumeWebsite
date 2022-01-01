@@ -1,4 +1,7 @@
 @extends('front.layouts.master')
+@section('title')
+RESUME | LANGUAGES
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -25,9 +28,7 @@
                 <div class="progress">
                     <div class="progress-bar" style="width: 50%;"></div>
                 </div> <br>
-
                 <fieldset>
-
                     <div class="form-row">
                         <h2>LANGUAGES I KNOW</h2>
                         <hr width="27%" />
