@@ -21,7 +21,6 @@
                     <li id="step6"><strong>Courses I Have Completed</strong></li>
                     <li id="step7"><strong>Job Preferences</strong></li>
                     <li id="step8"><strong>Documents</strong></li>
-                    <li></li>
                 </ul>
                 <div class="progress">
                     <div class="progress-bar" style="width: 25%;"></div>

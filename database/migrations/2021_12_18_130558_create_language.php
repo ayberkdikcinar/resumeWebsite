@@ -17,7 +17,7 @@ class CreateLanguage extends Migration
         Schema::create('languages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->enum('proficiency',['beginner','intermediate','advanced']);
+            $table->enum('proficiency',['Beginner','Intermediate','Advanced']);
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

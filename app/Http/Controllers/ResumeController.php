@@ -165,7 +165,7 @@ class ResumeController extends Controller
             return back()->withErrors($th->getMessage()); 
         }
         
-        return redirect()->route('resume.skills');
+        return redirect()->route('resume.languages');
 
     }
 
