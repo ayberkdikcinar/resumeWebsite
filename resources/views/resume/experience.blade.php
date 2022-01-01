@@ -30,159 +30,176 @@
                 <fieldset>
 
                     <div class="form-row">
+
                         <h2>MY EXPERIENCE</h2>
                         <hr width="27%" />
-                        @foreach ($experiences as $experience)
-                        <label>{{$experience->company_name}} / {{$experience->location}}</label><br>
-                        <label>{{$experience->position}} </label><br>
-                        <label>{{$experience->position_title}} </label><br>
-                        <label>{{$experience->from_time}} - {{$experience->to_time}} </label>
-                        <hr>
-                        @endforeach
-                        <label>Experience shows in here</label>
-                        <hr />
-                        <div class="form-group col-md-6">
-                            <label for="employer-company-name">Employer/Company name</label>
-                            <input type="text" class="form-control" name="company_name" placeholder="e.g This Company">
+                        <div class="form-row">
+                            @foreach ($experiences as $experience)
+                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-3"></div>
+                                    <div class="form-group col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item active" style="background-color: #2F8D46;">{{$experience->company_name}} / {{$experience->location}}</li>
+                                            <li class="list-group-item">{{$experience->position}}</li>
+                                            <li class="list-group-item">{{$experience->position_title}}</li>
+                                            <li class="list-group-item">{{$experience->from_time}} - {{$experience->to_time}}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <a href="#" class="btn btn-danger"><span class="material-icons">delete</span></a>
+                                       
+                                    </div>
+                                
+                            </div>
+                            <hr>
+                            @endforeach
+                            <hr>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="position">Position</label>
-                            <input type="text" class="form-control" name="position" placeholder="e.g Retail Sales Manager " required>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="employer-company-name">Employer/Company name</label>
+                                <input type="text" class="form-control" name="company_name" placeholder="e.g This Company">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="position">Position</label>
+                                <input type="text" class="form-control" name="position" placeholder="e.g Retail Sales Manager " required>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="last-name">Position Title</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="last-name">Position Title</label>
 
-                            <select class="form-control dropdown" id="position_title" name="position_title" required>
-                                <option value="" selected="selected" disabled="disabled">-- select one --</option>
-                                <optgroup label="Healthcare Practitioners and Technical Occupations:">
-                                    <option value="Chiropractor">- Chiropractor</option>
-                                    <option value="Dentist">- Dentist</option>
-                                    <option value="Dietitian">- Dietitian</option>
-                                    <option value="Nutritionist">- Nutritionist</option>
-                                    <option value="Optometrist">- Optometrist</option>
-                                    <option value="Pharmacist">- Pharmacist</option>
-                                    <option value="Physician">- Physician</option>
-                                    <option value="Physician Assistant">- Physician Assistant</option>
-                                    <option value="Podiatrist<">- Podiatrist</option>
-                                    <option value="Registered Nurse">- Registered Nurse</option>
-                                    <option value="Therapist">- Therapist</option>
-                                    <option value="Veterinarian">- Veterinarian</option>
-                                    <option value="Health Technologist">- Health Technologist</option>
-                                    <option value="Technician">- Technician</option>
-                                </optgroup>
-                                <optgroup label="Healthcare Support Occupations:">
-                                    <option value="Nursing">- Nursing</option>
-                                    <option value="Psychiatric">- Psychiatric</option>
-                                    <option value="Home Health Aide">- Home Health Aide</option>
-                                    <option value="Occupational and Physical Therapist Assistant/Aide">- Occupational and Physical Therapist Assistant/Aide</option>
-                                </optgroup>
-                                <optgroup label="Business, Executive, Management, and Financial Occupations:">
-                                    <option value="Chief Executive">- Chief Executive</option>
-                                    <option value="General Manager">- General Manager</option>
-                                    <option value="Operations Manager">- Operations Manager</option>
-                                    <option value="Advertising Manager">- Advertising Manager</option>
-                                    <option value="Marketing Manager">- Marketing Manager</option>
-                                    <option value="Promotions Manager">- Promotions Manager</option>
-                                    <option value="Public Relations Manager">- Public Relations Manager</option>
-                                    <option value="Sales Manager">- Sales Manager</option>
-                                    <option value="Operations Specialties Manager">- Operations Specialties Manager (e.g., IT or HR Manager)</option>
-                                    <option value="Construction Manager">- Construction Manager</option>
-                                    <option value="Engineering Manager">- Engineering Manager</option>
-                                    <option value="Accountant">- Accountant</option>
-                                    <option value="Auditor">- Auditor</option>
-                                    <option value="Business Operations">- Business Operations</option>
-                                    <option value="Financial Specialist">- Financial Specialist</option>
-                                    <option value="Business Owner">- Business Owner</option>
-                                </optgroup>
-                                <optgroup label="Architecture and Engineering Occupations:">
-                                    <option value="Architect">- Architect</option>
-                                    <option value="Surveyor">- Surveyor</option>
-                                    <option value="Cartographer">- Cartographer</option>
-                                    <option value="Engineer">- Engineer</option>
-                                </optgroup>
-                                <optgroup label="Education, Training, and Library Occupations:">
-                                    <option value="Postsecondary Teacher">- Postsecondary Teacher (e.g., College Professor)</option>
-                                    <option value="Primary School Teacher">- Primary School Teacher</option>
-                                    <option value="Secondary School Teacher">- Secondary School Teacher</option>
-                                    <option value="Special Education School Teacher">- Special Education School Teacher</option>
-                                    <option value="Trainer">- Trainer</option>
-                                    <option value="Instructor">- Instructor</option>
-                                    <option value="Librarian">- Librarian</option>
-                                </optgroup>
-                                <optgroup label="Other Professional Occupations:">
-                                    <option value="Artist">- Artist</option>
-                                    <option value="Designer">- Designer</option>
-                                    <option value="Entertainer">- Entertainer</option>
-                                    <option value="Sportsman">- Sportsan</option>
-                                    <option value="Computer Specialist">- Computer Specialist</option>
-                                    <option value="Mathematical Scientist">- Mathematical Scientist</option>
-                                    <option value="Counselor">- Counselor</option>
-                                    <option value="Social Worker">- Social Worker</option>
-                                    <option value="Community and Social Service Specialist">- Community and Social Service Specialist</option>
-                                    <option value="Lawyer">- Lawyer</option>
-                                    <option value="Judge">- Judge</option>
-                                    <option value="Life Scientist">- Life Scientist (e.g., Animal, Food, Soil)</option>
-                                    <option value="Biological Scientist">- Biological Scientist</option>
-                                    <option value="Zoologist">- Zoologist</option>
-                                    <option value="Astronomer">- Astronomer</option>
-                                    <option value="Physicist">- Physicist</option>
-                                    <option value="Chemist">- Chemist</option>
-                                    <option value="Hydrologist">- Hydrologist</option>
-                                    <option value="Clergy">- Clergy</option>
-                                    <option value="Director of Religious Activities/Education">- Director of Religious Activities/Education</option>
-                                    <option value="Social Scientist and Related Worker">- Social Scientist and Related Worker</option>
-                                </optgroup>
-                                <optgroup label="Office and Administrative Support Occupations:">
-                                    <option value="Supervisor of Administrative Support Workers">- Supervisor of Administrative Support Workers</option>
-                                    <option value="Financial Clerk">- Financial Clerk</option>
-                                    <option value="Secretary">- Secretary or Administrative Assistant</option>
-                                    <option value="Administrative Assistant">- Administrative Assistant</option>
-                                    <option value="Material Recording, Scheduling, and Dispatching Worker">- Material Recording, Scheduling, and Dispatching Worker</option>
-                                </optgroup>
-                                <optgroup label="Services Occupations:">
-                                    <option value="Fire Fighting">- Fire Fighting</option>
-                                    <option value="Police Officer">- Police Officer</option>
-                                    <option value="Correctional Officer">- Correctional Officer</option>
-                                    <option value="Chef/Head Cook">- Chef/Head Cook</option>
-                                    <option value="Cook">- Cook</option>
-                                    <option value="Food Preparation Worker">- Food Preparation Worker</option>
-                                    <option value="Bartender">- Bartender</option>
-                                    <option value="Waiter">- Waiter</option>
-                                    <option value="Waitress">- Waitress</option>
-                                    <option value="Building and Grounds Cleaning and Maintenance">- Building and Grounds Cleaning and Maintenance</option>
-                                    <option value="Hairdresser">- Hairdresser</option>
-                                    <option value="Flight Attendant">- Flight Attendant</option>
-                                    <option value="Concierge">- Concierge</option>
-                                    <option value="Sales Supervisor">- Sales Supervisor</option>
-                                    <option value="Retail Sales Worker">- Retail Sales Worker</option>
-                                    <option value="Insurance Sales Agent">- Insurance Sales Agent</option>
-                                    <option value="Sales Representative">- Sales Representative</option>
-                                    <option value="Real Estate Sales Agent">- Real Estate Sales Agent</option>
-                                </optgroup>
-                                <optgroup label="Agriculture, Maintenance, Repair, and Skilled Crafts Occupations:">
-                                    <option value="Construction Laborer">- Construction Laborer</option>
-                                    <option value="Electrician">- Electrician</option>
-                                    <option value="Farmer">- Farmer</option>
-                                    <option value="Fisher">- Fisher</option>
-                                    <option value="Forester">- Forester</option>
-                                    <option value="Mechanic">- Mechanic</option>
-                                    <option value="Producer">- Producer</option>
-                                </optgroup>
-                                <optgroup label="Transportation Occupations:">
-                                    <option value="Aircraft Pilot">- Aircraft Pilot</option>
-                                    <option value="Flight Engineer">- Flight Engineer</option>
-                                    <option value="Motor Vehicle Operator">- Motor Vehicle Operator</option>
-                                </optgroup>
-                                <optgroup label="Other Occupations:">
-                                    <option value="Military">- Military</option>
-                                    <option value="Homemaker">- Homemaker</option>
-                                    <option value="Student">- Student</option>
-                                    <option value="Not Applicable">- Not Applicable</option>
-                                </optgroup>
-                            </select>
+                                <select class="form-control dropdown" id="position_title" name="position_title" required>
+                                    <option value="" selected="selected" disabled="disabled">-- select one --</option>
+                                    <optgroup label="Healthcare Practitioners and Technical Occupations:">
+                                        <option value="Chiropractor">- Chiropractor</option>
+                                        <option value="Dentist">- Dentist</option>
+                                        <option value="Dietitian">- Dietitian</option>
+                                        <option value="Nutritionist">- Nutritionist</option>
+                                        <option value="Optometrist">- Optometrist</option>
+                                        <option value="Pharmacist">- Pharmacist</option>
+                                        <option value="Physician">- Physician</option>
+                                        <option value="Physician Assistant">- Physician Assistant</option>
+                                        <option value="Podiatrist<">- Podiatrist</option>
+                                        <option value="Registered Nurse">- Registered Nurse</option>
+                                        <option value="Therapist">- Therapist</option>
+                                        <option value="Veterinarian">- Veterinarian</option>
+                                        <option value="Health Technologist">- Health Technologist</option>
+                                        <option value="Technician">- Technician</option>
+                                    </optgroup>
+                                    <optgroup label="Healthcare Support Occupations:">
+                                        <option value="Nursing">- Nursing</option>
+                                        <option value="Psychiatric">- Psychiatric</option>
+                                        <option value="Home Health Aide">- Home Health Aide</option>
+                                        <option value="Occupational and Physical Therapist Assistant/Aide">- Occupational and Physical Therapist Assistant/Aide</option>
+                                    </optgroup>
+                                    <optgroup label="Business, Executive, Management, and Financial Occupations:">
+                                        <option value="Chief Executive">- Chief Executive</option>
+                                        <option value="General Manager">- General Manager</option>
+                                        <option value="Operations Manager">- Operations Manager</option>
+                                        <option value="Advertising Manager">- Advertising Manager</option>
+                                        <option value="Marketing Manager">- Marketing Manager</option>
+                                        <option value="Promotions Manager">- Promotions Manager</option>
+                                        <option value="Public Relations Manager">- Public Relations Manager</option>
+                                        <option value="Sales Manager">- Sales Manager</option>
+                                        <option value="Operations Specialties Manager">- Operations Specialties Manager (e.g., IT or HR Manager)</option>
+                                        <option value="Construction Manager">- Construction Manager</option>
+                                        <option value="Engineering Manager">- Engineering Manager</option>
+                                        <option value="Accountant">- Accountant</option>
+                                        <option value="Auditor">- Auditor</option>
+                                        <option value="Business Operations">- Business Operations</option>
+                                        <option value="Financial Specialist">- Financial Specialist</option>
+                                        <option value="Business Owner">- Business Owner</option>
+                                    </optgroup>
+                                    <optgroup label="Architecture and Engineering Occupations:">
+                                        <option value="Architect">- Architect</option>
+                                        <option value="Surveyor">- Surveyor</option>
+                                        <option value="Cartographer">- Cartographer</option>
+                                        <option value="Engineer">- Engineer</option>
+                                    </optgroup>
+                                    <optgroup label="Education, Training, and Library Occupations:">
+                                        <option value="Postsecondary Teacher">- Postsecondary Teacher (e.g., College Professor)</option>
+                                        <option value="Primary School Teacher">- Primary School Teacher</option>
+                                        <option value="Secondary School Teacher">- Secondary School Teacher</option>
+                                        <option value="Special Education School Teacher">- Special Education School Teacher</option>
+                                        <option value="Trainer">- Trainer</option>
+                                        <option value="Instructor">- Instructor</option>
+                                        <option value="Librarian">- Librarian</option>
+                                    </optgroup>
+                                    <optgroup label="Other Professional Occupations:">
+                                        <option value="Artist">- Artist</option>
+                                        <option value="Designer">- Designer</option>
+                                        <option value="Entertainer">- Entertainer</option>
+                                        <option value="Sportsman">- Sportsan</option>
+                                        <option value="Computer Specialist">- Computer Specialist</option>
+                                        <option value="Mathematical Scientist">- Mathematical Scientist</option>
+                                        <option value="Counselor">- Counselor</option>
+                                        <option value="Social Worker">- Social Worker</option>
+                                        <option value="Community and Social Service Specialist">- Community and Social Service Specialist</option>
+                                        <option value="Lawyer">- Lawyer</option>
+                                        <option value="Judge">- Judge</option>
+                                        <option value="Life Scientist">- Life Scientist (e.g., Animal, Food, Soil)</option>
+                                        <option value="Biological Scientist">- Biological Scientist</option>
+                                        <option value="Zoologist">- Zoologist</option>
+                                        <option value="Astronomer">- Astronomer</option>
+                                        <option value="Physicist">- Physicist</option>
+                                        <option value="Chemist">- Chemist</option>
+                                        <option value="Hydrologist">- Hydrologist</option>
+                                        <option value="Clergy">- Clergy</option>
+                                        <option value="Director of Religious Activities/Education">- Director of Religious Activities/Education</option>
+                                        <option value="Social Scientist and Related Worker">- Social Scientist and Related Worker</option>
+                                    </optgroup>
+                                    <optgroup label="Office and Administrative Support Occupations:">
+                                        <option value="Supervisor of Administrative Support Workers">- Supervisor of Administrative Support Workers</option>
+                                        <option value="Financial Clerk">- Financial Clerk</option>
+                                        <option value="Secretary">- Secretary or Administrative Assistant</option>
+                                        <option value="Administrative Assistant">- Administrative Assistant</option>
+                                        <option value="Material Recording, Scheduling, and Dispatching Worker">- Material Recording, Scheduling, and Dispatching Worker</option>
+                                    </optgroup>
+                                    <optgroup label="Services Occupations:">
+                                        <option value="Fire Fighting">- Fire Fighting</option>
+                                        <option value="Police Officer">- Police Officer</option>
+                                        <option value="Correctional Officer">- Correctional Officer</option>
+                                        <option value="Chef/Head Cook">- Chef/Head Cook</option>
+                                        <option value="Cook">- Cook</option>
+                                        <option value="Food Preparation Worker">- Food Preparation Worker</option>
+                                        <option value="Bartender">- Bartender</option>
+                                        <option value="Waiter">- Waiter</option>
+                                        <option value="Waitress">- Waitress</option>
+                                        <option value="Building and Grounds Cleaning and Maintenance">- Building and Grounds Cleaning and Maintenance</option>
+                                        <option value="Hairdresser">- Hairdresser</option>
+                                        <option value="Flight Attendant">- Flight Attendant</option>
+                                        <option value="Concierge">- Concierge</option>
+                                        <option value="Sales Supervisor">- Sales Supervisor</option>
+                                        <option value="Retail Sales Worker">- Retail Sales Worker</option>
+                                        <option value="Insurance Sales Agent">- Insurance Sales Agent</option>
+                                        <option value="Sales Representative">- Sales Representative</option>
+                                        <option value="Real Estate Sales Agent">- Real Estate Sales Agent</option>
+                                    </optgroup>
+                                    <optgroup label="Agriculture, Maintenance, Repair, and Skilled Crafts Occupations:">
+                                        <option value="Construction Laborer">- Construction Laborer</option>
+                                        <option value="Electrician">- Electrician</option>
+                                        <option value="Farmer">- Farmer</option>
+                                        <option value="Fisher">- Fisher</option>
+                                        <option value="Forester">- Forester</option>
+                                        <option value="Mechanic">- Mechanic</option>
+                                        <option value="Producer">- Producer</option>
+                                    </optgroup>
+                                    <optgroup label="Transportation Occupations:">
+                                        <option value="Aircraft Pilot">- Aircraft Pilot</option>
+                                        <option value="Flight Engineer">- Flight Engineer</option>
+                                        <option value="Motor Vehicle Operator">- Motor Vehicle Operator</option>
+                                    </optgroup>
+                                    <optgroup label="Other Occupations:">
+                                        <option value="Military">- Military</option>
+                                        <option value="Homemaker">- Homemaker</option>
+                                        <option value="Student">- Student</option>
+                                        <option value="Not Applicable">- Not Applicable</option>
+                                    </optgroup>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-row">
+
                         <div class="form-group col-md-6">
                             <label for="location">Location</label>
                             <select id="location" name="location" class="form-control" required>
@@ -432,8 +449,11 @@
                                 <option value="Zimbabwe">Zimbabwe</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="form-row">
+
+                        <div class="form-group col-md-12">
+                            <input type="checkbox" onclick="enable_text(this.checked)" class="form-check-input" id="currently-working" checked />
+                            <label for="currently-working">I currently-working</label>
+                        </div>
                         <div class="form-group col-md-6">
                             <label for="inputCity">Time Period(From)*</label>
                             <input type="date" class="form-control" name="from_time" min="1900-01-01" required>
@@ -442,22 +462,19 @@
                             <label for="to-now">Time Period(To)*</label>
                             <input type="date" class="form-control" disabled id="date" name="to_time" min="1900-01-01" required>
                         </div>
-                        <div class="form-check">
-                            <input type="checkbox" onclick="enable_text(this.checked)" class="form-check-input" id="currently-working" checked />
-                            <label for="currently-working">I currently-working</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
+
                         <div class="form-group col-md-12">
                             <label for="description">Description</label>
                             <textarea class="form-control" name="description" placeholder="A short summary of what you did in this position; goals, accomplishments, projects. Boast about yourself."></textarea>
                         </div>
-                        <div class="form-group col-md-6">
-                            <input type="submit" name="next-step" class="next-step" value="Add Experience" />
-                        </div>
 
+                        <div class="form-group col-md-12">
+                            <center>
+                                <input type="submit" name="submit" class="btn btn-warning" value="Add Experience" />
+                            </center>
+                        </div>
                     </div>
-                    
+
                     <a href="{{ route('resume.education')}}" class="btn btn-primary next-step">Next Step</a>
                     <a href="{{ route('resume.about')}}" class="btn btn-primary previous-step">Previous Step</a>
 
