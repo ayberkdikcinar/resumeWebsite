@@ -1,6 +1,6 @@
 @extends('front.layouts.master')
 @section('title')
-RESUME | ABOUT
+RESUME | ABOUT ME
 @endsection
 @section('content')
 <div class="container">

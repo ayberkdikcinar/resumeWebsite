@@ -1,6 +1,6 @@
 @extends('front.layouts.master')
 @section('title')
-RESUME | LANGUAGES
+RESUME | LANGUAGES I KNOW
 @endsection
 @section('content')
 <div class="container">
