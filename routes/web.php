@@ -12,14 +12,16 @@ use Illuminate\Support\Facades\Route;
 //Front pages
 Route::get('/',[FrontController::class, 'index'])->name('index');
 Route::get('/login',[FrontController::class, 'login'])->name('login');
-Route::get('/howitworks',[FrontController::class, 'howItWorks'])->name('howItWorks');
-Route::get('/aboutUs',[FrontController::class, 'aboutUs'])->name('aboutUs');
-Route::get('/contactUs',[FrontController::class, 'contactUs'])->name('contactUs');
-Route::get('/termsOfUse',[FrontController::class, 'termsOfUse'])->name('termsOfUse');
-Route::get('/privacyPolicies',[FrontController::class, 'privacyPolicies'])->name('privacyPolicies');
+Route::get('/how-it-works',[FrontController::class, 'howItWorks'])->name('howItWorks');
+Route::get('/about-us',[FrontController::class, 'aboutUs'])->name('aboutUs');
+Route::get('/contact-us',[FrontController::class, 'contactUs'])->name('contactUs');
+Route::get('/terms-of-use',[FrontController::class, 'termsOfUse'])->name('termsOfUse');
+Route::get('/privacy-policies',[FrontController::class, 'privacyPolicies'])->name('privacyPolicies');
 
 Route::prefix('')->middleware('isLoggedIn')->group(function(){
    Route::get('/profile',[FrontController::class, 'profile'])->name('profile');
+
+   Route::get('/change-password',[FrontController::class,'changePassword'])->name('changePassword');
    
    Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
       Route::get('/dashboard',[AdminPanelController::class, 'index'])->name('dashboard');
@@ -29,7 +31,7 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
       //Route::get('userAdmins/delete/{id}',[UserAdminController::class,'delete'])->name('delete.admin');
       
       ///UPDATE PAGE ROUTES
-      Route::get('/homepage_update',[AdminPanelController::class, 'homepageUpdate'])->name('homepageUpdate');
+      Route::get('/homepage-update',[AdminPanelController::class, 'homepageUpdate'])->name('homepageUpdate');
       Route::get('/aboutus-update',[AdminPanelController::class, 'aboutUsUpdate'])->name('aboutUsUpdate');
       Route::get('/contactus-update',[AdminPanelController::class, 'contactUsUpdate'])->name('contactUsUpdate');
       Route::get('/howitworks-update',[AdminPanelController::class, 'howItWorksUpdate'])->name('howItWorksUpdate');
@@ -65,14 +67,16 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
       Route::get('/experience',[ResumeController::class, 'experience'])->name('experience');
       Route::post('/experience',[ResumeController::class, 'addExperience'])->name('experience.post');
 
-      Route::get('/job_preferences',[ResumeController::class, 'job_preferences'])->name('job_preferences');
-      Route::post('/job_preferences',[ResumeController::class, 'addJobPreference'])->name('job_preferences.post');
+      Route::get('/job-preferences',[ResumeController::class, 'job_preferences'])->name('job_preferences');
+      Route::post('/job-preferences',[ResumeController::class, 'addJobPreference'])->name('job_preferences.post');
 
       Route::get('/languages',[ResumeController::class, 'languages'])->name('languages');
       Route::post('/languages',[ResumeController::class, 'addLanguage'])->name('languages.post');
 
       Route::get('/skills',[ResumeController::class, 'skills'])->name('skills');
       Route::post('/skills',[ResumeController::class, 'addSkill'])->name('skills.post');
+
+      Route::get('/delete-resource/{user_id}/{type}/{id}',[ResumeController::class, 'resourceDelete'])->name('resource_delete');
    });
 
    

@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;
-use App\Models\Education;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -11,6 +10,8 @@ use App\Models\Experience;
 use App\Models\Job_preference;
 use App\Models\Language;
 use App\Models\Skill;
+use App\Models\Course;
+use App\Models\Education;
 use Illuminate\Support\Str;
 
 class ResumeController extends Controller
@@ -229,6 +230,7 @@ class ResumeController extends Controller
     ////////////////
 
     public function job_preferences(){
+        $job_preferences = Auth::user()->jobPreferences;
         return view('resume.job_preferences',compact('job_preferences'));
     }
 
@@ -252,7 +254,33 @@ class ResumeController extends Controller
         return redirect()->route('resume.job_preferences');
 
     }
-
+    public function resourceDelete($user_id,$type,$id){
+        if(Auth::user()->id == $user_id){
+            switch ($type) {
+                case 'job-preference':
+                    Job_preference::findOrFail($id)->delete();
+                    break;
+                case 'course':
+                    Course::findOrFail($id)->delete();
+                    break;
+                case 'skill':
+                    Skill::findOrFail($id)->delete();
+                    break;
+                case 'language':
+                    Language::findOrFail($id)->delete();
+                    break;
+                case 'education':
+                    Education::findOrFail($id)->delete();
+                    break;
+                case 'experience':
+                    Experience::findOrFail($id)->delete();
+                    break;  
+                default:
+                    break;
+            }
+        }
+        return redirect()->back();
+    }
     ////////////
 
 

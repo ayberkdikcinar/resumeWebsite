@@ -103,7 +103,7 @@ integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifw
     $(document).ready(function() {
         $('#summernote').summernote(
             {
-                'height':350
+                'height':400
             }
         );
     });

@@ -19,8 +19,8 @@ class CreatePage extends Migration
             $table->string('title')->default('default_title');
             $table->string('bannerTitle')->nullable(true);
             $table->string('bannerContext')->nullable(true);
-            $table->string('image_url')->nullable(true);
-            $table->longText('content');
+            $table->string('image_url')->nullable(true)->default('');
+            $table->longText('content')->nullable(true)->default('this is content');
             $table->timestamps();
         });
     }

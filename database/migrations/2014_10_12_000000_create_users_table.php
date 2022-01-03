@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->longText('about')->nullable(true);
             $table->string('photo_url')->nullable(true)->default('uploads/default-user-image.png');
             $table->boolean('isAdmin')->nullable(false)->default(false);
+            $table->boolean('first_login')->nullable(false)->default(true);
             //$table->timestamp('email_verified_at')->nullable();
             //$table->rememberToken();
             $table->timestamps();

@@ -17,23 +17,24 @@ class FrontController extends Controller
         return view('front.index',compact('homepage'));
     }
     public function howItWorks(){
-        $howItWorks = Page::where('slug','howitworks')->first();
+        $howItWorks = Page::where('slug','how-it-works')->first();
         return view('front.how_it_works',compact('howItWorks'));
     }
     public function aboutUs(){
-        $aboutUs = Page::where('slug','aboutus')->first();
+        $aboutUs = Page::where('slug','about-us')->first();
         return view('front.about_us',compact('aboutUs'));
     }
     public function contactUs(){
-        $contactUs = Page::where('slug','contactus')->first();
+        $contactUs = Page::where('slug','contact-us')->first();
         return view('front.contact_us',compact('contactUs'));
     }
+    
     public function termsOfUse(){
-        $termsOfUse = Page::where('slug','termsofuse')->first();
+        $termsOfUse = Page::where('slug','terms-of-use')->first();
         return view('front.terms_of_use',compact('termsOfUse'));
     }
     public function privacyPolicies(){
-        $privacyPolicies = Page::where('slug','privacypolicies')->first();
+        $privacyPolicies = Page::where('slug','privacy-policies')->first();
         return view('front.privacy_policies',compact('privacyPolicies'));
     }
     public function resume(){
@@ -41,6 +42,9 @@ class FrontController extends Controller
     }
     public function profile(){
         return view('front.profile');
+    }
+    public function changePassword(){
+        return view('front.password_change');
     }
     
     

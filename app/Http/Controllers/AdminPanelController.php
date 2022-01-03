@@ -23,23 +23,23 @@ class AdminPanelController extends Controller
         return view('adminPanel.pages.homepage_update',compact('homepage'));
     }
     public function howItWorksUpdate(){
-        $howItWorks = Page::where('slug','howitworks')->first();
+        $howItWorks = Page::where('slug','how-it-works')->first();
         return view('adminPanel.pages.how_it_works_update',compact('howItWorks'));
     }
     public function contactUsUpdate(){
-        $contactUs = Page::where('slug','contactus')->first();
+        $contactUs = Page::where('slug','contact-us')->first();
         return view('adminPanel.pages.contact_us_update',compact('contactUs'));
     }
     public function aboutUsUpdate(){
-        $aboutUs = Page::where('slug','aboutus')->first();
+        $aboutUs = Page::where('slug','about-us')->first();
         return view('adminPanel.pages.about_us_update',compact('aboutUs'));
     }
     public function privacyPoliciesUpdate(){
-        $privacyPolicies = Page::where('slug','privacypolicies')->first();
+        $privacyPolicies = Page::where('slug','privacy-policies')->first();
         return view('adminPanel.pages.privacy_policies_update',compact('privacyPolicies'));
     }
     public function termsOfUseUpdate(){
-        $termsOfUse = Page::where('slug','termsofuse')->first();
+        $termsOfUse = Page::where('slug','terms-of-use')->first();
         return view('adminPanel.pages.terms_of_use_update',compact('termsOfUse'));
     }
     public function siteSettings(){
@@ -56,8 +56,15 @@ class AdminPanelController extends Controller
             $page->title = $request->title;
             $page->bannerTitle = $request->banner_title;
             $page->bannerContext = $request->banner_context;
-            $page->image_url = $request->image_url;
             $page->content = $request->content;
+
+            if($request->hasFile('image')){
+                if($request->image!=null){
+                    $imagename=$slug.'_image.'.$request->image->getClientOriginalExtension();
+                    $request->image->move(public_path('uploads'),$imagename);
+                    $page->image_url = 'uploads/'.$imagename;
+                }    
+            }
         }
         else{
             return back()->withErrors("Page not found"); 
@@ -65,6 +72,7 @@ class AdminPanelController extends Controller
 
         try{
             $page->save();
+            
 
         } catch (\Exception $th) {
             return back()->withErrors($th->getMessage()); 

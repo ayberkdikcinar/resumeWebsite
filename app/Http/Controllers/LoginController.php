@@ -22,7 +22,11 @@ class LoginController extends Controller
                 return redirect()->route('admin.dashboard');
             }      
             else{
-                return redirect()->route('profile'); 
+                if($user->first_login){
+                    return redirect()->route('resume.about'); 
+                }
+                    
+                else return redirect()->route('profile'); 
             }
                 
         }

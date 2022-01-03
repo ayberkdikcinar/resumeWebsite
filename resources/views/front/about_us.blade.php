@@ -7,7 +7,6 @@ About Us
     <div class="container">
        <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-<<<<<<< HEAD
              <h2>ABOUT TİTLE should get db</h2>
              <p> this containter should have multiple paragprahes  </p>
              <p>p1 should get db</p>
@@ -26,10 +25,8 @@ About Us
           
           
           </div>
-=======
             {!!$aboutUs->content!!}
          </div>
->>>>>>> 08db578047695617b0a0c761e0301f5eee564ac3
        </div>
     </div>
  </div>

@@ -4,15 +4,15 @@ BURASI BACKTEN ÇEKİLECEK
 @endsection
 @section('content')
 
-
 <div class="page-content-product">
-   <div class="main-product" style="background-image: url('front/images/bg_img1.png');">
+   <div class="main-product" style="background-image: url('{{asset('')}}{{$homepage->image_url}}');">
       <!-- bu fotoğrafta backten çekilecek -->
       <div class="container">
          <div class="row clearfix">
             <div class="find-box">
                <h1>{!!$homepage->bannerTitle!!}</h1>
                <h4>{!!$homepage->bannerContext!!}</h4>
+               
             </div>
          </div>
       </div>
@@ -21,7 +21,7 @@ BURASI BACKTEN ÇEKİLECEK
 <div class="cat-main-box">
    <div class="container">
       <div class="row panel-row">
-         <div class="col-md-4 col-sm-6 wow fadeIn" data-wow-delay="0.0s">
+         <div class="col-md-4 col-sm-6">
             <div class="panel panel-default">
                <div class="panel-body">
                   <img src="front/images/works-icon-01.png" class="icon-small" alt="" style="width: 50px; height: 50px;">
@@ -31,7 +31,7 @@ BURASI BACKTEN ÇEKİLECEK
                </div>
             </div>
          </div>
-         <div class="col-md-4 col-sm-6 wow fadeIn" data-wow-delay="0.2s">
+         <div class="col-md-4 col-sm-6">
             <div class="panel panel-default">
                <div class="panel-body">
                   <img src="front/images/works-icon-02.png" class="icon-small" alt="" style="width: 50px; height: 50px;">
@@ -41,7 +41,7 @@ BURASI BACKTEN ÇEKİLECEK
                </div>
             </div>
          </div>
-         <div class="col-md-4 col-sm-6 wow fadeIn hidden-sm" data-wow-delay="0.4s">
+         <div class="col-md-4 col-sm-6">
             <div class="panel panel-default">
                <div class="panel-body">
                   <img src="front/images/works-icon-03.png" class="icon-small" alt="" style="width: 50px; height: 50px;">
@@ -59,10 +59,9 @@ BURASI BACKTEN ÇEKİLECEK
       <div class="row">
          <div class="col-md-6 col-sm-6 wow fadeIn" data-wow-delay="0.2s">
             <div class="exciting_box f_pd">
-               <img src="images/exciting_img-01.jpg" class="icon-small" alt="" />
-               <h4>What {firm name - get db} does.
-               </h4>
-               <p>{ get db hole area}<br><br>
+               
+               <h4>What  does.</h4>
+               <p>{ get db hole area}
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                   quis nostrud exercitation ullamco laboris..
@@ -71,8 +70,7 @@ BURASI BACKTEN ÇEKİLECEK
          </div>
          <div class="col-md-6 col-sm-6 wow fadeIn" data-wow-delay="0.4s">
             <div class="exciting_box l_pd">
-               <img src="images/exciting_img-02.jpg" class="icon-small" alt="" />
-
+              
                <p>this area must fill with a list that firm's how does it works simply
 
                   <br><br>
