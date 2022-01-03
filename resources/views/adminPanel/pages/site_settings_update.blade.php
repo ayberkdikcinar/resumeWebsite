@@ -16,30 +16,33 @@
             </ul>    
         </div>
         @endif
-        <form action="" method="POST">
-           
+        <form action="{{route('admin.siteSettingsPost')}}" method="POST" enctype="multipart/form-data">     
             @csrf
             <div class="form-group">
                 <label>Title <label style="color: red">*</label> </label>
-                <input type="text" name="title" class="form-control" value="" required>
+                <input type="text" name="title" class="form-control" value="{{$setting->title}}" required>
             </div>
             <div class="form-group">
-                <label>Logo</label><br>
-                <img src="{{asset('/front/images/logo.png')}}" style="margin: 2%">
-                <input type="file" name="image" class="form-control" value="">
+                <label>Logo <label style="color: red">*</label></label><br>
+                <img src="{{asset('')}}{{$setting->logo_url}}" style="margin: 2%" width="150" id="uploadPreview">
+                <input id="uploadImage" type="file" name="logo" class="form-control" accept="image/*" onchange="PreviewImage();">
             </div>
             <div class="form-group">
                 <label>Social Links</label><br>        
               
                 <div class="row">
-                    <div class="col md-6"><i class="fab fa-facebook"></i><input type="text" name="facebook" class="form-control"></div>
-                    <div class="col md-6"><i class="fab fa-linkedin"></i><input type="text" name="linkedIn" class="form-control"></div>
+                    <div class="col md-6"><i class="fab fa-facebook"></i><input type="text" name="facebook" class="form-control" value="{{$setting->facebook_url}}"></div>
+                    <div class="col md-6"><i class="fab fa-linkedin"></i><input type="text" name="linkedin" class="form-control" value="{{$setting->linkedin_url}}"></div>
                 </div>
                 <div class="row">
-                    <div class="col md-6"><i class="fab fa-instagram"></i><input type="text" name="instagram" class="form-control"></div>
-                    <div class="col md-6"><i class="fab fa-twitter"></i><input type="text" name="twitter" class="form-control"></div>
+                    <div class="col md-6"><i class="fab fa-instagram"></i><input type="text" name="instagram" class="form-control" value="{{$setting->instagram_url}}"></div>
+                    <div class="col md-6"><i class="fab fa-twitter"></i><input type="text" name="twitter" class="form-control" value="{{$setting->twitter_url}}"></div>
                 </div>
                 
+            </div>
+            <div class="form-group">
+                <label>License</label>
+                <input type="text" name="license" class="form-control" value="{{$setting->license}}">
             </div>
             <div class="form-group">
                 <button type="submit" name="submit" class="btn-block btn btn-primary">Update</button>
@@ -48,4 +51,18 @@
         </form>  
     </div>
 </div>
+@endsection
+@section('js')
+<script type="text/javascript">
+
+    function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+        };
+    };
+
+</script>
 @endsection

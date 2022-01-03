@@ -40,6 +40,7 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
       
      
       Route::post('/page-update/{slug}',[AdminPanelController::class, 'pagesUpdatePost'])->name('pagesUpdatePost');
+      Route::post('/website-settings',[AdminPanelController::class, 'siteSettingsPost'])->name('siteSettingsPost');
    
       //Route::get('user/index',[UserController::class,'indexM'])->name('user.indexM');
       Route::resource('user',UserController::class);

@@ -3,7 +3,7 @@
       <div class="container">
          <div class="row">
             <div class="footer-link-box clearfix">
-               <div class="col-md-6 col-sm-6">
+               <div class="col-md-8 col-sm-6">
                   <div class="left-f-box">
                      <div class="col-sm-4">
                         <h2>COMPANY INFO</h2>
@@ -16,6 +16,18 @@
                      </div>
                   </div>
                </div>
+               <div class="col-md-4 col-sm-6">
+                  <div class="left-f-box">
+                     <div>
+                        <h2>SOCIAL LINKS</h2>                       
+                        <a href="{{route('aboutUs')}}"><i class="fa fa-facebook-square"></i></a>
+                           <a href="{{route('privacyPolicies')}}"><i class="fa fa-facebook"></i></a>
+                           <a href="{{route('termsOfUse')}}"><i class="fa fa-facebook"></i></a>
+                           <a href="{{route('contactUs')}}"><i class="fa fa-facebook"></i></a>
+                        
+                     </div>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
@@ -24,7 +36,7 @@
       <div class="container">
          <div class="row">
             <div class="col-md-8">
-               <p><img width="90" src="images/logo.png" alt="#" style="margin-top: -5px;" /> All Rights Reserved. Company Name © 2021</p>
+               <p><img width="80" src="{{asset('')}}{{$setting->logo_url}}" alt="#" style="margin-top: -5px;" /> {{$setting->license}}</p>
             </div>
             <div class="col-md-4">
                <ul class="list-inline socials">

@@ -112,7 +112,7 @@ class User extends Seeder
         }
         $site_setting = new Site_setting();
         $site_setting->title = "Default Title";
-        $site_setting->licence = "All rigths served 2022";
+        $site_setting->license = "All rigths served 2022";
         $site_setting->logo_url ="public/uploads/homepage_image.jpg";
         $site_setting->facebook_url="";
         $site_setting->twitter_url="";

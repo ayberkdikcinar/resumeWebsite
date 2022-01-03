@@ -15,7 +15,6 @@ class AdminPanelController extends Controller
     public function settings(){
 
         $user=Auth::User();
-        
         return view('adminPanel.settings',compact('user'));
     }
     public function homepageUpdate(){
@@ -43,16 +42,41 @@ class AdminPanelController extends Controller
         return view('adminPanel.pages.terms_of_use_update',compact('termsOfUse'));
     }
     public function siteSettings(){
-        $setting = Site_setting::all();
+        $setting = Site_setting::find(1);
         return view('adminPanel.pages.site_settings_update',compact('setting'));
     }
+    public function siteSettingsPost(Request $request){
+        $setting = Site_setting::find(1);
+      
 
+        $setting->title = $request->title;
+        $setting->license = $request->license;
+        $setting->twitter_url = $request->twitter;
+        $setting->facebook_url = $request->facebook;
+        $setting->linkedin_url = $request->linkedin;
+        $setting->instagram_url = $request->instagram;
+
+        if($request->hasFile('logo')){
+            if($request->logo!=null){
+                $imagename='logo_image.'.$request->logo->getClientOriginalExtension();
+                $request->logo->move(public_path('uploads'),$imagename);
+                $setting->logo_url = 'uploads/'.$imagename;
+            }    
+        }
+        try{
+            $setting->save();
+
+        } catch (\Exception $th) {
+            return back()->withErrors($th->getMessage()); 
+        }
+        toastr()->success('Success','Website settings has been updated');
+        return redirect()->back();
+    }
 
     public function pagesUpdatePost(Request $request,$slug){
 
         $page= Page::where('slug',$slug)->first();
         if($page){
-
             $page->title = $request->title;
             $page->bannerTitle = $request->banner_title;
             $page->bannerContext = $request->banner_context;
@@ -72,15 +96,12 @@ class AdminPanelController extends Controller
 
         try{
             $page->save();
-            
-
         } catch (\Exception $th) {
             return back()->withErrors($th->getMessage()); 
         }
-
         toastr()->success('Success','Page has been updated');
         return redirect()->back();
-        dd($request);
+        
     }
 
 

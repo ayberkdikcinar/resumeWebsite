@@ -1,6 +1,6 @@
 @extends('front.layouts.master')
 @section('title')
-BURASI BACKTEN ÇEKİLECEK
+{{$homepage->title}}
 @endsection
 @section('content')
 

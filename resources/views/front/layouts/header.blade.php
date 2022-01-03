@@ -3,7 +3,7 @@
 
 <head>
    <meta charset="UTF-8">
-   <title>@yield('title','Default Title')</title>
+   <title>@yield('title','Default-title')</title>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <!--enable mobile device-->
    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,7 +42,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                      </button>
-                     <a href="{{route('index')}}" class="navbar-brand"><img src="/front/images/logo.png" alt="" /></a>
+                     <a href="{{route('index')}}" class="navbar-brand"><img src="{{asset('')}}{{$setting->logo_url}}" alt=""/></a>
                   </div>
                </div>
                <div class="col-md-4 col-sm-12">

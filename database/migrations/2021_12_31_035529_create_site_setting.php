@@ -15,13 +15,13 @@ class CreateSiteSetting extends Migration
     {
         Schema::create('site_setting', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('license');
-            $table->string('logo_url');
-            $table->string('facebook_url');
-            $table->string('twitter_url');
-            $table->string('linkedin_url');
-            $table->string('instagram_url');
+            $table->string('title')->nullable(true);
+            $table->string('license')->nullable(true);
+            $table->string('logo_url')->nullable(true);
+            $table->string('facebook_url')->nullable(true);
+            $table->string('twitter_url')->nullable(true);
+            $table->string('linkedin_url')->nullable(true);
+            $table->string('instagram_url')->nullable(true);
             $table->timestamps();
         });
     }
