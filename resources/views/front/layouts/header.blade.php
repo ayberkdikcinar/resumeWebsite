@@ -67,7 +67,7 @@
                               <li>
                                  <div class="dropdown">
                                     <a aria-haspopup="true" aria-expanded="false">
-                                       <span class="mr-2 d-none d-lg-inline text-gray-600 large">{{Auth::User()->username}}</span>
+                                       <span class="mr-2 d-none d-lg-inline text-gray-600 large" style=" text-transform: uppercase;">{{Auth::User()->username}}</span>
                                        <img width="30" height="40" src="{{asset('')}}{{Auth::User()->photo_url}}" class="profile-picture-thumb">
                                     </a>
                                     <div class="dropdown-content">
