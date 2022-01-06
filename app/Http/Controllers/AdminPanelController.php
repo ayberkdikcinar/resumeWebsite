@@ -123,9 +123,12 @@ class AdminPanelController extends Controller
             $homepage->card_three_title = $request->card_three_title;
             $homepage->card_three_content = $request->card_three_content;
 
-            $homepage->body_title = $request->body_title;
-            $homepage->body_left_content = $request->body_left_content;
-            $homepage->body_right_content = $request->body_right_content;
+            $homepage->top_body_title = $request->top_body_title;
+            $homepage->top_body_left_content = $request->top_body_left_content;
+            $homepage->top_body_right_content = $request->top_body_right_content;
+
+            $homepage->bottom_body_title = $request->bottom_body_title;
+            $homepage->bottom_body_content = $request->bottom_body_content;
             
             if($request->hasFile('image')){
                 if($request->image!=null){

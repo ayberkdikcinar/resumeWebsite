@@ -131,9 +131,11 @@ class User extends Seeder
         $homepage->card_one_content="Card 1 Content";
         $homepage->card_two_content="Card 2 Content";
         $homepage->card_three_content="Card 3 Content";
-        $homepage->body_title="BODY TITLE";
-        $homepage->body_left_content="body left content";
-        $homepage->body_right_content="body right content";
+        $homepage->top_body_title="BODY TITLE";
+        $homepage->top_body_left_content="top body left content";
+        $homepage->top_body_right_content="top body right content";
+        $homepage->bottom_body_title="bottom body title";
+        $homepage->bottom_body_content="bottom body content";
         $homepage->save();
 
         $site_setting = new Site_setting();
