@@ -41,7 +41,7 @@ class MailController extends Controller
         try {
           
             Mail::to($input['email'])->send(new Notification($filename,$request));
-            if($deletefilePath)
+            if($deletefilePath!=null)
                 File::delete(public_path($deletefilePath));
 
         } catch (\Exception $e) {
