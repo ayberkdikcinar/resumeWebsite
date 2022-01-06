@@ -257,7 +257,7 @@ class ResumeController extends Controller
     public function resourceDelete($user_id,$type,$id){
         if(Auth::user()->id == $user_id){
             switch ($type) {
-                case 'job-preference':
+                case 'job_preference':
                     Job_preference::findOrFail($id)->delete();
                     break;
                 case 'course':

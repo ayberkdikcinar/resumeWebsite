@@ -43,7 +43,7 @@ RESUME | LANGUAGES I KNOW
                                     </ul>
                                 </div>
                                 <div class="form-group col-md-1">
-                                    <a href="#" class="btn btn-danger"><span class="material-icons">delete</span></a>
+                                    <a href="{{ route('resume.resource_delete',['user_id' => $language->user_id, 'type' => 'language','id' => $language->id])}}" class="btn btn-danger"><span class="material-icons">delete</span></a>
                                 </div>
                                 @endforeach
                             </div>
