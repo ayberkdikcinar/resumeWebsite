@@ -35,7 +35,7 @@ class User extends Seeder
         $admin->country_of_residence = "Turkey";
         $admin->marital_status = "Devorced";
         $admin->current_position = "Web Developer";
-        $admin->about = "this is about this is aboutthis is aboutthis is aboutthis is aboutthis is about this is about";
+        $admin->about = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dapibus nisi quis velit blandit commodo. Etiam a consequat nisl, quis ornare turpis. Donec posuere euismod sollicitudin. Nunc sagittis elit id feugiat interdum. Pellentesque a odio pretium, vehicula leo vitae, dictum ipsum. Ut nec risus est. Vivamus efficitur tellus ut feugiat ultricies. Ut sed congue leo. Curabitur ultrices condimentum leo eget hendrerit. Aenean ullamcorper scelerisque nisl eget viverra. Fusce molestie, neque eu sollicitudin maximus, metus lorem vestibulum enim, eget commodo augue dui ac nisl. Duis id nibh nulla.";
         $admin->password = bcrypt('admin');
         $admin->save();
 

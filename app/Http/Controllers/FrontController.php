@@ -41,7 +41,13 @@ class FrontController extends Controller
         return view('front.resume_multistep');
     }
     public function profile(){
-        return view('front.profile');
+        $courses = Auth::user()->courses;
+        $experiences = Auth::user()->experiences;
+        $educations = Auth::user()->educations;
+        $languages = Auth::user()->languages;
+        $skills = Auth::user()->skills;
+        $job_preferences = Auth::user()->jobPreferences;
+        return view('front.profile', compact('courses', 'educations', 'experiences', 'languages', 'skills', 'job_preferences'));
     }
     public function changePassword(){
         return view('front.password_change');
