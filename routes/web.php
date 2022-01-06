@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminPanelController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,21 +25,27 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
    Route::get('/change-password',[FrontController::class,'changePassword'])->name('changePassword');
    
    Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
-      Route::get('/dashboard',[AdminPanelController::class, 'index'])->name('dashboard');
+      //Route::get('/dashboard',[AdminPanelController::class, 'index'])->name('dashboard');
       Route::get('/settings/{id}',[AdminPanelController::class, 'settings'])->name('settings');
       Route::get('/website-settings',[AdminPanelController::class, 'siteSettings'])->name('siteSettings');
       //Route::resource('userAdmins',UserAdminController::class);ho
       //Route::get('userAdmins/delete/{id}',[UserAdminController::class,'delete'])->name('delete.admin');
       
-      ///UPDATE PAGE ROUTES
-      Route::get('/homepage-update',[AdminPanelController::class, 'homepageUpdate'])->name('homepageUpdate');
-      Route::get('/aboutus-update',[AdminPanelController::class, 'aboutUsUpdate'])->name('aboutUsUpdate');
-      Route::get('/contactus-update',[AdminPanelController::class, 'contactUsUpdate'])->name('contactUsUpdate');
-      Route::get('/howitworks-update',[AdminPanelController::class, 'howItWorksUpdate'])->name('howItWorksUpdate');
-      Route::get('/privacypolicies-update',[AdminPanelController::class, 'privacyPoliciesUpdate'])->name('privacyPoliciesUpdate');
-      Route::get('/termsofuse-update',[AdminPanelController::class, 'termsOfUseUpdate'])->name('termsOfUseUpdate');
+      //MAIL
+      Route::get('mail/{id}', [MailController::class, 'mailView'])->name('mailView');
+      Route::post('send-mail/{id}', [MailController::class, 'mailSend'])->name('mailSend');
       
-     
+      ///UPDATE PAGE ROUTES
+      Route::prefix('page')->name('page.')->group(function(){
+         Route::get('/homepage-update',[AdminPanelController::class, 'homepageUpdate'])->name('homepageUpdate');
+         Route::get('/aboutus-update',[AdminPanelController::class, 'aboutUsUpdate'])->name('aboutUsUpdate');
+         Route::get('/contactus-update',[AdminPanelController::class, 'contactUsUpdate'])->name('contactUsUpdate');
+         Route::get('/howitworks-update',[AdminPanelController::class, 'howItWorksUpdate'])->name('howItWorksUpdate');
+         Route::get('/privacypolicies-update',[AdminPanelController::class, 'privacyPoliciesUpdate'])->name('privacyPoliciesUpdate');
+         Route::get('/termsofuse-update',[AdminPanelController::class, 'termsOfUseUpdate'])->name('termsOfUseUpdate');
+         Route::get('/loginpage-update',[AdminPanelController::class, 'loginpageUpdate'])->name('loginpageUpdate');
+         
+      });
       Route::post('/page-update/{slug}',[AdminPanelController::class, 'pagesUpdatePost'])->name('pagesUpdatePost');
       Route::post('/website-settings',[AdminPanelController::class, 'siteSettingsPost'])->name('siteSettingsPost');
    

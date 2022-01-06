@@ -102,7 +102,7 @@ class User extends Seeder
             $course->user_id = 1;
             $course->save();
         }
-        $names = ["Homepage","Contact Us","About Us","Terms Of Use", "Privacy Policies"];
+        $names = ["Homepage","Contact Us","About Us","Terms Of Use", "Privacy Policies","How It Works","loginpage"];
         for($i = 0; $i < sizeof($names); $i++){
             $page = new Page();
             $page->title = $names[$i];

@@ -15,17 +15,7 @@
             </a>
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item @if(Request::segment(2)=="dashboard") active @endif">
-                <a class="nav-link" href="{{route('admin.dashboard')}}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+   
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -44,23 +34,24 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                <a class="nav-link @if(Request::segment(2)=="page") in @else collapsed @endif" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Pages</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapsePages" class="collapse @if(Request::segment(2)=="page") show @endif" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="">Login</a>
+                        <a class="collapse-item @if(Request::segment(3) =="loginpage-update") active @endif" href="{{route('admin.page.loginpageUpdate')}}">Login</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Main Pages:</h6>
-                        <a class="collapse-item" href="{{route('admin.homepageUpdate')}}">Homepage</a>
-                        <a class="collapse-item" href="{{route('admin.howItWorksUpdate')}}">How It Works</a>
-                        <a class="collapse-item" href="{{route('admin.contactUsUpdate')}}">Contact Us</a>
-                        <a class="collapse-item" href="{{route('admin.termsOfUseUpdate')}}">Terms of use</a>
-                        <a class="collapse-item" href="{{route('admin.privacyPoliciesUpdate')}}">Privacy Policies</a>
-                        <a class="collapse-item" href="{{route('admin.aboutUsUpdate')}}">About Us</a>
+                        <a class="collapse-item @if(Request::segment(3) =="homepage-update") active @endif" href="{{route('admin.page.homepageUpdate')}}">Homepage</a>
+                        <a class="collapse-item @if(Request::segment(3) =="howitworks-update") active @endif" href="{{route('admin.page.howItWorksUpdate')}}">How It Works</a>
+                        <a class="collapse-item @if(Request::segment(3) =="contactus-update") active @endif" href="{{route('admin.page.contactUsUpdate')}}">Contact Us</a>
+                        <a class="collapse-item @if(Request::segment(3) =="aboutus-update") active @endif" href="{{route('admin.page.aboutUsUpdate')}}">About Us</a>
+                        <a class="collapse-item @if(Request::segment(3) =="termsofuse-update") active @endif" href="{{route('admin.page.termsOfUseUpdate')}}">Terms of use</a>
+                        <a class="collapse-item @if(Request::segment(3) =="privacypolicies-update") active @endif" href="{{route('admin.page.privacyPoliciesUpdate')}}">Privacy Policies</a>
+                        
                     </div>
                 </div>
             </li>
