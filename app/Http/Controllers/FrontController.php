@@ -8,8 +8,9 @@ use App\Models\Page;
 class FrontController extends Controller
 {
     public function login(){
+        $loginpage = Page::where('slug','loginpage')->first();
         if(!Auth::check())
-            return view('front.login');
+            return view('front.login',compact('loginpage'));
         else return redirect()->back();
     }
     public function index(){

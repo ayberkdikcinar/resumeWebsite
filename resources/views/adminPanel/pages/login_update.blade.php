@@ -1,6 +1,6 @@
 @extends('adminPanel.layouts.master')
 @section('title')
-{{$howItWorks->title}}
+{{$loginpage->title}}
 @endsection
 @section('content')
 
@@ -16,28 +16,25 @@
             </ul>    
         </div>
         @endif
-        <form action="{{route('admin.pagesUpdatePost','how-it-works')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.pagesUpdatePost','loginpage')}}" method="POST" enctype="multipart/form-data">
            
             @csrf
             <div class="form-group">
                 <label>Title <label style="color: red">*</label> </label>
-                <input type="text" name="title" class="form-control" value="{{$howItWorks->title}}" required>
+                <input type="text" name="title" class="form-control" value="{{$loginpage->title}}" required>
             </div>
             <label>Image</label>
             <div class="form-group">
                 <div class="image-upload">
                     <label for="file-input">
-                      <img src="{{asset('')}}{{$howItWorks->image_url}}" width="250" id="uploadPreview1"/>
+                      <img src="{{asset('')}}{{$loginpage->image_url}}" width="250" id="uploadPreview"/>
                     </label>
-                    <input id="uploadImage1" type="file" name="image" accept="image/*" onchange="PreviewImage();"/>
+                    <input id="uploadImage" type="file" name="image" accept="image/*" onchange="PreviewImage();"/>
                   </div>
             </div>
-            <label>Content</label>
-            <textarea name="content" id="summernote">{!!$howItWorks->content!!}</textarea>
             <div class="form-group">
                 <button type="submit" name="submit" class="btn-block btn btn-primary">Update</button>
             </div>
-
         </form>  
     </div>
 </div>

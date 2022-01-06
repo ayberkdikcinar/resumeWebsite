@@ -9,9 +9,9 @@ use App\Models\Site_setting;
 
 class AdminPanelController extends Controller
 {
-    public function index(){
+    /*public function index(){
         return view('adminPanel.dashboard');
-    }
+    }*/
     public function settings(){
 
         $user=Auth::User();
@@ -20,6 +20,10 @@ class AdminPanelController extends Controller
     public function homepageUpdate(){
         $homepage = Page::where('slug','homepage')->first();
         return view('adminPanel.pages.homepage_update',compact('homepage'));
+    }
+    public function loginpageUpdate(){
+        $loginpage = Page::where('slug','loginpage')->first();
+        return view('adminPanel.pages.login_update',compact('loginpage'));
     }
     public function howItWorksUpdate(){
         $howItWorks = Page::where('slug','how-it-works')->first();

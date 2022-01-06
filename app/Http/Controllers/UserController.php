@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\MailController;
 
 class UserController extends Controller
 {
@@ -65,8 +66,12 @@ class UserController extends Controller
             $user->isAdmin=0;
     
         try {
-            $user->save();
 
+            $user->save();
+            if($user->isAdmin==0)
+                MailController::mailSend($request);
+ 
+                
         } catch (\Exception $th) {
             if ($th->getCode() == 23000) {
                 return back()->withErrors('Email or username has already been taken'); 
