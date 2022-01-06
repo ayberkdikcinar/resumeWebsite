@@ -7,6 +7,7 @@ use App\Models\Education;
 use App\Models\Language;
 use App\Models\Skill;
 use App\Models\Course;
+use App\Models\Job_preference;
 use App\Models\Page;
 use App\Models\Site_setting;
 use App\Models\User as ModelsUser;
@@ -92,6 +93,14 @@ class User extends Seeder
             $language->save();
         }
 
+        for ($i = 0; $i < 2; $i++) {
+            $job_preference = new Job_preference();
+            $job_preference->field = "Intern";
+            $job_preference->desired_location = "Turkey";
+            $job_preference->user_id = 1;
+            $job_preference->save();
+        }
+
         for ($i = 0; $i < 3; $i++) {
             $course = new Course();
             $course->name = "Test Course";
@@ -102,23 +111,24 @@ class User extends Seeder
             $course->user_id = 1;
             $course->save();
         }
-        $names = ["Homepage","Contact Us","About Us","Terms Of Use", "Privacy Policies"];
-        for($i = 0; $i < sizeof($names); $i++){
+
+        $names = ["Homepage", "Contact Us", "About Us", "Terms Of Use", "Privacy Policies"];
+        for ($i = 0; $i < sizeof($names); $i++) {
             $page = new Page();
             $page->title = $names[$i];
-            $page->image_url ="public/uploads/homepage_image.jpg";
+            $page->image_url = "public/uploads/homepage_image.jpg";
             $page->slug = Str::slug($names[$i]);
             $page->save();
         }
+
         $site_setting = new Site_setting();
         $site_setting->title = "Default Title";
         $site_setting->license = "All rigths served 2022";
-        $site_setting->logo_url ="public/uploads/homepage_image.jpg";
-        $site_setting->facebook_url="";
-        $site_setting->twitter_url="";
-        $site_setting->linkedin_url="";
-        $site_setting->instagram_url="";
+        $site_setting->logo_url = "public/uploads/homepage_image.jpg";
+        $site_setting->facebook_url = "";
+        $site_setting->twitter_url = "";
+        $site_setting->linkedin_url = "";
+        $site_setting->instagram_url = "";
         $site_setting->save();
-    
     }
 }
