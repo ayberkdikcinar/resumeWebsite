@@ -46,7 +46,7 @@ RESUME | MY EXPERIENCE
                                     </ul>
                                 </div>
                                 <div class="form-group col-md-1">
-                                    <a href="#" class="btn btn-danger"><span class="material-icons">delete</span></a>
+                                    <a href="{{ route('resume.resource_delete',['user_id' => $experience->user_id, 'type' => 'experience','id' => $experience->id])}}"  class="btn btn-danger"><span class="material-icons">delete</span></a>
                                 </div>
                                 @endforeach
                             </div>

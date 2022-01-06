@@ -45,7 +45,7 @@ RESUME | COURSES I HAVE COMPLETED
                                     </ul>
                                 </div>
                                 <div class="form-group col-md-1">
-                                    <a href="#" class="btn btn-danger"><span class="material-icons">delete</span></a>
+                                    <a href="{{ route('resume.resource_delete',['user_id' => $course->user_id, 'type' => 'course','id' => $course->id])}}" class="btn btn-danger"><span class="material-icons">delete</span></a>
                                 </div>
                                 @endforeach
                             </div>

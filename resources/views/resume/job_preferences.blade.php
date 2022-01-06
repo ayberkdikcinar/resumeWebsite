@@ -43,7 +43,7 @@ RESUME | JOB PREFERENCES
                                     </ul>
                                 </div>
                                 <div class="form-group col-md-1">
-                                    <a href="#" class="btn btn-danger"><span class="material-icons">delete</span></a>
+                                    <a href="{{ route('resume.resource_delete',['user_id' => $job_preference->user_id, 'type' => 'job_preference','id' => $job_preference->id])}}" class="btn btn-danger"><span class="material-icons">delete</span></a>
                                 </div>
                                 @endforeach
                             </div>
