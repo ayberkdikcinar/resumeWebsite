@@ -17,8 +17,6 @@ class CreatePage extends Migration
             $table->bigIncrements('id');
             $table->string('slug');
             $table->string('title')->default('default_title');
-            $table->string('bannerTitle')->nullable(true);
-            $table->string('bannerContext')->nullable(true);
             $table->string('image_url')->nullable(true)->default('');
             $table->longText('content')->nullable(true)->default('this is content');
             $table->timestamps();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Homepage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Page;
@@ -18,7 +19,7 @@ class AdminPanelController extends Controller
         return view('adminPanel.settings',compact('user'));
     }
     public function homepageUpdate(){
-        $homepage = Page::where('slug','homepage')->first();
+        $homepage = Homepage::find(1);
         return view('adminPanel.pages.homepage_update',compact('homepage'));
     }
     public function loginpageUpdate(){
@@ -82,8 +83,6 @@ class AdminPanelController extends Controller
         $page= Page::where('slug',$slug)->first();
         if($page){
             $page->title = $request->title;
-            $page->bannerTitle = $request->banner_title;
-            $page->bannerContext = $request->banner_context;
             $page->content = $request->content;
 
             if($request->hasFile('image')){
@@ -104,6 +103,51 @@ class AdminPanelController extends Controller
             return back()->withErrors($th->getMessage()); 
         }
         toastr()->success('Success','Page has been updated');
+        return redirect()->back();
+        
+    }
+    public function homepageUpdatePost(Request $request){
+
+        $homepage= Homepage::find(1);
+        if($homepage){
+            $homepage->title = $request->title;
+            $homepage->bannerTitle = $request->banner_title;
+            $homepage->bannerContent = $request->banner_content;
+
+            $homepage->card_one_title = $request->card_one_title;
+            $homepage->card_one_content = $request->card_one_content;
+
+            $homepage->card_two_title = $request->card_two_title;
+            $homepage->card_two_content = $request->card_two_content;
+
+            $homepage->card_three_title = $request->card_three_title;
+            $homepage->card_three_content = $request->card_three_content;
+
+            $homepage->top_body_title = $request->top_body_title;
+            $homepage->top_body_left_content = $request->top_body_left_content;
+            $homepage->top_body_right_content = $request->top_body_right_content;
+
+            $homepage->bottom_body_title = $request->bottom_body_title;
+            $homepage->bottom_body_content = $request->bottom_body_content;
+            
+            if($request->hasFile('image')){
+                if($request->image!=null){
+                    $imagename=$homepage->slug.'_image.'.$request->image->getClientOriginalExtension();
+                    $request->image->move(public_path('uploads'),$imagename);
+                    $homepage->banner_image_url = 'uploads/'.$imagename;
+                }    
+            }
+        }
+        else{
+            return back()->withErrors("Page not found"); 
+        }
+
+        try{
+            $homepage->save();
+        } catch (\Exception $th) {
+            return back()->withErrors($th->getMessage()); 
+        }
+        toastr()->success('Success','Homepage has been updated');
         return redirect()->back();
         
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Homepage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Page;
@@ -14,7 +15,7 @@ class FrontController extends Controller
         else return redirect()->back();
     }
     public function index(){
-        $homepage = Page::where('slug','homepage')->first();
+        $homepage = Homepage::find(1);
         return view('front.index',compact('homepage'));
     }
     public function howItWorks(){

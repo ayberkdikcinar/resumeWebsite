@@ -42,7 +42,7 @@
             </div>
             <div class="form-group">
                 <label>License</label>
-                <input type="text" name="license" class="form-control" value="{{$setting->license}}">
+                <textarea type="text" name="license" class="form-control" rows="3">{{$setting->license}}</textarea>
             </div>
             <div class="form-group">
                 <button type="submit" name="submit" class="btn-block btn btn-primary">Update</button>

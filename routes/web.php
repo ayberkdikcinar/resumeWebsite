@@ -45,11 +45,14 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
          Route::get('/termsofuse-update',[AdminPanelController::class, 'termsOfUseUpdate'])->name('termsOfUseUpdate');
          Route::get('/loginpage-update',[AdminPanelController::class, 'loginpageUpdate'])->name('loginpageUpdate');
          
+         
       });
       Route::post('/page-update/{slug}',[AdminPanelController::class, 'pagesUpdatePost'])->name('pagesUpdatePost');
+      Route::post('/homepage-update',[AdminPanelController::class, 'homepageUpdatePost'])->name('homepageUpdatePost');
       Route::post('/website-settings',[AdminPanelController::class, 'siteSettingsPost'])->name('siteSettingsPost');
    
       //Route::get('user/index',[UserController::class,'indexM'])->name('user.indexM');
+      Route::post('user/change-password/{id}',[UserController::class,'changePassword'])->name('user.changePassword');
       Route::resource('user',UserController::class);
       
       //Route::get('userCustomers/delete/{id}',[UserCustomerController::class,'delete'])->name('delete.customer');

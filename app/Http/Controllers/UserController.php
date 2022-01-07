@@ -49,7 +49,7 @@ class UserController extends Controller
     {
         
         $request->validate([
-            'username'=>['min:5','max:15','required'],
+            'username'=>['min:3','max:15','required'],
             'email'=>['required','regex:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/'],
             'password'=>['required','confirmed','min:8'], //Minimum eight characters, at least one letter and one number
             
@@ -73,13 +73,14 @@ class UserController extends Controller
  
                 
         } catch (\Exception $th) {
+            toastr()->error('An error has been occurred while adding the user.','Error');
             if ($th->getCode() == 23000) {
                 return back()->withErrors('Email or username has already been taken'); 
             }
             return back()->withErrors($th->getMessage()); 
         }
 
-        toastr()->success('Success','User has been added');
+        toastr()->success('User has been added.','Success');
         return redirect()->route('admin.user.index');
 
 }
@@ -126,18 +127,8 @@ class UserController extends Controller
             'username'=>'min:5|max:15|required',
             'name'=>'min:3',
             'surname'=>'min:3',
-            'email'=>['required','regex:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/'],
-            'old_password'=>['required_with:password','nullable','sometimes'],
-            'password'=>['required_with:old_password','nullable','sometimes','confirmed'], //Minimum eight characters, at least one letter and one number
-            
+            'email'=>['required','regex:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/']     
         ]);
-        if($request->password && $request->old_password){
-            if(!Hash::check($request->old_password, $user->password)){
-                return back()->withErrors('Your old password was not true');
-            }    
-            $user->password = bcrypt($request->password);
-        }
-
         $user->username = $request->username;
         $user->name = $request->name;
         $user->surname =$request->surname;
@@ -154,10 +145,41 @@ class UserController extends Controller
             return back()->withErrors($th->getMessage()); 
         }
 
-        toastr()->success('Success','User has been updated');
+        toastr()->success('User has been updated','Success');
         return redirect()->back();
     }
 
+
+    public function changePassword(Request $request, $id){
+
+        $user= User::findOrFail($id);
+
+        $request->validate([
+            'old_password'=>['required_with:password','nullable','sometimes'],
+            'password'=>['required_with:old_password','nullable','sometimes','confirmed'], //Minimum eight characters, at least one letter and one number      
+        ]);
+
+        
+        if(!Hash::check($request->old_password, $user->password)){
+            toastr()->error('Your password could not be changed.','Error');
+            return back()->withErrors('Your old password was not true');
+        }  
+
+        $user->password = bcrypt($request->password);
+        
+
+        try{
+            $user->save();
+
+        } catch (\Exception $th) {
+            toastr()->error('Your password could not be changed.','Error');
+            return back()->withErrors($th->getMessage()); 
+        }
+
+        toastr()->success('Your password has been changed','Success');
+        return redirect()->back();
+
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -170,7 +192,7 @@ class UserController extends Controller
        
         User::findOrFail($id)->delete();
 
-        toastr()->success('Success','User has been deleted');
+        toastr()->success('User has been deleted','Success');
 
         return redirect()->route('admin.user.index');
 
