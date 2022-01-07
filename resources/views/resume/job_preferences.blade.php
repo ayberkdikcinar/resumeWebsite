@@ -52,7 +52,7 @@ RESUME | JOB PREFERENCES
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="desired-position-type">Desired Position type</label>
+                                <label for="desired-position-type">Desired Position Type</label>
                                 <select class="form-control dropdown" id="field" name="field" required>
                                     <option value="" selected="selected" disabled="disabled">-- select one --</option>
                                     <optgroup label="Healthcare Practitioners and Technical Occupations:">

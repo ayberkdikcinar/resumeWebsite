@@ -582,7 +582,7 @@ RESUME | ABOUT ME
           <div class="form-row">
             <div class="form-group col-md-12">
               <label>Say something about yourself</label>
-              <textarea class="form-control" name="about" placeholder="You can say anything you would like. Ex. Father, book lover, Star Wars fan, cook and just a cool guy."></textarea>
+              <textarea class="form-control" name="about"  placeholder="You can say anything you would like. Ex. Father, book lover, Star Wars fan, cook and just a cool guy.">{{Auth::User()->about}}</textarea>
             </div>
 
           </div>

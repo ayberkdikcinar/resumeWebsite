@@ -3458,8 +3458,8 @@ html .ui-button.ui-state-disabled:active {
 .profile-picture-thumb {
 	vertical-align: middle;
 	
-	width: 45px;
-	height: 45px;
+	width: 40px;
+	height: 40px;
 	border-style:solid;
 	border-color: #2F8D46;
 	border-radius: 50%;
@@ -3517,4 +3517,37 @@ html .ui-button.ui-state-disabled:active {
   .image-upload>input {
 	display: none;
   }
+
+  .profile-info {
+	float: left;
+	width: 90%;
+	padding: 10px;
+  }
+  .profile-edit {
+	float: right;
+	width: 10%;
+	padding: 10px;
+  }
+  .profile-info:hover {background-color: #2F8D46; color: white;}
   
+  .btn-profile-edit{
+    display:inline-block;
+    padding:2px 2px;
+    margin-bottom:0;
+    font-size:14px;
+    font-weight:400;
+    line-height:0;
+    text-align:center;
+    white-space:nowrap;
+    vertical-align:middle;
+    -ms-touch-action:manipulation;
+    touch-action:manipulation;
+    cursor:pointer;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    background-image:none;
+    border:1px solid transparent;
+    border-radius:4px
+}
