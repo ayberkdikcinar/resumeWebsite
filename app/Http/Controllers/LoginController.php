@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\User;
 class LoginController extends Controller
 {
     //
@@ -23,6 +23,10 @@ class LoginController extends Controller
             }      
             else{
                 if($user->first_login){
+                    $user = User::find(Auth::user()->id);
+                    $user->first_login = 0;
+                    $user->save();
+                    Auth::setUser($user);
                     return redirect()->route('resume.about'); 
                 }
                     

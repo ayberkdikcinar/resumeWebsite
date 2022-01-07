@@ -52,6 +52,7 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
       Route::post('/website-settings',[AdminPanelController::class, 'siteSettingsPost'])->name('siteSettingsPost');
    
       //Route::get('user/index',[UserController::class,'indexM'])->name('user.indexM');
+      Route::post('user/change-password/{id}',[UserController::class,'changePassword'])->name('user.changePassword');
       Route::resource('user',UserController::class);
       
       //Route::get('userCustomers/delete/{id}',[UserCustomerController::class,'delete'])->name('delete.customer');

@@ -38,8 +38,12 @@
                     <div class="form-group">
                         <label for="">Phone</label>
                         <input type="text" class="form-control" name="phone" value="{{$user->phone}}"/>
-                    </div>
-                    <hr class="my-4" />
+                    </div>   
+                    <button type="submit" class="btn btn-primary">Save Changes</button>           
+                </form>
+                <hr class="my-4" style="border-width:3px; background-color:black">
+                <form action="{{route('admin.user.changePassword',$user->id)}}" method="POST">
+                    @csrf                      
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -66,7 +70,7 @@
                             </ul>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-primary">Save Password</button> 
                 </form>
             </div>
         </div>
