@@ -339,7 +339,7 @@ PROFILE | {{Auth::User()->name}} {{Auth::User()->surname}}
                                  <div class="profile-edit">
                                     <a href="{{ route('resume.job_preferences')}}" class="btn-profile-edit btn-success"><span class="material-icons">edit</span></a>
                                  </div>
-                                 <div id="test" class="collapse" data-parent="#accordion">
+                                 <div id="job_preferences" class="collapse" data-parent="#accordion">
                                     <div class="card-body">
                                        @foreach ($job_preferences as $job_preference)
                                        <ul>
