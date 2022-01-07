@@ -63,10 +63,8 @@
                             <p class="mb-2">Password requirements</p>
                             <p class="small text-muted mb-2">To create a new password, you have to meet all of the following requirements:</p>
                             <ul class="small text-muted pl-4 mb-0">
-                                <li>Fill the old, new and confirm password fields. Otherwise password will not considered.</li>
+                                <li>Fill the old, new and confirm password fields. Otherwise password can not be changed.</li>
                                 <li>Minimum 8 character</li>
-                                <li>At least one special character</li>
-                                <li>At least one number</li>
                             </ul>
                         </div>
                     </div>

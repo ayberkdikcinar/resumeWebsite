@@ -7,7 +7,7 @@
                 <div class="panel-body">
                    {!!$contactUs->content!!}                 
                 </div>
-                <img class="wow fadeIn" src="{{asset('front')}}/images/mac-about.png" alt="" />
+                <img src="{{asset('front')}}/images/mac-about.png" alt="" />
              </div>
           </div>
        </div>
