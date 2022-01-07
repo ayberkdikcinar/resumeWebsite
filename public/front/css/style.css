@@ -919,7 +919,7 @@ header .navbar-default .navbar-header {
 -------------------------------------------------------------*/
 
 .main-footer {
-	background-image: url('../images/footer_bg.png');
+	background-color: #12345b;
 	padding: 55px 0px 0px 0px;
 	background-size: cover;
 	background-position: center center;
