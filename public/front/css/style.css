@@ -3520,12 +3520,12 @@ html .ui-button.ui-state-disabled:active {
 
   .profile-info {
 	float: left;
-	width: 90%;
+	width: 95%;
 	padding: 10px;
   }
   .profile-edit {
 	float: right;
-	width: 10%;
+	width: 5%;
 	padding: 10px;
   }
   .profile-info:hover {background-color: #2F8D46; color: white;}
