@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="{{asset('')}}{{Auth::User()->photo_url}}" alt=""/>
+                            <img src="{{asset('')}}{{$user->photo_url}}" alt=""/>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Download as a PDF"/>
+                        <a href="{{route('admin.user.generatePDF',$user->id)}}" class="profile-edit-btn">Download as a PDF</a>
                     </div>
                 </div>
                 <div class="row">

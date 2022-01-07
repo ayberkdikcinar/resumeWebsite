@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\MailController;
+use Barryvdh\DomPDF\PDF;
 
 class UserController extends Controller
 {
@@ -179,6 +180,16 @@ class UserController extends Controller
         toastr()->success('Your password has been changed','Success');
         return redirect()->back();
 
+    }
+    public function generatePDF($id){
+
+        $user = User::findOrFail($id);
+
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('adminPanel.users.test_pdf', compact('user'));
+       
+
+        return $pdf->download('itsolutionstuff.pdf');  
     }
 
     /**
