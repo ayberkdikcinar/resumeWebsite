@@ -4,16 +4,33 @@ Password Change
 @endsection
 @section('content')
 <div class="container">
-	<div class="row">
+	<div class="row" style="margin-top:2%">
 		<div class="col-sm-12">
-			<h1>Change Password</h1>
+			<p style="text-align: center; font-size: xx-large">Change Password</p>
 		</div>
+		
 	</div>
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3"><br>
-			<form action="{{route('admin.user.changePassword', $user->id}}" method="post" id="passwordForm">
-				<input type="password" class="input-lg form-control" name="old_password" id="old_password" placeholder="Old Password" autocomplete="on"><hr>
-				<input type="password" class="input-lg form-control" name="password" id="password1" placeholder="New Password" autocomplete="off">
+			@if(count($errors)>0)
+				<div class="alert alert-danger">
+					<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{$error}}</li>         
+					@endforeach
+					</ul>    
+				</div>
+			@elseif (session()->has('message'))
+				<div class="alert alert-success">
+					<ul>
+						<li>{{ session()->get('message') }}</li>  
+					</ul> 
+				</div>  
+			@endif
+			<form action="{{route('user.changePassword', Auth::User()->id)}}" method="post" id="passwordForm">
+				@csrf
+				<input type="password" class="input-lg form-control" name="old_password" id="old_password" placeholder="Old Password" autocomplete="on" required><hr>
+				<input type="password" class="input-lg form-control" name="password" id="password1" placeholder="New Password" autocomplete="off" required>
 				<div class="row">
 					<div class="col-sm-6">
 						<span id="8char" class="fa fa-remove" style="color:#FF0004;"></span> 8 Characters Long<br>
@@ -24,13 +41,13 @@ Password Change
 						<span id="num" class="fa fa-remove" style="color:#FF0004;"></span> One Number
 					</div>
 				</div><br>
-				<input type="password" class="input-lg form-control" name="password2" id="password2" placeholder="Repeat Password" autocomplete="off">
+				<input type="password" class="input-lg form-control" name="password_confirmation" id="password2" placeholder="Repeat Password" autocomplete="off" required>
 				<div class="row">
 					<div class="col-sm-12">
 						<span id="pwmatch" class="fa fa-remove" style="color:#FF0004;"></span> Passwords Match
 					</div>
 				</div><br>
-				<input type="submit" class="col-xs-12 btn btn-primary btn-load btn-lg" data-loading-text="Changing Password..." value="Change Password">
+				<input type="submit" class="col-xs-12 btn btn-primary btn-load btn-lg" id="submitPassword" data-loading-text="Changing Password..." value="Change Password" disabled>
 			</form>
 		</div>
 		<!--/col-sm-6-->
@@ -87,7 +104,7 @@ Password Change
 			$("#num").css("color", "#FF0004");
 		}
 
-		if ($("#password1").val() == $("#password2").val()) {
+		if ($("#password1").val() == $("#password2").val() && $("#password1").val()) {
 			$("#pwmatch").removeClass("fa-remove");
 			$("#pwmatch").addClass("fa-check");
 			$("#pwmatch").css("color", "#00A41E");
@@ -96,22 +113,13 @@ Password Change
 			$("#pwmatch").addClass("fa-remove");
 			$("#pwmatch").css("color", "#FF0004");
 		}
-	});
-</script>
-<script>
-	$(document).ready(function() {
-		$("#show_hide_password a").on('click', function(event) {
-			event.preventDefault();
-			if ($('#show_hide_password input').attr("type") == "text") {
-				$('#show_hide_password input').attr('type', 'password');
-				$('#show_hide_password i').addClass("fa-eye-slash");
-				$('#show_hide_password i').removeClass("fa-eye");
-			} else if ($('#show_hide_password input').attr("type") == "password") {
-				$('#show_hide_password input').attr('type', 'text');
-				$('#show_hide_password i').removeClass("fa-eye-slash");
-				$('#show_hide_password i').addClass("fa-eye");
-			}
-		});
+		if($("#pwmatch").hasClass('fa-check') && $("#num").hasClass('fa-check') && $("#num").hasClass('fa-check')
+		&& $("#lcase").hasClass('fa-check')&& $("#ucase").hasClass('fa-check')&& $("#8char").hasClass('fa-check')){
+			$("#submitPassword").removeAttr('disabled');
+		}
+		else{
+			$("#submitPassword").attr('disabled','disabled');
+		}
 	});
 </script>
 @endsection

@@ -179,7 +179,7 @@ class UserController extends Controller
         }
 
         toastr()->success('Your password has been changed','Success');
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Your password has been changed successfully.');
 
     }
 

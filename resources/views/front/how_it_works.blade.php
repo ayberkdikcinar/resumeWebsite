@@ -1,6 +1,6 @@
 @extends('front.layouts.master')
 @section('title')
-How It Works?
+{!!$howItWorks->title!!}
 @endsection
 @section('content')
 <div class="does-box">
