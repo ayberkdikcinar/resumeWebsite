@@ -43,6 +43,7 @@ RESUME | MY EXPERIENCE
                                         <li class="list-group-item">{{$experience->position}}</li>
                                         <li class="list-group-item">{{$experience->position_title}}</li>
                                         <li class="list-group-item">{{$experience->from_time}} - {{$experience->to_time}}</li>
+                                        <li class="list-group-item">{{$experience->description}}</li>
                                     </ul>
                                 </div>
                                 <div class="form-group col-md-1">

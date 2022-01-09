@@ -582,11 +582,15 @@ RESUME | ABOUT ME
           <div class="form-row">
             <div class="form-group col-md-12">
               <label>Say something about yourself</label>
-              <textarea class="form-control" name="about"  placeholder="You can say anything you would like. Ex. Father, book lover, Star Wars fan, cook and just a cool guy.">{{Auth::User()->about}}</textarea>
+              <textarea class="form-control" name="about" placeholder="You can say anything you would like. Ex. Father, book lover, Star Wars fan, cook and just a cool guy.">{{Auth::User()->about}}</textarea>
             </div>
-
+            <div class="form-group col-md-12">
+              <center>
+                <input type="submit" name="submit" class="btn btn-warning" value="Set About" />
+              </center>
+            </div>
           </div>
-          <input type="submit" name="next-step" class="next-step" value="Next Step" />
+          <a href="{{ route('resume.experience')}}" class="btn btn-primary next-step">Next Step</a>
         </fieldset>
       </form>
     </div>

@@ -18,6 +18,7 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('back/')}}/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="{{asset('back/')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link id="theme-style" rel="stylesheet" href="{{asset('back/')}}/css/orbit.css">
     
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 

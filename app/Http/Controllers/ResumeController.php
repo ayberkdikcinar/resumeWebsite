@@ -64,7 +64,7 @@ class ResumeController extends Controller
         } catch (\Exception $th) {
             return back()->withErrors($th->getMessage()); 
         }
-        return redirect()->route('resume.experience');
+        return redirect()->route('resume.about');
 
     }
 
