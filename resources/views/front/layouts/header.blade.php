@@ -42,7 +42,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                      </button>
-                     <a href="{{route('index')}}" class="navbar-brand"><img src="{{asset('')}}{{$setting->logo_url}}" alt=""/></a>
+                     <a href="{{route('index')}}" class="navbar-brand"><img src="{{asset('')}}{{$setting->logo_url}}" alt="" /></a>
                   </div>
                </div>
                <div class="col-md-4 col-sm-12">
@@ -53,12 +53,19 @@
                               <li><a href="{{route('howItWorks')}}">How does it works</a></li>
                               <li><a href="{{route('aboutUs')}}">About Us</a></li>
                               <li><a href="{{route('contactUs')}}">Contact Us</a></li>
+                              @auth
+                              @if (Auth::User()->isAdmin)
+                              <li><a href="{{route('admin.user.index')}}">ADMIN PANEL</a></li>
+                              @endif
+                              @endauth
+
                            </ul>
                         </div>
                      </div>
                   </div>
                </div>
                @auth
+
                <div class="col-md-2 col-sm-12">
                   <div class="right-nav">
                      <div class="login-sr">
@@ -68,12 +75,16 @@
                                  <div class="dropdown">
                                     <a aria-haspopup="true" aria-expanded="false">
                                        <span class="mr-2 d-none d-lg-inline text-gray-600 large" style=" text-transform: uppercase;">{{Auth::User()->username}}</span>
-                                       <img width="30" height="40" src="{{asset('')}}{{Auth::User()->photo_url}}" class="profile-picture-thumb">
+                                       <img src="{{asset('')}}{{Auth::User()->photo_url}}" class="profile-picture-thumb">
                                     </a>
                                     <div class="dropdown-content">
                                        <a class="dropdown-item" href="{{route('profile')}}">
                                           <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                           Profile
+                                       </a>
+                                       <a class="dropdown-item" href="{{route('changePassword')}}">
+                                          <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
+                                          Change Password
                                        </a>
                                        <a href="#" data-toggle="modal" data-target="#exampleModal">
                                           <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" data-toggle="modal" data-target="#exampleModal"></i>

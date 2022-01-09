@@ -11,7 +11,7 @@ Password Change
 	</div>
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3"><br>
-			<form action="{{route('admin.user.changePassword', $user->id}}" method="post" id="passwordForm">
+			<form amethod="post" id="passwordForm">
 				<input type="password" class="input-lg form-control" name="old_password" id="old_password" placeholder="Old Password" autocomplete="on"><hr>
 				<input type="password" class="input-lg form-control" name="password" id="password1" placeholder="New Password" autocomplete="off">
 				<div class="row">
@@ -98,20 +98,5 @@ Password Change
 		}
 	});
 </script>
-<script>
-	$(document).ready(function() {
-		$("#show_hide_password a").on('click', function(event) {
-			event.preventDefault();
-			if ($('#show_hide_password input').attr("type") == "text") {
-				$('#show_hide_password input').attr('type', 'password');
-				$('#show_hide_password i').addClass("fa-eye-slash");
-				$('#show_hide_password i').removeClass("fa-eye");
-			} else if ($('#show_hide_password input').attr("type") == "password") {
-				$('#show_hide_password input').attr('type', 'text');
-				$('#show_hide_password i').removeClass("fa-eye-slash");
-				$('#show_hide_password i').addClass("fa-eye");
-			}
-		});
-	});
-</script>
+
 @endsection

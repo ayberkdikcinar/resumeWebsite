@@ -28,7 +28,7 @@ Login
               </div>
               <div class="form-group last mb-4">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" id="password"> 
+                <input type="password" class="input-lg form-control" name="password" id="password"> 
               </div>
 
               <input type="submit" value="Log In" class="btn btn-block btn-primary">

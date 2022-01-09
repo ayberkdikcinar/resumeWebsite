@@ -43,7 +43,7 @@ PROFILE | {{Auth::User()->name}} {{Auth::User()->surname}}
                            <li class="clearfix">
                               <div class="card">
                                  <div class="card-header collapsed card-link profile-info" data-toggle="collapse" href="#about">
-                                    <h4 style="padding: 5px;">ABOUT</h4>
+                                    <h4 style="padding: 5px;"><i class="fas fa-angle-down"></i> ABOUT</h4>
                                  </div>
                                  <div class="profile-edit">
                                     <a href="{{ route('resume.about')}}" class="btn-profile-edit btn-success"><span class="material-icons">edit</span></a>
@@ -99,7 +99,7 @@ PROFILE | {{Auth::User()->name}} {{Auth::User()->surname}}
                            <li class="clearfix">
                               <div class="card">
                                  <div class="card-header collapsed card-link profile-info" data-toggle="collapse" href="#experience">
-                                    <h4 style="padding: 5px;">EXPERIENCES</h4>
+                                    <h4 style="padding: 5px;"><i class="fas fa-angle-down"></i> EXPERIENCES</h4>
                                  </div>
                                  <div class="profile-edit">
                                     <a href="{{ route('resume.experience')}}" class="btn-profile-edit btn-success"><span class="material-icons">edit</span></a>
@@ -166,7 +166,7 @@ PROFILE | {{Auth::User()->name}} {{Auth::User()->surname}}
                            <li class="clearfix">
                               <div class="card">
                                  <div class="card-header collapsed card-link profile-info" data-toggle="collapse" href="#education">
-                                    <h4 style="padding: 5px;">EDUCATIONS</h4>
+                                    <h4 style="padding: 5px;"><i class="fas fa-angle-down"></i> EDUCATIONS</h4>
                                  </div>
                                  <div class="profile-edit">
                                     <a href="{{ route('resume.education')}}" class="btn-profile-edit btn-success"><span class="material-icons">edit</span></a>
@@ -224,7 +224,7 @@ PROFILE | {{Auth::User()->name}} {{Auth::User()->surname}}
                            <li class="clearfix">
                               <div class="card">
                                  <div class="card-header collapsed card-link profile-info" data-toggle="collapse" href="#languages">
-                                    <h4 style="padding: 5px;">LANGUAGES</h4>
+                                    <h4 style="padding: 5px;"><i class="fas fa-angle-down"></i> LANGUAGES</h4>
                                  </div>
                                  <div class="profile-edit">
                                     <a href="{{ route('resume.languages')}}" class="btn-profile-edit btn-success"><span class="material-icons">edit</span></a>
@@ -258,7 +258,7 @@ PROFILE | {{Auth::User()->name}} {{Auth::User()->surname}}
                            <li class="clearfix">
                               <div class="card">
                                  <div class="card-header collapsed card-link profile-info" data-toggle="collapse" href="#skills">
-                                    <h4 style="padding: 5px;">SKILLS</h4>
+                                    <h4 style="padding: 5px;"><i class="fas fa-angle-down"></i> SKILLS</h4>
                                  </div>
                                  <div class="profile-edit">
                                     <a href="{{ route('resume.skills')}}" class="btn-profile-edit btn-success"><span class="material-icons">edit</span></a>
@@ -292,7 +292,7 @@ PROFILE | {{Auth::User()->name}} {{Auth::User()->surname}}
                            <li class="clearfix">
                               <div class="card">
                                  <div class="card-header collapsed card-link profile-info" data-toggle="collapse" href="#courses">
-                                    <h4 style="padding: 5px;">COURSES</h4>
+                                    <h4 style="padding: 5px;"><i class="fas fa-angle-down"></i> COURSES</h4>
                                  </div>
                                  <div class="profile-edit">
                                     <a href="{{ route('resume.courses')}}" class="btn-profile-edit btn-success"><span class="material-icons">edit</span></a>
@@ -342,7 +342,7 @@ PROFILE | {{Auth::User()->name}} {{Auth::User()->surname}}
                            <li class="clearfix">
                               <div class="card">
                                  <div class="card-header collapsed card-link profile-info" data-toggle="collapse" href="#job_preferences">
-                                    <h4 style="padding: 5px;">JOB PREFERENCES</h4>
+                                    <h4 style="padding: 5px;"><i class="fas fa-angle-down"></i> JOB PREFERENCES</h4>
                                  </div>
                                  <div class="profile-edit">
                                     <a href="{{ route('resume.job_preferences')}}" class="btn-profile-edit btn-success"><span class="material-icons">edit</span></a>
