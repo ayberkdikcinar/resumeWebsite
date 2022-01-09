@@ -148,6 +148,14 @@ PROFILE | {{Auth::User()->name}} {{Auth::User()->surname}}
                                                 <p>{{$experience->from_time}} - {{$experience->to_time}}</p>
                                              </div>
                                           </li>
+                                          <li class="clearfix">
+                                             <div class="col-md-4">
+                                                <h5>Description</h5>
+                                             </div>
+                                             <div class="col-md-8">
+                                                <p>{{$experience->description}}</p>
+                                             </div>
+                                          </li>
                                        </ul>
                                        <hr>
                                        @endforeach

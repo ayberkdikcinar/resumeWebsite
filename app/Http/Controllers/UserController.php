@@ -182,6 +182,12 @@ class UserController extends Controller
         return redirect()->back();
 
     }
+
+    public function displayPDF($id){
+        $user = User::findOrFail($id);
+        return view('adminPanel.users.test_pdf',compact('user'));
+    }
+
     public function generatePDF($id){
 
         $user = User::findOrFail($id);
