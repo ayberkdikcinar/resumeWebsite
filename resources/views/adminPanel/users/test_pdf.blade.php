@@ -109,7 +109,7 @@
             </section>
             <!--//section-->
 
-            
+
             <!--//section-->
             <section class="section experiences-section">
                 <h2 class="section-title"><span class="material-icons">assignment</span> Courses</h2>
@@ -140,8 +140,8 @@
                 <div class="item">
                     <span class="project-title" style="float: left; width:45%;">{{$skill->name}}</span>
                     <span class="material-icons">
-arrow_forward_ios
-</span>
+                        arrow_forward_ios
+                    </span>
                     <span class="project-tagline" style="float:right; width:20%;"> {{$skill->type}} </span>
                 </div>
                 <!--//item-->
