@@ -32,7 +32,10 @@
 </head>
 
 <body>
-    <div class="wrapper mt-lg-5">
+    <div>
+        <button id="downloadPDF" value="Download as PDF" onclick="window.print()">AAAA</button>
+    </div>
+    <div class="wrapper mt-lg-5" id="testDiv">
         <div class="sidebar-wrapper">
             <div class="profile-container">
                 <img src="{{asset('')}}{{Auth::User()->photo_url}}" class="profile-picture" />
@@ -50,7 +53,7 @@
             <!--//contact-container-->
             <div class="education-container container-block">
                 <h2 class="container-block-title">Education</h2>
-                @foreach ($user->educations as $education)
+                @foreach ($user->educations->sortByDesc('from_time') as $education)
                 <div class="item">
                     <h4 class="degree">{{$education->education_level}}</h4>
                     <h5 class="meta">{{$education->school}}</h5>
@@ -88,7 +91,7 @@
 
             <section class="section experiences-section">
                 <h2 class="section-title"><span class="material-icons">work</span> Experiences</h2>
-                @foreach ($user->experiences as $experience)
+                @foreach ($user->experience->sortByDesc('from_time')s as $experience)
                 <div class="item">
                     <div class="meta">
                         <div class="upper-row">
@@ -113,7 +116,7 @@
             <!--//section-->
             <section class="section experiences-section">
                 <h2 class="section-title"><span class="material-icons">assignment</span> Courses</h2>
-                @foreach ($user->courses as $course)
+                @foreach ($user->courses->sortByDesc('from_time') as $course)
                 <div class="item">
                     <div class="meta">
                         <div class="upper-row">
@@ -135,7 +138,7 @@
 
             <section class="section projects-section">
                 <h2 class="section-title"><span class="material-icons">rocket</span> Skills</h2>
-                @foreach ($user->skills as $skill)
+                @foreach ($user->skills->sortBy('type') as $skill)
                 <!--//intro-->
                 <div class="item">
                     <span class="project-title" style="float: left; width:45%;">{{$skill->name}}</span>
@@ -150,6 +153,7 @@
         </div>
         <!--//main-body-->
     </div>
+    
 </body>
 <!-- Bootstrap core JavaScript-->
 <script src="{{asset('back/')}}/vendor/jquery/jquery.min.js"></script>
@@ -182,7 +186,40 @@
         });
     });
 </script>
+<script>
 
+    function PrintElem(elem)
+{
+      Popup($('<div/>').append($(elem).clone()).html());
+}
+
+function Popup(data) 
+{
+    var mywindow = window.open();
+    mywindow.document.write('<html><head><title>my div</title>');
+    mywindow.document.write('<link rel="stylesheet" href="public/front/css/orbit.css">');
+    mywindow.document.write('<link rel="stylesheet" href="public/front/css/bootstrap.min.css">');
+    mywindow.document.write('<link rel="stylesheet" href="public/front/css/animate-wow.css">');
+    mywindow.document.write('<link rel="stylesheet" href="public/front/css/style.css">');
+    mywindow.document.write('<link rel="stylesheet" href="public/front/css/bootstrap-select.min.css">');
+    mywindow.document.write('<link rel="stylesheet" href="public/front/css/slick.min.css">');
+    mywindow.document.write('<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">');
+    mywindow.document.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />');
+    mywindow.document.write('<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">');
+    mywindow.document.write('</head><body >');
+    mywindow.document.write(data);
+    mywindow.document.write('</body></html>');
+    
+  
+    mywindow.print();
+  //  mywindow.close();
+  
+    return true;
+}
+//PrintElem(testDiv);
+
+
+</script>
 
 @toastr_js
 @toastr_render

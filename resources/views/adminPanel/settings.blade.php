@@ -42,7 +42,7 @@
                     <button type="submit" class="btn btn-primary">Save Changes</button>           
                 </form>
                 <hr class="my-4" style="border-width:3px; background-color:black">
-                <form action="{{route('admin.user.changePassword',$user->id)}}" method="POST">
+                <form action="{{route('user.changePassword',$user->id)}}" method="POST">
                     @csrf                      
                     <div class="row mb-4">
                         <div class="col-md-6">

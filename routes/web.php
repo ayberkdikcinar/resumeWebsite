@@ -23,6 +23,7 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
    Route::get('/profile',[FrontController::class, 'profile'])->name('profile');
 
    Route::get('/change-password',[FrontController::class,'changePassword'])->name('changePassword');
+   Route::post('user/change-password/{id}',[UserController::class,'changePassword'])->name('user.changePassword');
    
    Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
       //Route::get('/dashboard',[AdminPanelController::class, 'index'])->name('dashboard');
@@ -56,7 +57,7 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
       Route::get('user/display-pdf/{id}',[UserController::class,'displayPDF'])->name('user.displayPDF');
       
       //Route::get('user/index',[UserController::class,'indexM'])->name('user.indexM');
-      Route::post('user/change-password/{id}',[UserController::class,'changePassword'])->name('user.changePassword');
+      
       Route::resource('user',UserController::class);
       
       //Route::get('userCustomers/delete/{id}',[UserCustomerController::class,'delete'])->name('delete.customer');
