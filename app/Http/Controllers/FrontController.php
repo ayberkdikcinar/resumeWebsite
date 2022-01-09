@@ -6,6 +6,8 @@ use App\Models\Homepage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Page;
+use Faker\Provider\ar_EG\Company;
+
 class FrontController extends Controller
 {
     public function login(){
