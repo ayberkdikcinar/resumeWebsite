@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\MailController;
 use Barryvdh\DomPDF\PDF;
+use Dompdf\Dompdf;
 
 class UserController extends Controller
 {
@@ -186,8 +187,10 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         $pdf = app('dompdf.wrapper');
-        $pdf->loadView('adminPanel.users.test_pdf', compact('user'));
-       
+        $pdf->setOptions(['isRemoteEnabled' => TRUE, 'enable_javascript' => TRUE]);
+        $html = view('adminPanel.users.test_pdf',compact('user'))->render();
+        $pdf->loadHtml($html);
+      
 
         return $pdf->download('itsolutionstuff.pdf');  
     }
