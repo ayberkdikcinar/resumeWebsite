@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\MailController;
 use Barryvdh\DomPDF\PDF;
 use Dompdf\Dompdf;
+use \Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
+
 
 class UserController extends Controller
 {
@@ -201,6 +203,11 @@ class UserController extends Controller
 
         return $pdf->download('itsolutionstuff.pdf');  
     }
+
+  /*  public function downloadFile($path){
+        return response()->download(public_path($path));   
+        
+    }*/
 
     /**
      * Remove the specified resource from storage.

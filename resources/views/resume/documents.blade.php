@@ -16,10 +16,9 @@
         @endforeach
     </div>
     @endif
-    <form action="{{route('resume.documents.post')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('resume.documents.post','english-test')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <input id="file-input" type="file" name="file" accept="image/*,.pdf" />
-        <input type="text" name="type">
         <input type="submit" name="submit" class="btn btn-warning" value="Set About" />
     </form>
     <form action="{{route('resume.documents.post')}}" method="POST" enctype="multipart/form-data">
