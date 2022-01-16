@@ -58,7 +58,6 @@
                               <li><a href="{{route('admin.user.index')}}">ADMIN PANEL</a></li>
                               @endif
                               @endauth
-
                            </ul>
                         </div>
                      </div>

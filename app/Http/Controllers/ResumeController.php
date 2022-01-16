@@ -26,7 +26,8 @@ class ResumeController extends Controller
     }*/
 
     public function documents(){
-        return view('resume.documents');
+        $documents = Auth::user()->documents;
+        return view('resume.documents', compact('documents'));
     }
     public function addDocument(Request $request){
         
