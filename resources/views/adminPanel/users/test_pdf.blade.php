@@ -91,7 +91,7 @@
 
             <section class="section experiences-section">
                 <h2 class="section-title"><span class="material-icons">work</span> Experiences</h2>
-                @foreach ($user->experience->sortByDesc('from_time')s as $experience)
+                @foreach ($user->experiences->sortByDesc('from_time') as $experience)
                 <div class="item">
                     <div class="meta">
                         <div class="upper-row">

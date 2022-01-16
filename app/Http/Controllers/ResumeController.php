@@ -11,7 +11,10 @@ use App\Models\Job_preference;
 use App\Models\Language;
 use App\Models\Skill;
 use App\Models\Course;
+use App\Models\Document;
 use App\Models\Education;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ResumeController extends Controller
@@ -25,7 +28,43 @@ class ResumeController extends Controller
     public function documents(){
         return view('resume.documents');
     }
+    public function addDocument(Request $request){
+        
+        $user = User::findOrFail(Auth::user()->id);
+        $document = new Document;
+        
+        ///validation of the file, max 5mb, pdf,and word are accepted.
+        $request->validate([
+            'file' => 'required|mimes:png,jpg,jpeg,doc,docx,pdf|max:2048'
+        ]);
+        
+        if($request->hasFile('file')){
 
+            $name = time().'_'.$request->file->getClientOriginalName();
+            $folder = $request->file('file')->storeAs('uploads/'.Str::slug($user->username),'', 'public');
+            
+            if (!Storage::exists($folder)) {
+                Storage::makeDirectory($folder, 0775, true, true);
+
+            }
+            $request->file->move(public_path($folder),$name);
+  
+            $document->type=$request->type;
+            $document->document_url=$folder.'/'.$name;
+            $document->user_id = $user->id;
+            
+           
+        }
+        try {
+            $document->save();
+
+        } catch (\Exception $th) {
+            return back()->withErrors($th->getMessage()); 
+        }
+        dd('basarili');
+        
+
+    }
     ///////////////
     
     public function about(){
@@ -53,10 +92,14 @@ class ResumeController extends Controller
         
         if($request->hasFile('image')){
             
-            $imagename=Str::slug($user->username).'_profile_photo.'.$request->image->getClientOriginalExtension();
-            
-            $request->image->move(public_path('uploads'),$imagename);
-            $user->photo_url='uploads/'.$imagename;
+            $imagename='profile_photo.'.$request->image->getClientOriginalExtension();
+            $folder = $request->file('image')->storeAs('uploads/'.Str::slug($user->username),'', 'public');
+            if (!Storage::exists($folder)) {
+                Storage::makeDirectory($folder, 0775, true, true);
+
+            }
+            $request->image->move(public_path($folder),$imagename);
+            $user->photo_url=$folder.'/'.$imagename;
         }
         try {
             $user->save();
@@ -255,7 +298,10 @@ class ResumeController extends Controller
 
     }
     public function resourceDelete($user_id,$type,$id){
-        if(Auth::user()->id == $user_id){
+        
+        $user = Auth::user();
+
+        if($user->id == $user_id){
             switch ($type) {
                 case 'job_preference':
                     Job_preference::findOrFail($id)->delete();
@@ -274,6 +320,11 @@ class ResumeController extends Controller
                     break;
                 case 'experience':
                     Experience::findOrFail($id)->delete();
+                    break;  
+                case 'document':
+                    Document::findOrFail($id)->delete();
+                    $path = 'uploads/'.$user->username;
+                    if (File::exists($path)) File::deleteDirectory($path);
                     break;  
                 default:
                     break;

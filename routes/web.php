@@ -76,6 +76,7 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
       Route::post('/courses',[ResumeController::class, 'addCourse'])->name('courses.post');
 
       Route::get('/documents',[ResumeController::class, 'documents'])->name('documents');
+      Route::post('/documents',[ResumeController::class, 'addDocument'])->name('documents.post');
 
       Route::get('/education',[ResumeController::class, 'education'])->name('education');
       Route::post('/education',[ResumeController::class, 'addEducation'])->name('education.post');

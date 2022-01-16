@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\MailController;
 use Barryvdh\DomPDF\PDF;
 use Dompdf\Dompdf;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
@@ -209,9 +210,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-       
-        User::findOrFail($id)->delete();
-
+        $user = User::findOrFail($id);
+        $user->delete();
+        $path = 'uploads/'.$user->username;
+        if (File::exists($path)) File::deleteDirectory($path);
         toastr()->success('User has been deleted','Success');
 
         return redirect()->route('admin.user.index');

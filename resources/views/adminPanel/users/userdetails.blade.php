@@ -95,7 +95,7 @@
                             <hr>
                         </div>
                     </div>
-                    <div class="col-md-6" style="margin-top: -7%;">
+                    <div class="col-md-6" style="margin-top: -16%;">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
@@ -230,6 +230,70 @@
                                     </div>      
                                 </div>
                                 @endforeach
+
+                            </div>
+                            <div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">
+                            
+                                <div class="row">  
+                                    <div class="col-md-12">
+                                        <p>1. English Tests (IELTS,TOEFL,etc.)</p>
+                                        <div class="card" style="width: 32rem; margin-bottom:5%;">
+                                            <div class="card-body">
+                                                @foreach ($user->documents->where('type','english-test') as $item)    
+                                              <h5 class="card-title">Document</h5>
+                                              @endforeach
+                                            </div>
+                                          </div>
+                                    </div>      
+                                </div>
+                                <div class="row">  
+                                    <div class="col-md-12">
+                                        <p>2. Last degree earned (BA,MBA,PHD,Associate)</p>
+                                        <div class="card" style="width: 32rem; margin-bottom:5%;">
+                                            <div class="card-body">
+                                                @foreach ($user->documents->where('type','last-degree-earned') as $item)    
+                                              <h5 class="card-title">Document</h5>
+                                              @endforeach
+                                            </div>
+                                          </div>
+                                    </div>      
+                                </div>
+                                <div class="row">  
+                                    <div class="col-md-12">
+                                        <p>3. Professional courses(Design, Marketing, Finance, Carpenter, etc)</p>
+                                        <div class="card" style="width: 32rem; margin-bottom:5%;">
+                                            <div class="card-body">
+                                                @foreach ($user->documents->where('type','professional-course') as $item)    
+                                              <h5 class="card-title">Document</h5>
+                                              @endforeach
+                                            </div>
+                                          </div>
+                                    </div>      
+                                </div>
+                                <div class="row">  
+                                    <div class="col-md-12">
+                                        <p>4. Identification document (Passport or driver’s license, or any other document)</p>
+                                        <div class="card" style="width: 32rem; margin-bottom:5%;">
+                                            <div class="card-body">
+                                                @foreach ($user->documents->where('type','identification-document') as $item)    
+                                              <h5 class="card-title">Document</h5>
+                                              @endforeach
+                                            </div>
+                                          </div>
+                                    </div>      
+                                </div>
+                                <div class="row">  
+                                    <div class="col-md-12">
+                                        <p>5. Additional Certificates</p>
+                                        <div class="card" style="width: 32rem; margin-bottom:5%;">
+                                            <div class="card-body">
+                                                @foreach ($user->documents->where('type','additional-certificate') as $item)    
+                                              <h5 class="card-title">Document</h5>
+                                              @endforeach
+                                            </div>
+                                          </div>
+                                    </div>      
+                                </div>
 
                             </div>
                         </div>
