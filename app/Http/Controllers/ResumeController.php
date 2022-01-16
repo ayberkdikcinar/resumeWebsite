@@ -26,11 +26,14 @@ class ResumeController extends Controller
     }*/
 
     public function documents(){
-        return view('resume.documents');
+        $user = User::findOrFail(Auth::user()->id);
+        return view('resume.documents',compact('user'));
     }
-    public function addDocument(Request $request){
+    public function addDocument(Request $request,$document_type){
+        
         
         $user = User::findOrFail(Auth::user()->id);
+
         $document = new Document;
         
         ///validation of the file, max 5mb, pdf,and word are accepted.
@@ -40,6 +43,10 @@ class ResumeController extends Controller
         
         if($request->hasFile('file')){
 
+            if($user->documents->where('type',$document_type)->count()>=5){
+                return back()->withErrors("You already have uploaded maximum number of files for type $document_type!"); 
+            }
+
             $name = time().'_'.$request->file->getClientOriginalName();
             $folder = $request->file('file')->storeAs('uploads/'.Str::slug($user->username),'', 'public');
             
@@ -48,8 +55,8 @@ class ResumeController extends Controller
 
             }
             $request->file->move(public_path($folder),$name);
-  
-            $document->type=$request->type;
+            
+            $document->type=$document_type;
             $document->document_url=$folder.'/'.$name;
             $document->user_id = $user->id;
             
@@ -61,7 +68,8 @@ class ResumeController extends Controller
         } catch (\Exception $th) {
             return back()->withErrors($th->getMessage()); 
         }
-        dd('basarili');
+
+        return redirect()->back();
         
 
     }

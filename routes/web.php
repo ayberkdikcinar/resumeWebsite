@@ -53,7 +53,7 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
       Route::post('/website-settings',[AdminPanelController::class, 'siteSettingsPost'])->name('siteSettingsPost');
       
       Route::get('user/generate-pdf/{id}',[UserController::class,'generatePDF'])->name('user.generatePDF');
-
+      //Route::get('user/download/{path}',[UserController::class,'downloadFile'])->name('user.download');
       Route::get('user/display-pdf/{id}',[UserController::class,'displayPDF'])->name('user.displayPDF');
       
       //Route::get('user/index',[UserController::class,'indexM'])->name('user.indexM');
@@ -76,7 +76,7 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
       Route::post('/courses',[ResumeController::class, 'addCourse'])->name('courses.post');
 
       Route::get('/documents',[ResumeController::class, 'documents'])->name('documents');
-      Route::post('/documents',[ResumeController::class, 'addDocument'])->name('documents.post');
+      Route::post('/documents/{document_type}',[ResumeController::class, 'addDocument'])->name('documents.post');
 
       Route::get('/education',[ResumeController::class, 'education'])->name('education');
       Route::post('/education',[ResumeController::class, 'addEducation'])->name('education.post');

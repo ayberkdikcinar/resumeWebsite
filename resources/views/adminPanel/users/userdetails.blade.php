@@ -287,9 +287,9 @@
                                         <p>5. Additional Certificates</p>
                                         <div class="card" style="width: 32rem; margin-bottom:5%;">
                                             <div class="card-body">
-                                                @foreach ($user->documents->where('type','additional-certificate') as $item)    
-                                              <h5 class="card-title">Document</h5>
-                                              @endforeach
+                                                @foreach ($user->documents as $item) 
+                                                <a href="{{url('/',$item->document_url)}}" target="_blank"><h5 class="card-title">Document</h5></a>   
+                                                @endforeach
                                             </div>
                                           </div>
                                     </div>      
