@@ -39,14 +39,11 @@
                   <div class="navbar-header">
                      <button type="button" id="top-menu" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
                      </button>
                      <a href="{{route('index')}}" class="navbar-brand"><img src="{{asset('')}}{{$setting->logo_url}}" alt="" /></a>
                   </div>
                </div>
-               <div class="col-md-4 col-sm-12">
+               <div class="col-md-6 col-sm-12">
                   <div class="right-nav">
                      <div class="nav-b hidden-xs">
                         <div class="nav-box">
@@ -56,7 +53,7 @@
                               <li><a href="{{route('contactUs')}}">Contact us</a></li>
                               @auth
                               @if (Auth::User()->isAdmin)
-                              <li><a href="{{route('admin.user.index')}}">ADMIN PANEL</a></li>
+                              <li><a href="{{route('admin.user.index')}}">PANEL</a></li>
                               @endif
                               @endauth
                            </ul>
@@ -65,7 +62,6 @@
                   </div>
                </div>
                @auth
-
                <div class="col-md-2 col-sm-12">
                   <div class="right-nav">
                      <div class="login-sr">
@@ -106,7 +102,6 @@
                         <div class="login-signup">
                            <ul>
                               <li><a class="custom-b" href="{{route('login')}}">Login</a></li>
-
                            </ul>
                         </div>
                      </div>

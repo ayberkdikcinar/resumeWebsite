@@ -6,7 +6,9 @@ use App\Models\Homepage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Page;
-use Faker\Provider\ar_EG\Company;
+use Illuminate\Support\Str;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class FrontController extends Controller
 {
@@ -55,6 +57,29 @@ class FrontController extends Controller
     }
     public function changePassword(){
         return view('front.password_change');
+    }
+    public function forgotPassword(){
+        return view('front.forgot_password');
+    }
+    public function forgotPasswordPost(Request $request){
+        
+        $request->email;
+        $newPassword = Str::random(12);
+        $user = User::where('email',$request->email)->first();
+        if($user){
+            try{
+                $user->password=bcrypt($newPassword);
+                $user->save();
+                $request->username = $user->username;
+                $request->password = $newPassword;
+                MailController::mailSend($request);
+
+            }catch (\Exception $th) {
+                return back()->withErrors($th->getMessage()); 
+            }   
+            return redirect()->back()->with('success', 'New password sent successfully. Please check your email!');  
+        }
+        else return back()->with('error','The account for the given e-mail was not found.'); 
     }
     
     

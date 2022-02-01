@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 //Front pages
 Route::get('/',[FrontController::class, 'index'])->name('index');
 Route::get('/login',[FrontController::class, 'login'])->name('login');
+Route::get('/forgot-password',[FrontController::class, 'forgotPassword'])->name('forgotPassword');
+Route::post('/forgot-password',[FrontController::class, 'forgotPasswordPost'])->name('forgotPassword.post');
 Route::get('/how-it-works',[FrontController::class, 'howItWorks'])->name('howItWorks');
 Route::get('/legal-bindings',[FrontController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/contact-us',[FrontController::class, 'contactUs'])->name('contactUs');

@@ -107,7 +107,6 @@ RESUME | DOCUMENTS
 
                         <a href="{{ route('resume.job_preferences')}}" class="btn btn-primary next-step">Next Step</a>
                         <a href="{{ route('resume.skills')}}" class="btn btn-primary previous-step">Previous Step</a>
-
                 </fieldset>
             </form>
         </div>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Page;
 use App\Models\Site_setting;
+use Illuminate\Support\Facades\File;
 
 class AdminPanelController extends Controller
 {
@@ -63,6 +64,7 @@ class AdminPanelController extends Controller
 
         if($request->hasFile('logo')){
             if($request->logo!=null){
+                
                 $imagename='logo_image.'.$request->logo->getClientOriginalExtension();
                 $request->logo->move(public_path('uploads'),$imagename);
                 $setting->logo_url = 'uploads/'.$imagename;
