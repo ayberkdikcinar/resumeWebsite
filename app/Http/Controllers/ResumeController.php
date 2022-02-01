@@ -14,7 +14,6 @@ use App\Models\Course;
 use App\Models\Document;
 use App\Models\Education;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ResumeController extends Controller
@@ -50,10 +49,10 @@ class ResumeController extends Controller
             $name = time().'_'.$request->file->getClientOriginalName();
             $folder = $request->file('file')->storeAs('uploads/'.Str::slug($user->username),'', 'public');
             
-            if (!Storage::exists($folder)) {
+            /*if (!Storage::exists($folder)) {
                 Storage::makeDirectory($folder, 0775, true, true);
 
-            }
+            }*/
             $request->file->move(public_path($folder),$name);
             
             $document->type=$document_type;
@@ -102,10 +101,7 @@ class ResumeController extends Controller
             
             $imagename='profile_photo.'.$request->image->getClientOriginalExtension();
             $folder = $request->file('image')->storeAs('uploads/'.Str::slug($user->username),'', 'public');
-            if (!Storage::exists($folder)) {
-                Storage::makeDirectory($folder, 0775, true, true);
 
-            }
             $request->image->move(public_path($folder),$imagename);
             $user->photo_url=$folder.'/'.$imagename;
         }

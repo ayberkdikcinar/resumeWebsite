@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label>Logo <label style="color: red">*</label></label><br>
-                <img src="{{asset('')}}{{$setting->logo_url}}" style="margin: 2%" width="150" id="uploadPreview">
+                <img src="{{asset('')}}{{$setting->logo_url}}" style="margin: 2%" width="150" id="uploadPreview"> Suggested Size (123x30)
                 <input id="uploadImage" type="file" name="logo" class="form-control" accept="image/*" onchange="PreviewImage();">
             </div>
             <div class="form-group">

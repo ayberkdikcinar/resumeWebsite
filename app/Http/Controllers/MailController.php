@@ -22,7 +22,7 @@ class MailController extends Controller
         $input = $request->validate([
             'email' => 'required',
         ]);
-
+     
         $name=null;
         $deletefilePath=null;
         $filename=null;

@@ -48,7 +48,7 @@
                         <a class="collapse-item @if(Request::segment(3) =="homepage-update") active @endif" href="{{route('admin.page.homepageUpdate')}}">Homepage</a>
                         <a class="collapse-item @if(Request::segment(3) =="howitworks-update") active @endif" href="{{route('admin.page.howItWorksUpdate')}}">How It Works</a>
                         <a class="collapse-item @if(Request::segment(3) =="contactus-update") active @endif" href="{{route('admin.page.contactUsUpdate')}}">Contact Us</a>
-                        <a class="collapse-item @if(Request::segment(3) =="aboutus-update") active @endif" href="{{route('admin.page.aboutUsUpdate')}}">About Us</a>
+                        <a class="collapse-item @if(Request::segment(3) =="aboutus-update") active @endif" href="{{route('admin.page.aboutUsUpdate')}}">Legal Policies</a>
                         <a class="collapse-item @if(Request::segment(3) =="termsofuse-update") active @endif" href="{{route('admin.page.termsOfUseUpdate')}}">Terms of use</a>
                         <a class="collapse-item @if(Request::segment(3) =="privacypolicies-update") active @endif" href="{{route('admin.page.privacyPoliciesUpdate')}}">Privacy Policies</a>
                         

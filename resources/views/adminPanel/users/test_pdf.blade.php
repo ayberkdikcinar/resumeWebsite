@@ -32,9 +32,7 @@
 </head>
 
 <body>
-    <div>
-        <button id="downloadPDF" value="Download as PDF" onclick="window.print()">AAAA</button>
-    </div>
+   
     <div class="wrapper mt-lg-5" id="testDiv">
         <div class="sidebar-wrapper">
             <div class="profile-container">
@@ -179,47 +177,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#summernote').summernote({
-            'height': 400
-        });
-    });
-</script>
-<script>
 
-    function PrintElem(elem)
-{
-      Popup($('<div/>').append($(elem).clone()).html());
-}
-
-function Popup(data) 
-{
-    var mywindow = window.open();
-    mywindow.document.write('<html><head><title>my div</title>');
-    mywindow.document.write('<link rel="stylesheet" href="public/front/css/orbit.css">');
-    mywindow.document.write('<link rel="stylesheet" href="public/front/css/bootstrap.min.css">');
-    mywindow.document.write('<link rel="stylesheet" href="public/front/css/animate-wow.css">');
-    mywindow.document.write('<link rel="stylesheet" href="public/front/css/style.css">');
-    mywindow.document.write('<link rel="stylesheet" href="public/front/css/bootstrap-select.min.css">');
-    mywindow.document.write('<link rel="stylesheet" href="public/front/css/slick.min.css">');
-    mywindow.document.write('<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">');
-    mywindow.document.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />');
-    mywindow.document.write('<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">');
-    mywindow.document.write('</head><body >');
-    mywindow.document.write(data);
-    mywindow.document.write('</body></html>');
-    
-  
-    mywindow.print();
-  //  mywindow.close();
-  
-    return true;
-}
-//PrintElem(testDiv);
-
-
-</script>
 
 @toastr_js
 @toastr_render

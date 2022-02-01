@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[FrontController::class, 'index'])->name('index');
 Route::get('/login',[FrontController::class, 'login'])->name('login');
 Route::get('/how-it-works',[FrontController::class, 'howItWorks'])->name('howItWorks');
-Route::get('/about-us',[FrontController::class, 'aboutUs'])->name('aboutUs');
+Route::get('/legal-bindings',[FrontController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/contact-us',[FrontController::class, 'contactUs'])->name('contactUs');
 Route::get('/terms-of-use',[FrontController::class, 'termsOfUse'])->name('termsOfUse');
 Route::get('/privacy-policies',[FrontController::class, 'privacyPolicies'])->name('privacyPolicies');
@@ -101,9 +101,6 @@ Route::prefix('')->middleware('isLoggedIn')->group(function(){
 });
 
 
-
-///sadece login olmuş kullanıcı girebilecek ve sadece 1 defa.
-Route::get('/resume',[FrontController::class, 'resume'])->name('resume');
 
 Route::post('/login',[LoginController::class, 'authenticate'])->name('login.post');
 Route::post('/logout',[LoginController::class, 'logout'])->name('logout.post');

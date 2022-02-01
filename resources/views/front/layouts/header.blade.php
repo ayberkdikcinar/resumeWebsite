@@ -20,6 +20,7 @@
    <link rel="stylesheet" href="{{asset('front')}}/css/slick.min.css">
    <!--responsive css-->
    <link rel="stylesheet" href="{{asset('front')}}/css/responsive.css">
+   <link rel="icon" href="{{asset('uploads')}}/site_icon.png">
    <!--phone selection-->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -51,8 +52,8 @@
                         <div class="nav-box">
                            <ul>
                               <li><a href="{{route('howItWorks')}}">How does it works</a></li>
-                              <li><a href="{{route('aboutUs')}}">About Us</a></li>
-                              <li><a href="{{route('contactUs')}}">Contact Us</a></li>
+                              <li><a href="{{route('aboutUs')}}">Legal Bindings</a></li>
+                              <li><a href="{{route('contactUs')}}">Contact us</a></li>
                               @auth
                               @if (Auth::User()->isAdmin)
                               <li><a href="{{route('admin.user.index')}}">ADMIN PANEL</a></li>
@@ -121,7 +122,7 @@
    <div id="sidebar" class="top-nav">
       <ul id="sidebar-nav" class="sidebar-nav">
          <li><a href="{{route('howItWorks')}}">How does it works</a></li>
-         <li><a href="{{route('aboutUs')}}">About Us</a></li>
-         <li><a href="{{route('contactUs')}}">Contact Us</a></li>
+         <li><a href="{{route('aboutUs')}}">Legal Bindings</a></li>
+         <li><a href="{{route('contactUs')}}">Contact us</a></li>
       </ul>
    </div>

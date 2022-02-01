@@ -54,21 +54,21 @@
                             <hr>
                             <p><strong>Hard Skills</strong></p>
                             <ul style="list-style-type:none; padding: 0;">
-                                @foreach ($user->skills->where('type','hard') as $item)
+                                @foreach ($user->skills->where('type','HARD') as $item)
                                     <li>{{$item->name}}</li>
                                 @endforeach
                             </ul>
                             <hr>
                             <p><strong>Soft Skills</strong></p>
                             <ul style="list-style-type:none; padding: 0;">
-                                @foreach ($user->skills->where('type','soft') as $item)
+                                @foreach ($user->skills->where('type','SOFT') as $item)
                                     <li>{{$item->name}}</li>
                                 @endforeach
                             </ul>
                             <hr>
                             <p><strong>Expert Skills</strong></p>
                             <ul style="list-style-type:none; padding: 0;">
-                                @foreach ($user->skills->where('type','expert') as $item)
+                                @foreach ($user->skills->where('type','EXPERT') as $item)
                                     <li>{{$item->name}}</li>
                                 @endforeach
                             </ul>
@@ -179,7 +179,7 @@
                                                     </div>
                                                     <ul class="list-group list-group-flush">
                                                       <li class="list-group-item"><h6>Position Title - Position</h6><p>{{$item->position_title}} - {{$item->position}}</p></li>
-                                                      <li class="list-group-item"><h6>From - To</h6><p>{{$item->from_time}} - {{$item->to_time}}</p></li>
+                                                      <li class="list-group-item"><h6>From - To</h6><p>{{$item->from_time}} - @if($item->to_time!=null) {{$item->to_time}}@else Currently Working @endif</p></li>
                                                       <li class="list-group-item"><h6>Location</h6><p>{{$item->location}}</p></li>
                                                     </ul>
                                                   </div>
@@ -224,7 +224,7 @@
                                             </div>
                                             <ul class="list-group list-group-flush">
                                               <li class="list-group-item"><h6>Provider</h6><p>{{$item->provider}}</p></li>
-                                              <li class="list-group-item"><h6>Completed date</h6><p>{{$item->completed_time}}</p></li>
+                                              <li class="list-group-item"><h6>Completed date</h6><p>{{$item->to_time}}</p></li>
                                             </ul>
                                           </div>
                                     </div>      
@@ -239,8 +239,8 @@
                                         <p>1. English Tests (IELTS,TOEFL,etc.)</p>
                                         <div class="card" style="width: 32rem; margin-bottom:5%;">
                                             <div class="card-body">
-                                                @foreach ($user->documents->where('type','english-test') as $item)    
-                                              <h5 class="card-title">Document</h5>
+                                                @foreach ($user->documents->where('type','english-test') as $index=>$item)    
+                                                <a href="{{url('/',$item->document_url)}}" target="_blank"><h5 class="card-title">Document-{{$index+1}}</h5></a>
                                               @endforeach
                                             </div>
                                           </div>
@@ -251,8 +251,8 @@
                                         <p>2. Last degree earned (BA,MBA,PHD,Associate)</p>
                                         <div class="card" style="width: 32rem; margin-bottom:5%;">
                                             <div class="card-body">
-                                                @foreach ($user->documents->where('type','last-degree-earned') as $item)    
-                                              <h5 class="card-title">Document</h5>
+                                                @foreach ($user->documents->where('type','last-degree-earned') as $index=>$item)    
+                                                <a href="{{url('/',$item->document_url)}}" target="_blank"><h5 class="card-title">Document-{{$index+1}}</h5></a>
                                               @endforeach
                                             </div>
                                           </div>
@@ -263,8 +263,8 @@
                                         <p>3. Professional courses(Design, Marketing, Finance, Carpenter, etc)</p>
                                         <div class="card" style="width: 32rem; margin-bottom:5%;">
                                             <div class="card-body">
-                                                @foreach ($user->documents->where('type','professional-course') as $item)    
-                                              <h5 class="card-title">Document</h5>
+                                                @foreach ($user->documents->where('type','professional-course') as $index=>$item)    
+                                                <a href="{{url('/',$item->document_url)}}" target="_blank"><h5 class="card-title">Document-{{$index+1}}</h5></a>
                                               @endforeach
                                             </div>
                                           </div>
@@ -275,8 +275,8 @@
                                         <p>4. Identification document (Passport or driver’s license, or any other document)</p>
                                         <div class="card" style="width: 32rem; margin-bottom:5%;">
                                             <div class="card-body">
-                                                @foreach ($user->documents->where('type','identification-document') as $item)    
-                                              <h5 class="card-title">Document</h5>
+                                                @foreach ($user->documents->where('type','identification-document') as $index=>$item)    
+                                                <a href="{{url('/',$item->document_url)}}" target="_blank"><h5 class="card-title">Document-{{$index+1}}</h5></a>
                                               @endforeach
                                             </div>
                                           </div>
@@ -287,8 +287,8 @@
                                         <p>5. Additional Certificates</p>
                                         <div class="card" style="width: 32rem; margin-bottom:5%;">
                                             <div class="card-body">
-                                                @foreach ($user->documents as $item) 
-                                                <a href="{{url('/',$item->document_url)}}" target="_blank"><h5 class="card-title">Document</h5></a>   
+                                                @foreach ($user->documents as $index=>$item) 
+                                                <a href="{{url('/',$item->document_url)}}" target="_blank"><h5 class="card-title">Document-{{$index+1}}</h5></a>   
                                                 @endforeach
                                             </div>
                                           </div>

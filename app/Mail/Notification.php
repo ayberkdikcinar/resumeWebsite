@@ -45,12 +45,12 @@ class Notification extends Mailable
         ////otomatik gelen mail ve direkt adminin gönderdiği mail view'i burada ayrılacak! Buraya bir qery parameter girerek bu olay sağlanacak!
         if($this->filename){
             return $this->view('adminPanel.mail.notification',[$this->request])
-            ->subject('This is notification')
+            ->subject('')
             ->attach($this->filename);
         }
         else{
             return $this->view('adminPanel.mail.notification',[$this->request])
-            ->subject('This is notification');
+            ->subject('');
         }
         
     }

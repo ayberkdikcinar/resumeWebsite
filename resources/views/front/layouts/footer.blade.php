@@ -9,13 +9,15 @@
                         <h2>COMPANY INFO</h2>
                         <ul>
                            <li><a href="{{route('contactUs')}}">Contact us</a></li>
-                           <li><a href="{{route('aboutUs')}}">About Us</a></li>
+                           <li><a href="{{route('aboutUs')}}">Security Overview</a></li>
+                           <li><a href="{{route('aboutUs')}}">CCPA Notice</a></li>
+                           <li><a href="{{route('aboutUs')}}">User Rights</a></li>
                            <li><a href="{{route('privacyPolicies')}}">Privacy Policy</a></li>
                            <li><a href="{{route('termsOfUse')}}">Terms of use</a></li>   
                         </ul>
                      </div>
                      <div class="col-sm-4">
-                        <h5 style="color: white;">We work with these payment methods</h5><br> 
+                        <h5 style="color: white;">We work with these payment methods;</h5><br> 
                         <img src="{{asset('uploads/payment.png')}}" alt="">
                      </div>     
                   </div>

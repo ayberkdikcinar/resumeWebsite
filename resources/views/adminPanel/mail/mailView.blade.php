@@ -23,7 +23,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="attachment" class="form-label">Mail Body</label>
-                                <textarea class="form-control" name="email_body" id="" cols="30" rows="6"></textarea>
+                                <textarea class="form-control" name="email_body" id="" cols="30" rows="6" required></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="attachment" class="form-label">Attachment</label>
