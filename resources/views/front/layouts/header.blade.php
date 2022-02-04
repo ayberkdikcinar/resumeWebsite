@@ -35,20 +35,23 @@
       <nav class="navbar navbar-default">
          <div class="container-fluid">
             <div class="row">
-               <div class="col-md-6 col-sm-12" style="float:none;margin:auto;">
+               <div class="col-md-6 col-sm-12 left-rs" style="float:none;margin:auto;">
                   <div class="navbar-header">
                      <button type="button" id="top-menu" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                      </button>
                      <a href="{{route('index')}}" class="navbar-brand"><img src="{{asset('')}}{{$setting->logo_url}}" alt="" /></a>
                   </div>
                </div>
-               <div class="col-md-6 col-sm-12">
+               <div class="col-md-4 col-sm-12">
                   <div class="right-nav">
                      <div class="nav-b hidden-xs">
                         <div class="nav-box">
                            <ul>
-                              <li><a href="{{route('howItWorks')}}">How does it works</a></li>
+                              <li><a href="{{route('howItWorks')}}">How it works</a></li>
                               <li><a href="{{route('aboutUs')}}">Legal Bindings</a></li>
                               <li><a href="{{route('contactUs')}}">Contact us</a></li>
                               @auth
@@ -115,7 +118,7 @@
    </header>
    <div id="sidebar" class="top-nav">
       <ul id="sidebar-nav" class="sidebar-nav">
-         <li><a href="{{route('howItWorks')}}">How does it works</a></li>
+         <li><a href="{{route('howItWorks')}}">How it works</a></li>
          <li><a href="{{route('aboutUs')}}">Legal Bindings</a></li>
          <li><a href="{{route('contactUs')}}">Contact us</a></li>
       </ul>
