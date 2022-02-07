@@ -23,8 +23,8 @@ class CreateEducation extends Migration
             $table->string('degree');
             $table->string('area_of_study');
             $table->string('location')->nullable(false);
-            $table->longText('activities_societies');
-            $table->longText('description');
+            $table->longText('activities_societies')->nullable(true);
+            $table->longText('description')->nullable(true);
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

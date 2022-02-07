@@ -59,7 +59,7 @@ RESUME | MY EDUCATION
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="employer-education-level">Education Level*</label>
-                                <select class="form-control dropdown" id="education_level" name="education_level">
+                                <select class="form-control dropdown" id="education_level" name="education_level" required>
                                     <option value="" selected="selected" disabled="disabled">-- select one --</option>
                                     <option value="Doctorate/ PHD">Doctorate/ PHD</option>
                                     <option value="PhD">PhD</option>

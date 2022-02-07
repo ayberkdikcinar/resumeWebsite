@@ -61,7 +61,7 @@ RESUME | MY SKILLS
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="Skill">Skill*</label>
-                                <input type="text" class="form-control" name="name" placeholder="e.g Photoshop">
+                                <input type="text" class="form-control" name="name" placeholder="e.g Photoshop" required>
                             </div>
                         </div>
                         <div class="form-row">

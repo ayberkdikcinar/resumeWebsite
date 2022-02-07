@@ -58,7 +58,7 @@ RESUME | MY EXPERIENCE
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="employer-company-name">Employer/Company name</label>
-                                <input type="text" class="form-control" name="company_name" placeholder="e.g This Company">
+                                <input type="text" class="form-control" name="company_name" placeholder="e.g This Company" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="position">Position</label>
