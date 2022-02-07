@@ -7,7 +7,7 @@ PROFILE | {{Auth::User()->name}} {{Auth::User()->surname}}
    <div class="container">
       <div class="row">
          <div class="col-md-1 col-sm-4 "></div>
-         <div class="col-md-2 col-sm-4 ">
+         <div class="col-md-3 col-sm-4 ">
             <div class="left-profile-box-m prod-page">
                <div class="panel-body">
                   <img src="{{asset('')}}{{Auth::User()->photo_url}}" class="profile-picture" />
@@ -21,6 +21,9 @@ PROFILE | {{Auth::User()->name}} {{Auth::User()->surname}}
                <li class="list-group-item">Contact</li>
                <li class="list-group-item">{{Auth::User()->email}}</li>
                <li class="list-group-item">{{Auth::User()->phone}}</li>
+               <li class="list-group-item">
+                  <center><a href="{{route('admin.user.generatePDF', Auth::User()->id)}}"><img src="{{asset('/front/images/pdf_download.png')}}"></a></center>
+               </li>
             </ul>
          </div>
          <div class="col-md-8 col-sm-8">
