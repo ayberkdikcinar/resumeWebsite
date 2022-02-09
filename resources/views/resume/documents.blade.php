@@ -63,7 +63,7 @@ RESUME | DOCUMENTS
                             <div class="form-group col-md-5">
                                 <ul class="list-group">
                                     <li class="list-group-item active" style="background-color: #2F8D46; margin-left:5%">
-                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;" target="_blank">{{basename($document->document_url)}}</a>
+                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;" target="_blank">{{substr(basename($document->document_url),11,21)}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -107,7 +107,7 @@ RESUME | DOCUMENTS
                             <div class="form-group col-md-5">
                                 <ul class="list-group">
                                     <li class="list-group-item active" style="background-color: #2F8D46; margin-left:5%">
-                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{basename($document->document_url)}}</a>
+                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{substr(basename($document->document_url),11,21)}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -151,7 +151,7 @@ RESUME | DOCUMENTS
                             <div class="form-group col-md-5">
                                 <ul class="list-group">
                                     <li class="list-group-item active" style="background-color: #2F8D46; margin-left:5%">
-                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{basename($document->document_url)}}</a>
+                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{substr(basename($document->document_url),11,21)}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -195,7 +195,7 @@ RESUME | DOCUMENTS
                             <div class="form-group col-md-5">
                                 <ul class="list-group">
                                     <li class="list-group-item active" style="background-color: #2F8D46; margin-left:5%">
-                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{basename($document->document_url)}}</a>
+                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{substr(basename($document->document_url),11,21)}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -239,7 +239,7 @@ RESUME | DOCUMENTS
                             <div class="form-group col-md-5">
                                 <ul class="list-group">
                                     <li class="list-group-item active" style="background-color: #2F8D46; margin-left:5%">
-                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{basename($document->document_url)}}</a>
+                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{substr(basename($document->document_url),11,21)}}</a>
                                     </li>
                                 </ul>
                             </div>
