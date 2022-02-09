@@ -274,8 +274,8 @@ RESUME | DOCUMENTS
     });
 </script>
 <script>
-    $('#chooseFile').bind('change', function() {
-        var filename = $("#chooseFile").val();
+    $('#file').bind('change', function() {
+        var filename = $("#file").val();
         if (/^\s*$/.test(filename)) {
             $(".file-upload").removeClass('active');
             $("#noFile").text("No file chosen...");
