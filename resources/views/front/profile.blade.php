@@ -376,6 +376,74 @@ PROFILE | {{Auth::User()->name}} {{Auth::User()->surname}}
                                     </div>
                                  </div>
                            </li>
+                           <li class="clearfix">
+                              <div class="card">
+                                 <div class="card-header collapsed card-link profile-info" data-toggle="collapse" href="#documents">
+                                    <h4 style="padding: 5px;"><i class="fas fa-angle-down"></i> DOCUMENTS</h4>
+                                 </div>
+                                 <div class="profile-edit">
+                                    <a href="{{ route('resume.documents')}}" class="btn-profile-edit btn-success"><span class="material-icons">edit</span></a>
+                                 </div>
+                                 <div id="documents" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                    <ul>
+                                       @foreach ($documents as $document)
+                                          @if ($document->type === 'english-test')
+                                          <li class="clearfix">
+                                             <div class="col-md-4">
+                                                <h5>English Test</h5>
+                                             </div>
+                                             <div class="col-md-8">
+                                                <p> <a href="{{asset('')}}{{$document->document_url}}">{{basename($document->document_url)}}</a></p>
+                                             </div>
+                                          </li>
+                                          @endif
+                                          @if ($document->type === 'last-degree-earned')
+                                          <li class="clearfix">
+                                             <div class="col-md-4">
+                                                <h5>Earned Degree</h5>
+                                             </div>
+                                             <div class="col-md-8">
+                                                <p> <a href="{{asset('')}}{{$document->document_url}}">{{basename($document->document_url)}}</a></p>
+                                             </div>
+                                          </li>
+                                          @endif
+                                          @if ($document->type === 'professional-courses')
+                                          <li class="clearfix">
+                                             <div class="col-md-4">
+                                                <h5>Professional Course</h5>
+                                             </div>
+                                             <div class="col-md-8">
+                                                <p> <a href="{{asset('')}}{{$document->document_url}}">{{basename($document->document_url)}}</a></p>
+                                             </div>
+                                          </li>
+                                          @endif
+                                          @if ($document->type === 'identification-document')
+                                          <li class="clearfix">
+                                             <div class="col-md-4">
+                                                <h5>Identification Document</h5>
+                                             </div>
+                                             <div class="col-md-8">
+                                                <p> <a href="{{asset('')}}{{$document->document_url}}">{{basename($document->document_url)}}</a></p>
+                                             </div>
+                                          </li>
+                                          @endif
+                                          @if ($document->type === 'additional-certificates')
+                                          <li class="clearfix">
+                                             <div class="col-md-4">
+                                                <h5>Certificate</h5>
+                                             </div>
+                                             <div class="col-md-8">
+                                                <p> <a href="{{asset('')}}{{$document->document_url}}">{{basename($document->document_url)}}</a></p>
+                                             </div>
+                                          </li>
+                                          @endif
+                                       
+                                       @endforeach
+                                       </ul>
+                                    </div>
+                                 </div>
+                           </li>
                         </ul>
                      </div>
                   </div>
