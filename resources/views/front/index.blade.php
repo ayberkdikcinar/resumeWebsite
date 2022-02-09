@@ -22,6 +22,7 @@
             <div class="col-md-4 col-sm-6 wow fadeIn" data-wow-delay="0.0s">
                <div class="panel panel-default">
                   <div class="panel-body">
+                     <img src="{{asset('')}}front/images/get-icon.jpg" class="icon-small" alt="">
                      <h4>{!!$homepage->card_one_title!!}</h4>
                      <p>{!!$homepage->card_one_content!!}</p>
                   </div>
@@ -30,6 +31,7 @@
             <div class="col-md-4 col-sm-6 wow fadeIn" data-wow-delay="0.2s">
                <div class="panel panel-default">
                   <div class="panel-body">
+                     <img src="{{asset('')}}front/images/xpann-icon.jpg" class="icon-small" alt="">
                      <h4>{!!$homepage->card_two_title!!}</h4>
                      <p>{!!$homepage->card_two_content!!}</p>
                   </div>
@@ -38,6 +40,7 @@
             <div class="col-md-4 col-sm-6 wow fadeIn hidden-sm" data-wow-delay="0.4s">
                <div class="panel panel-default">
                   <div class="panel-body">
+                     <img src="{{asset('')}}front/images/create-icon.jpg" class="icon-small" alt="">
                      <h4>{!!$homepage->card_three_title!!}</h4>
                      <p>{!!$homepage->card_three_content!!}</p>
                   </div>

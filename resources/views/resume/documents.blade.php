@@ -62,8 +62,8 @@ RESUME | DOCUMENTS
                             @if ($document->type === 'english-test')
                             <div class="form-group col-md-5">
                                 <ul class="list-group">
-                                    <li class="list-group-item active" style="background-color: #2F8D46;">
-                                        <a href="{{asset('')}}{{Auth::User()->photo_url}}" style="color: white;">{{basename($document->document_url)}}</a>
+                                    <li class="list-group-item active" style="background-color: #2F8D46; margin-left:5%">
+                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;" target="_blank">{{basename($document->document_url)}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -106,8 +106,8 @@ RESUME | DOCUMENTS
                             @if ($document->type === 'last-degree-earned')
                             <div class="form-group col-md-5">
                                 <ul class="list-group">
-                                    <li class="list-group-item active" style="background-color: #2F8D46;">
-                                        <a href="{{asset('')}}{{Auth::User()->photo_url}}" style="color: white;">{{basename($document->document_url)}}</a>
+                                    <li class="list-group-item active" style="background-color: #2F8D46; margin-left:5%">
+                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{basename($document->document_url)}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -150,8 +150,8 @@ RESUME | DOCUMENTS
                             @if ($document->type === 'professional-courses')
                             <div class="form-group col-md-5">
                                 <ul class="list-group">
-                                    <li class="list-group-item active" style="background-color: #2F8D46;">
-                                        <a href="{{asset('')}}{{Auth::User()->photo_url}}" style="color: white;">{{basename($document->document_url)}}</a>
+                                    <li class="list-group-item active" style="background-color: #2F8D46; margin-left:5%">
+                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{basename($document->document_url)}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -194,8 +194,8 @@ RESUME | DOCUMENTS
                             @if ($document->type === 'identification-document')
                             <div class="form-group col-md-5">
                                 <ul class="list-group">
-                                    <li class="list-group-item active" style="background-color: #2F8D46;">
-                                        <a href="{{asset('')}}{{Auth::User()->photo_url}}" style="color: white;">{{basename($document->document_url)}}</a>
+                                    <li class="list-group-item active" style="background-color: #2F8D46; margin-left:5%">
+                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{basename($document->document_url)}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -238,8 +238,8 @@ RESUME | DOCUMENTS
                             @if ($document->type === 'additional-certificates')
                             <div class="form-group col-md-5">
                                 <ul class="list-group">
-                                    <li class="list-group-item active" style="background-color: #2F8D46;">
-                                        <a href="{{asset('')}}{{Auth::User()->photo_url}}" style="color: white;">{{basename($document->document_url)}}</a>
+                                    <li class="list-group-item active" style="background-color: #2F8D46; margin-left:5%">
+                                        <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{basename($document->document_url)}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -256,7 +256,9 @@ RESUME | DOCUMENTS
                             <input type="submit" name="submit" class="btn btn-warning" value="Add Identification Document" />
                         </center>
                     </div>
+                    <a href="{{ route('profile')}}" class="btn btn-primary next-step">Finish</a>
                     <a href="{{ route('resume.job_preferences')}}" class="btn btn-primary previous-step">Previous Step</a>
+                   
                 </fieldset>
 
             </form>

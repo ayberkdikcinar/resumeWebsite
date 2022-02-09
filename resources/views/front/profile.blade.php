@@ -22,7 +22,7 @@ PROFILE | {{Auth::User()->name}} {{Auth::User()->surname}}
                <li class="list-group-item">{{Auth::User()->email}}</li>
                <li class="list-group-item">{{Auth::User()->phone}}</li>
                <li class="list-group-item">
-                  <center><a href="{{route('admin.user.generatePDF', Auth::User()->id)}}"><img src="{{asset('/front/images/pdf_download.png')}}"></a></center>
+                  <center><a href="{{route('admin.user.generatePDF', Auth::User()->id)}}"><img src="{{asset('uploads/pdf_download.png')}}" width="70px" height="75px"></a></center>
                </li>
             </ul>
          </div>
