@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
 
 <head>
 
@@ -25,133 +25,190 @@
     <!--phone selection-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
+
     @yield('css')
+
+
 
 </head>
 
 <body>
-   
-    <div class="wrapper mt-lg-5" id="testDiv">
-        <div class="sidebar-wrapper">
-            <div class="profile-container">
-                <img src="{{asset('')}}{{Auth::User()->photo_url}}" class="profile-picture" />
-                <h1 class="name" style="text-transform: uppercase; font-size:150%"><br>{{$user->name}} <br>{{$user->surname}}</h1>
-                <h3 class="tagline">{{$user->current_position}}</h3>
-            </div>
-            <!--//profile-container-->
 
-            <div class="contact-container container-block">
-                <ul class="list-unstyled contact-list">
-                    <li class="email"><i class="fas fa-envelope"></i><a href="mailto: yourname@email.com"> {{$user->email}}</a></li>
-                    <li class="phone"><i class="fas fa-phone"></i><a href="tel:{{$user->phone}}"> {{$user->phone}}</a></li>
-                </ul>
-            </div>
-            <!--//contact-container-->
-            <div class="education-container container-block">
-                <h2 class="container-block-title">Education</h2>
-                @foreach ($user->educations->sortByDesc('from_time') as $education)
-                <div class="item">
-                    <h4 class="degree">{{$education->education_level}}</h4>
-                    <h5 class="meta">{{$education->school}}</h5>
-                    <div class="time">{{$education->from_time}} - {{$education->to_time}}</div>
-                </div>
-                @endforeach
-            </div>
-            <!--//education-container-->
+    <div id="doc2" class="yui-t7">
+        <div id="inner">
 
-            <div class="languages-container container-block">
-                <h2 class="container-block-title">Languages</h2>
-                <ul class="list-unstyled interests-list">
-                    @foreach ($user->languages as $language)
-                    <li>
-                        {{$language->name}} <span class="lang-desc">{{$language->proficiency}}</span>
-                    </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-        <!--//sidebar-wrapper-->
+            <div id="hd">
+                <div class="yui-gc">
+                    <div class="yui-u first">
+                        <h1>{{$user->name}} {{$user->surname}}</h1>
+                        <h2>{{$user->current_position}}</h2>
+                    </div>
 
-        <div class="main-wrapper">
-
-            <section class="section summary-section">
-                <h2 class="section-title">
-                    <span class="material-icons">account_circle</span> ABOUT ME
-                </h2>
-                <div class="summary">
-                    <p>{{$user->about}}</p>
-                </div>
-                <!--//summary-->
-            </section>
-            <!--//section-->
-
-            <section class="section experiences-section">
-                <h2 class="section-title"><span class="material-icons">work</span> Experiences</h2>
-                @foreach ($user->experiences->sortByDesc('from_time') as $experience)
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">{{$experience->position}}</h3>
-                            <div class="time">{{$experience->from_time}} - {{$experience->to_time}}</div>
+                    <div class="yui-u">
+                        <div class="contact-info">
+                            <h3>CONTACT</h3><br>
+                            <h3><a href="mailto:{{$user->email}}">{{$user->email}}</a></h3>
+                            <h3>{{$user->phone}}</h3>
                         </div>
-                        <!--//upper-row-->
-                        <div class="company">{{$experience->company_name}}</div>
+                        <!--// .contact-info -->
                     </div>
-                    <!--//meta-->
-                    <div class="details">
-                        <p>{{$experience->description}}</p>
-                    </div>
-                    <!--//details-->
                 </div>
-                <!--//item-->
-                @endforeach
-            </section>
-            <!--//section-->
+                <!--// .yui-gc -->
+            </div>
+            <!--// hd -->
 
+            <div id="bd">
+                <div id="yui-main">
+                    <div class="yui-b">
 
-            <!--//section-->
-            <section class="section experiences-section">
-                <h2 class="section-title"><span class="material-icons">assignment</span> Courses</h2>
-                @foreach ($user->courses->sortByDesc('from_time') as $course)
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">{{$course->name}}</h3>
-                            <div class="time">{{$course->from_time}} - {{$course->to_time}}</div>
+                        <div class="yui-gf">
+                            <div class="yui-u first">
+                                <h2>About Me</h2>
+                            </div>
+                            <div class="yui-u">
+                                <p class="enlarge">
+                                    {{$user->about}}
+                                </p>
+                            </div>
                         </div>
-                        <!--//upper-row-->
-                        <div class="company">{{$course->provider}}</div>
-                    </div>
-                    <!--//meta-->
-                    <div class="details">
-                        <p>{{$course->description}}</p>
-                    </div>
-                    <!--//details-->
-                </div>
-                <!--//item-->
-                @endforeach
-            </section>
+                        <!--// .yui-gf -->
 
-            <section class="section projects-section">
-                <h2 class="section-title"><span class="material-icons">rocket</span> Skills</h2>
-                @foreach ($user->skills->sortBy('type') as $skill)
-                <!--//intro-->
-                <div class="item">
-                    <span class="project-title" style="float: left; width:45%;">{{$skill->name}}</span>
-                    <span class="material-icons">
-                        arrow_forward_ios
-                    </span>
-                    <span class="project-tagline" style="float:right; width:20%;"> {{$skill->type}} </span>
+
+                        <div class="yui-gf">
+
+                            <div class="yui-u first">
+                                <h2>Experience</h2>
+                            </div>
+                            <!--// .yui-u -->
+
+                            <div class="yui-u">
+                                @foreach ($user->experiences->sortByDesc('from_time') as $experience)
+                                <div class="job">
+                                    <h2>{{$experience->company_name}}</h2>
+                                    <h3>{{$experience->position}}</h3>
+                                    <h4>{{$experience->from_time}} - {{$experience->to_time}}</h4>
+                                    <p>{{$experience->description}}</p>
+                                </div>
+                                @endforeach
+                            </div>
+                            <!--// .yui-u -->
+                        </div>
+                        <!--// .yui-gf -->
+
+
+
+                        <!--// .yui-gf -->
+
+                        <div class="yui-gf">
+
+                            <div class="yui-u first">
+                                <h2>Education</h2>
+                            </div>
+                            <!--// .yui-u -->
+
+                            <div class="yui-u">
+                                @foreach ($user->educations->sortByDesc('from_time') as $education)
+                                <div class="job">
+                                    <h2>{{$education->school}}</h2>
+                                    <h3>{{$education->education_level}}</h3>
+                                    <h4>{{$education->from_time}} - {{$education->to_time}}</h4>
+                                </div>
+                                @endforeach
+
+
+
+                            </div>
+                            <!--// .yui-u -->
+                        </div>
+                        <!--// .yui-gf -->
+
+                        <!--// .yui-gf -->
+
+                        <div class="yui-gf">
+
+                            <div class="yui-u first">
+                                <h2>Courses</h2>
+                            </div>
+                            <!--// .yui-u -->
+
+                            <div class="yui-u">
+                                @foreach ($user->courses->sortByDesc('from_time') as $course)
+                                <div class="job">
+                                    <h2>{{$course->name}}</h2>
+                                    <h3>{{$course->provider}}</h3>
+                                    <h4>{{$course->from_time}} - {{$course->to_time}}</h4>
+                                    <p>{{$course->description}}</p>
+                                </div>
+                                @endforeach
+                            </div>
+                            <!--// .yui-u -->
+                        </div>
+                        <!--// .yui-gf -->
+
+
+
+                        <!--//sidebar-wrapper-->
+                        <div class="yui-gf">
+
+                            <div class="yui-u first">
+                                <h2>Skills</h2>
+                            </div>
+                            <!--// .yui-u -->
+
+                            <div class="yui-u">
+                                @foreach ($user->skills->sortBy('type') as $skill)
+                                <div class="job">
+                                    <h2>{{$skill->name}}</h2>
+                                    <h4>{{$skill->type}}</h4>
+                                </div>
+                                @endforeach
+                            </div>
+                            <!--// .yui-u -->
+                        </div>
+                        <!--// .yui-gf -->
+                        <!--//sidebar-wrapper-->
+                        <div class="yui-gf">
+
+                            <div class="yui-u first">
+                                <h2>Languages</h2>
+                            </div>
+                            <!--// .yui-u -->
+
+                            <div class="yui-u">
+                                @foreach ($user->languages as $language)
+                                <div class="job">
+                                    <h2>{{$language->name}}</h2>
+                                    <h4>{{$language->proficiency}}</h4>
+                                </div>
+                                @endforeach
+                            </div>
+                            <!--// .yui-u -->
+                        </div>
+                        <!--// .yui-gf -->
+
+                    </div>
+                    <!--// .yui-b -->
                 </div>
-                <!--//item-->
-                @endforeach
-            </section>
-        </div>
-        <!--//main-body-->
+                <!--// yui-main -->
+            </div>
+            <!--// bd -->
+
+            <div id="ft">
+                <p>{{$user->name}} {{$user->surname}} &mdash; <a href="mailto:{{$user->email}}">{{$user->email}}</a> &mdash; {{$user->phone}}</p>
+            </div>
+            <!--// footer -->
+
+        </div><!-- // inner -->
+
+
     </div>
-    
+    <!--// doc -->
+
+
 </body>
 <!-- Bootstrap core JavaScript-->
 <script src="{{asset('back/')}}/vendor/jquery/jquery.min.js"></script>
