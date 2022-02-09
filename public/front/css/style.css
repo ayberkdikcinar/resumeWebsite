@@ -558,13 +558,13 @@ header .navbar-default .navbar-header {
 	color: #333;
 	font-size: 22px;
 	font-weight: 400;
-	margin-top: 10px;
-	margin-bottom: 15px;
+	margin-top: 5px;
+	margin-bottom: 10px;
 	font-family: 'Raleway', sans-serif;
 }
 
 .cat-main-box .panel .panel-body p {
-	height: 66px;
+	height: 120px;
 	margin-bottom: 0;
 	font-size: 14px;
 	font-weight: 400;

@@ -106,7 +106,7 @@ RESUME | DOCUMENTS
                             @if ($document->type === 'last-degree-earned')
                             <div class="form-group col-md-5">
                                 <ul class="list-group">
-                                    <li class="list-group-item active" style="background-color: #2F8D46;">
+                                    <li class="list-group-item active" style="background-color: #2F8D46; margin-left:5%">
                                         <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{basename($document->document_url)}}</a>
                                     </li>
                                 </ul>
@@ -150,7 +150,7 @@ RESUME | DOCUMENTS
                             @if ($document->type === 'professional-courses')
                             <div class="form-group col-md-5">
                                 <ul class="list-group">
-                                    <li class="list-group-item active" style="background-color: #2F8D46;">
+                                    <li class="list-group-item active" style="background-color: #2F8D46; margin-left:5%">
                                         <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{basename($document->document_url)}}</a>
                                     </li>
                                 </ul>
@@ -194,7 +194,7 @@ RESUME | DOCUMENTS
                             @if ($document->type === 'identification-document')
                             <div class="form-group col-md-5">
                                 <ul class="list-group">
-                                    <li class="list-group-item active" style="background-color: #2F8D46;">
+                                    <li class="list-group-item active" style="background-color: #2F8D46; margin-left:5%">
                                         <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{basename($document->document_url)}}</a>
                                     </li>
                                 </ul>
@@ -238,7 +238,7 @@ RESUME | DOCUMENTS
                             @if ($document->type === 'additional-certificates')
                             <div class="form-group col-md-5">
                                 <ul class="list-group">
-                                    <li class="list-group-item active" style="background-color: #2F8D46;">
+                                    <li class="list-group-item active" style="background-color: #2F8D46; margin-left:5%">
                                         <a href="{{asset('')}}{{$document->document_url}}" style="color: white;">{{basename($document->document_url)}}</a>
                                     </li>
                                 </ul>
