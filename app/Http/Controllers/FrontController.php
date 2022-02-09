@@ -53,7 +53,8 @@ class FrontController extends Controller
         $languages = Auth::user()->languages;
         $skills = Auth::user()->skills;
         $job_preferences = Auth::user()->jobPreferences;
-        return view('front.profile', compact('courses', 'educations', 'experiences', 'languages', 'skills', 'job_preferences'));
+        $documents = Auth::user()->documents;
+        return view('front.profile', compact('courses', 'educations', 'experiences', 'languages', 'skills', 'job_preferences', 'documents'));
     }
     public function changePassword(){
         return view('front.password_change');

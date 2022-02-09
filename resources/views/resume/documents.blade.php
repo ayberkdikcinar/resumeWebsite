@@ -51,9 +51,9 @@ RESUME | DOCUMENTS
 
                             <div class="file-upload">
                                 <div class="file-select">
-                                    <div class="file-select-button" id="fileName">Choose File</div>
-                                    <div class="file-select-name" id="noFile">No file chosen...</div>
-                                    <input type="file" name="file" id="file" accept=".png,.jpg,.jpeg,.doc,.docx,.pdf" , required>
+                                    <div class="file-select-button" id="fileName-et">Choose File</div>
+                                    <div class="file-select-name" id="noFile-et">No file chosen...</div>
+                                    <input type="file" name="file" id="file-et" accept=".png,.jpg,.jpeg,.doc,.docx,.pdf" , required>
                                 </div>
                             </div>
                         </div>
@@ -95,9 +95,9 @@ RESUME | DOCUMENTS
 
                             <div class="file-upload">
                                 <div class="file-select">
-                                    <div class="file-select-button" id="fileName">Choose File</div>
-                                    <div class="file-select-name" id="noFile">No file chosen...</div>
-                                    <input type="file" name="file" id="file" accept=".png,.jpg,.jpeg,.doc,.docx,.pdf" , required>
+                                    <div class="file-select-button" id="fileName-lde">Choose File</div>
+                                    <div class="file-select-name" id="noFile-lde">No file chosen...</div>
+                                    <input type="file" name="file" id="file-lde" accept=".png,.jpg,.jpeg,.doc,.docx,.pdf" , required>
                                 </div>
                             </div>
                         </div>
@@ -139,9 +139,9 @@ RESUME | DOCUMENTS
 
                             <div class="file-upload">
                                 <div class="file-select">
-                                    <div class="file-select-button" id="fileName">Choose File</div>
-                                    <div class="file-select-name" id="noFile">No file chosen...</div>
-                                    <input type="file" name="file" id="file" accept=".png,.jpg,.jpeg,.doc,.docx,.pdf" , required>
+                                    <div class="file-select-button" id="fileName-pc">Choose File</div>
+                                    <div class="file-select-name" id="noFile-pc">No file chosen...</div>
+                                    <input type="file" name="file" id="file-pc" accept=".png,.jpg,.jpeg,.doc,.docx,.pdf" , required>
                                 </div>
                             </div>
                         </div>
@@ -183,9 +183,9 @@ RESUME | DOCUMENTS
 
                             <div class="file-upload">
                                 <div class="file-select">
-                                    <div class="file-select-button" id="fileName">Choose File</div>
-                                    <div class="file-select-name" id="noFile">No file chosen...</div>
-                                    <input type="file" name="file" id="file" accept=".png,.jpg,.jpeg,.doc,.docx,.pdf" , required>
+                                    <div class="file-select-button" id="fileName-id">Choose File</div>
+                                    <div class="file-select-name" id="noFile-id">No file chosen...</div>
+                                    <input type="file" name="file" id="file-id" accept=".png,.jpg,.jpeg,.doc,.docx,.pdf" , required>
                                 </div>
                             </div>
                         </div>
@@ -227,9 +227,9 @@ RESUME | DOCUMENTS
 
                             <div class="file-upload">
                                 <div class="file-select">
-                                    <div class="file-select-button" id="fileName">Choose File</div>
-                                    <div class="file-select-name" id="noFile">No file chosen...</div>
-                                    <input type="file" name="file" id="file" accept=".png,.jpg,.jpeg,.doc,.docx,.pdf" , required>
+                                    <div class="file-select-button" id="fileName-ac">Choose File</div>
+                                    <div class="file-select-name" id="noFile-ac">No file chosen...</div>
+                                    <input type="file" name="file" id="file-ac" accept=".png,.jpg,.jpeg,.doc,.docx,.pdf" , required>
                                 </div>
                             </div>
                         </div>
@@ -274,14 +274,58 @@ RESUME | DOCUMENTS
     });
 </script>
 <script>
-    $('#file').bind('change', function() {
-        var filename = $("#file").val();
+    $('#file-et').bind('change', function() {
+        var filename = $("#file-et").val();
         if (/^\s*$/.test(filename)) {
             $(".file-upload").removeClass('active');
-            $("#noFile").text("No file chosen...");
+            $("#noFile-et").text("No file chosen...");
         } else {
             $(".file-upload").addClass('active');
-            $("#noFile").text(filename.replace("C:\\fakepath\\", ""));
+            $("#noFile-et").text(filename.replace("C:\\fakepath\\", ""));
+        }
+    });
+
+    $('#file-lde').bind('change', function() {
+        var filename = $("#file-lde").val();
+        if (/^\s*$/.test(filename)) {
+            $(".file-upload").removeClass('active');
+            $("#noFile-lde").text("No file chosen...");
+        } else {
+            $(".file-upload").addClass('active');
+            $("#noFile-lde").text(filename.replace("C:\\fakepath\\", ""));
+        }
+    });
+
+    $('#file-pc').bind('change', function() {
+        var filename = $("#file-pc").val();
+        if (/^\s*$/.test(filename)) {
+            $(".file-upload").removeClass('active');
+            $("#noFile-pc").text("No file chosen...");
+        } else {
+            $(".file-upload").addClass('active');
+            $("#noFile-pc").text(filename.replace("C:\\fakepath\\", ""));
+        }
+    });
+
+    $('#file-id').bind('change', function() {
+        var filename = $("#file-id").val();
+        if (/^\s*$/.test(filename)) {
+            $(".file-upload").removeClass('active');
+            $("#noFile-id").text("No file chosen...");
+        } else {
+            $(".file-upload").addClass('active');
+            $("#noFile-id").text(filename.replace("C:\\fakepath\\", ""));
+        }
+    });
+    
+    $('#file-ac').bind('change', function() {
+        var filename = $("#file-ac").val();
+        if (/^\s*$/.test(filename)) {
+            $(".file-upload").removeClass('active');
+            $("#noFile-ac").text("No file chosen...");
+        } else {
+            $(".file-upload").addClass('active');
+            $("#noFile-ac   ").text(filename.replace("C:\\fakepath\\", ""));
         }
     });
 </script>
