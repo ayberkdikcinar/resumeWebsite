@@ -192,16 +192,15 @@ class UserController extends Controller
     }
 
     public function generatePDF($id){
-
         $user = User::findOrFail($id);
-
+        
         $pdf = app('dompdf.wrapper');
-        $pdf->setOptions(['isRemoteEnabled' => TRUE, 'enable_javascript' => TRUE]);
+        $pdf->setOptions(['isRemoteEnabled' => TRUE, 'enable_javascript' => TRUE, 'setIsHtml5ParserEnabled' => TRUE, 'dpi' => 136]);
         $html = view('adminPanel.users.test_pdf',compact('user'))->render();
         $pdf->loadHtml($html);
-      
+        
 
-        return $pdf->download('itsolutionstuff.pdf');  
+        return $pdf->download('resume.pdf');  
     }
 
   /*  public function downloadFile($path){

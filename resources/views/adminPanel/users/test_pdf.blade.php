@@ -1,215 +1,205 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<meta charset="UTF-8">
+<title>@yield('title','RESUME')</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--enable mobile device-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--fontawesome css-->
+<link rel="stylesheet" href="{{asset('front')}}/css/font-awesome.min.css">
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+<!--bootstrap css-->
+<link rel="stylesheet" href="{{asset('front')}}/css/bootstrap.min.css">
+<!--animate css-->
+<link rel="stylesheet" href="{{asset('front')}}/css/animate-wow.css">
+<!--main css-->
+<link rel="stylesheet" href="{{asset('front')}}/css/style.css">
+<link rel="stylesheet" href="{{asset('front')}}/css/orbit.css">
+<link rel="stylesheet" href="{{asset('front')}}/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="{{asset('front')}}/css/slick.min.css">
+<!--responsive css-->
+<link rel="stylesheet" href="{{asset('front')}}/css/responsive.css">
+<!--phone selection-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" />
 
-<head>
-
-    <meta charset="UTF-8">
-    <title>@yield('title','RESUME')</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--enable mobile device-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--fontawesome css-->
-    <link rel="stylesheet" href="{{asset('front')}}/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-    <!--bootstrap css-->
-    <link rel="stylesheet" href="{{asset('front')}}/css/bootstrap.min.css">
-    <!--animate css-->
-    <link rel="stylesheet" href="{{asset('front')}}/css/animate-wow.css">
-    <!--main css-->
-    <link rel="stylesheet" href="{{asset('front')}}/css/style.css">
-    <link rel="stylesheet" href="{{asset('front')}}/css/orbit.css">
-    <link rel="stylesheet" href="{{asset('front')}}/css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="{{asset('front')}}/css/slick.min.css">
-    <!--responsive css-->
-    <link rel="stylesheet" href="{{asset('front')}}/css/responsive.css">
-    <!--phone selection-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" />
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
 
-    @yield('css')
+@yield('css')   
 
 
 
-</head>
+<div width="100%"id="doc2" class="yui-t7">
+    <div width="100%"id="inner">
 
-<body>
-
-    <div id="doc2" class="yui-t7">
-        <div id="inner">
-
-            <div id="hd">
-                <div class="yui-gc">
-                    <div class="yui-u first">
-                        <h1>{{$user->name}} {{$user->surname}}</h1>
-                        <h2>{{$user->current_position}}</h2>
-                    </div>
-
-                    <div class="yui-u">
-                        <div class="contact-info">
-                            <h3>CONTACT</h3><br>
-                            <h3><a href="mailto:{{$user->email}}">{{$user->email}}</a></h3>
-                            <h3>{{$user->phone}}</h3>
-                        </div>
-                        <!--// .contact-info -->
-                    </div>
+        <div width="100%"id="hd">
+            <div width="100%"class="yui-gc">
+                <div width="100%"class="yui-u first">
+                    <h1>{{$user->name}} {{$user->surname}}</h1>
+                    <h2>{{$user->current_position}}</h2>
                 </div>
-                <!--// .yui-gc -->
-            </div>
-            <!--// hd -->
 
-            <div id="bd">
-                <div id="yui-main">
-                    <div class="yui-b">
-
-                        <div class="yui-gf">
-                            <div class="yui-u first">
-                                <h2>About Me</h2>
-                            </div>
-                            <div class="yui-u">
-                                <p class="enlarge">
-                                    {{$user->about}}
-                                </p>
-                            </div>
-                        </div>
-                        <!--// .yui-gf -->
-
-
-                        <div class="yui-gf">
-
-                            <div class="yui-u first">
-                                <h2>Experience</h2>
-                            </div>
-                            <!--// .yui-u -->
-
-                            <div class="yui-u">
-                                @foreach ($user->experiences->sortByDesc('from_time') as $experience)
-                                <div class="job">
-                                    <h2>{{$experience->company_name}}</h2>
-                                    <h3>{{$experience->position}}</h3>
-                                    <h4>{{$experience->from_time}} - {{$experience->to_time}}</h4>
-                                    <p>{{$experience->description}}</p>
-                                </div>
-                                @endforeach
-                            </div>
-                            <!--// .yui-u -->
-                        </div>
-                        <!--// .yui-gf -->
-
-
-
-                        <!--// .yui-gf -->
-
-                        <div class="yui-gf">
-
-                            <div class="yui-u first">
-                                <h2>Education</h2>
-                            </div>
-                            <!--// .yui-u -->
-
-                            <div class="yui-u">
-                                @foreach ($user->educations->sortByDesc('from_time') as $education)
-                                <div class="job">
-                                    <h2>{{$education->school}}</h2>
-                                    <h3>{{$education->education_level}}</h3>
-                                    <h4>{{$education->from_time}} - {{$education->to_time}}</h4>
-                                </div>
-                                @endforeach
-
-
-
-                            </div>
-                            <!--// .yui-u -->
-                        </div>
-                        <!--// .yui-gf -->
-
-                        <!--// .yui-gf -->
-
-                        <div class="yui-gf">
-
-                            <div class="yui-u first">
-                                <h2>Courses</h2>
-                            </div>
-                            <!--// .yui-u -->
-
-                            <div class="yui-u">
-                                @foreach ($user->courses->sortByDesc('from_time') as $course)
-                                <div class="job">
-                                    <h2>{{$course->name}}</h2>
-                                    <h3>{{$course->provider}}</h3>
-                                    <h4>{{$course->from_time}} - {{$course->to_time}}</h4>
-                                    <p>{{$course->description}}</p>
-                                </div>
-                                @endforeach
-                            </div>
-                            <!--// .yui-u -->
-                        </div>
-                        <!--// .yui-gf -->
-
-
-
-                        <!--//sidebar-wrapper-->
-                        <div class="yui-gf">
-
-                            <div class="yui-u first">
-                                <h2>Skills</h2>
-                            </div>
-                            <!--// .yui-u -->
-
-                            <div class="yui-u">
-                                @foreach ($user->skills->sortBy('type') as $skill)
-                                <div class="job">
-                                    <h2>{{$skill->name}}</h2>
-                                    <h4>{{$skill->type}}</h4>
-                                </div>
-                                @endforeach
-                            </div>
-                            <!--// .yui-u -->
-                        </div>
-                        <!--// .yui-gf -->
-                        <!--//sidebar-wrapper-->
-                        <div class="yui-gf">
-
-                            <div class="yui-u first">
-                                <h2>Languages</h2>
-                            </div>
-                            <!--// .yui-u -->
-
-                            <div class="yui-u">
-                                @foreach ($user->languages as $language)
-                                <div class="job">
-                                    <h2>{{$language->name}}</h2>
-                                    <h4>{{$language->proficiency}}</h4>
-                                </div>
-                                @endforeach
-                            </div>
-                            <!--// .yui-u -->
-                        </div>
-                        <!--// .yui-gf -->
-
+                <div width="100%"class="yui-u">
+                    <div width="100%"class="contact-info">
+                        <h3>CONTACT</h3><br>
+                        <h3><a href="mailto:{{$user->email}}">{{$user->email}}</a></h3>
+                        <h3>{{$user->phone}}</h3>
                     </div>
-                    <!--// .yui-b -->
+                    <!--// .contact-info -->
                 </div>
-                <!--// yui-main -->
             </div>
-            <!--// bd -->
+            <!--// .yui-gc -->
+        </div>
+        <!--// hd -->
 
-            <div id="ft">
-                <p>{{$user->name}} {{$user->surname}} &mdash; <a href="mailto:{{$user->email}}">{{$user->email}}</a> &mdash; {{$user->phone}}</p>
+        <div width="100%"id="bd">
+            <div width="100%"id="yui-main">
+                <div width="100%"class="yui-b">
+
+                    <div width="100%"class="yui-gf">
+                        <div width="100%"class="yui-u first">
+                            <h2>About Me</h2>
+                        </div>
+                        <div width="100%"class="yui-u">
+                            <p class="enlarge">
+                                {{$user->about}}
+                            </p>
+                        </div>
+                    </div>
+                    <!--// .yui-gf -->
+
+
+                    <div width="100%"class="yui-gf">
+
+                        <div width="100%"class="yui-u first">
+                            <h2>Experience</h2>
+                        </div>
+                        <!--// .yui-u -->
+
+                        <div width="100%"class="yui-u">
+                            @foreach ($user->experiences->sortByDesc('from_time') as $experience)
+                            <div width="100%"class="job">
+                                <h2>{{$experience->company_name}}</h2>
+                                <h3>{{$experience->position}}</h3>
+                                <h4>{{$experience->from_time}} - {{$experience->to_time}}</h4>
+                                <p>{{$experience->description}}</p>
+                            </div>
+                            @endforeach
+                        </div>
+                        <!--// .yui-u -->
+                    </div>
+                    <!--// .yui-gf -->
+
+
+
+                    <!--// .yui-gf -->
+
+                    <div width="100%"class="yui-gf">
+
+                        <div width="100%"class="yui-u first">
+                            <h2>Education</h2>
+                        </div>
+                        <!--// .yui-u -->
+
+                        <div width="100%"class="yui-u">
+                            @foreach ($user->educations->sortByDesc('from_time') as $education)
+                            <div width="100%"class="job">
+                                <h2>{{$education->school}}</h2>
+                                <h3>{{$education->education_level}}</h3>
+                                <h4>{{$education->from_time}} - {{$education->to_time}}</h4>
+                            </div>
+                            @endforeach
+
+
+
+                        </div>
+                        <!--// .yui-u -->
+                    </div>
+                    <!--// .yui-gf -->
+
+                    <!--// .yui-gf -->
+
+                    <div width="100%"class="yui-gf">
+
+                        <div width="100%"class="yui-u first">
+                            <h2>Courses</h2>
+                        </div>
+                        <!--// .yui-u -->
+
+                        <div width="100%"class="yui-u">
+                            @foreach ($user->courses->sortByDesc('from_time') as $course)
+                            <div width="100%"class="job">
+                                <h2>{{$course->name}}</h2>
+                                <h3>{{$course->provider}}</h3>
+                                <h4>{{$course->from_time}} - {{$course->to_time}}</h4>
+                                <p>{{$course->description}}</p>
+                            </div>
+                            @endforeach
+                        </div>
+                        <!--// .yui-u -->
+                    </div>
+                    <!--// .yui-gf -->
+
+
+
+                    <!--//sidebar-wrapper-->
+                    <div width="100%"class="yui-gf">
+
+                        <div width="100%"class="yui-u first">
+                            <h2>Skills</h2>
+                        </div>
+                        <!--// .yui-u -->
+
+                        <div width="100%"class="yui-u">
+                            @foreach ($user->skills->sortBy('type') as $skill)
+                            <div width="100%"class="job">
+                                <h2>{{$skill->name}}</h2>
+                                <h4>{{$skill->type}}</h4>
+                            </div>
+                            @endforeach
+                        </div>
+                        <!--// .yui-u -->
+                    </div>
+                    <!--// .yui-gf -->
+                    <!--//sidebar-wrapper-->
+                    <div width="100%"class="yui-gf">
+
+                        <div width="100%"class="yui-u first">
+                            <h2>Languages</h2>
+                        </div>
+                        <!--// .yui-u -->
+
+                        <div width="100%"class="yui-u">
+                            @foreach ($user->languages as $language)
+                            <div width="100%"class="job">
+                                <h2>{{$language->name}}</h2>
+                                <h4>{{$language->proficiency}}</h4>
+                            </div>
+                            @endforeach
+                        </div>
+                        <!--// .yui-u -->
+                    </div>
+                    <!--// .yui-gf -->
+
+                </div>
+                <!--// .yui-b -->
             </div>
-            <!--// footer -->
+            <!--// yui-main -->
+        </div>
+        <!--// bd -->
 
-        </div><!-- // inner -->
+        <div width="100%"id="ft">
+            <p>{{$user->name}} {{$user->surname}} &mdash; <a href="mailto:{{$user->email}}">{{$user->email}}</a> &mdash; {{$user->phone}}</p>
+        </div>
+        <!--// footer -->
+
+    </div><!-- // inner -->
 
 
-    </div>
-    <!--// doc -->
+</div>
+<!--// doc -->
 
 
-</body>
 <!-- Bootstrap core JavaScript-->
 <script src="{{asset('back/')}}/vendor/jquery/jquery.min.js"></script>
 <script src="{{asset('back/')}}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -239,5 +229,3 @@
 @toastr_js
 @toastr_render
 @yield('js')
-
-</html>
