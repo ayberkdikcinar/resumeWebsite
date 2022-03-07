@@ -195,17 +195,11 @@ class UserController extends Controller
 
     public function generatePDF($id)
     {
-
-        if (Auth::user()->isAdmin) {
-            $user = User::findOrFail($id);
-        } else {
-            $user = Auth::user();
-        }
+        $user = User::findOrFail($id);
 
         $pdf = app('dompdf.wrapper');
-        $pdf->setOptions(['isRemoteEnabled' => TRUE, 'enable_javascript' => TRUE]);
+        $pdf->setOptions(['isRemoteEnabled' => TRUE, 'enable_javascript' => TRUE, 'setIsHtml5ParserEnabled' => TRUE, 'dpi' => 136]);
         $html = view('adminPanel.users.test_pdf', compact('user'))->render();
-        $html = preg_replace('/>\s+</', "><", $html);
         $pdf->loadHtml($html);
 
 
