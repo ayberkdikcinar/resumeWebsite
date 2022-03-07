@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <a href="{{route('admin.user.generatePDF',$user->id)}}" class="profile-edit-btn">Download as a PDF</a>
+                        <a href="{{route('user.generatePDF',$user->id)}}" class="profile-edit-btn">Download as a PDF</a>
                     </div>
                 </div>
                 <div class="row">
@@ -263,7 +263,7 @@
                                         <p>3. Professional courses(Design, Marketing, Finance, Carpenter, etc)</p>
                                         <div class="card" style="width: 32rem; margin-bottom:5%;">
                                             <div class="card-body">
-                                                @foreach ($user->documents->where('type','professional-course') as $index=>$item)    
+                                                @foreach ($user->documents->where('type','professional-courses') as $index=>$item)    
                                                 <a href="{{url('/',$item->document_url)}}" target="_blank"><h5 class="card-title">Document-{{$index+1}}</h5></a>
                                               @endforeach
                                             </div>

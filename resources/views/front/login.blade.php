@@ -19,6 +19,14 @@ Login
                   @endforeach   
               </div>
               @endif
+              @if(\Session::has('success'))
+              <div class="alert alert-success m-3">{{ \Session::get('success') }}</div>
+              {{ \Session::forget('success') }}
+              @endif
+              @if(\Session::has('error'))
+              <div class="alert alert-danger m-3">{{ \Session::get('error') }}</div>
+              {{ \Session::forget('error') }}
+              @endif
             <form action="{{route('login.post')}}" method="post">
               @csrf
               <div class="form-group first">

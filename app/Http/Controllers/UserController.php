@@ -9,6 +9,7 @@ use App\Http\Controllers\MailController;
 use Barryvdh\DomPDF\PDF;
 use Dompdf\Dompdf;
 use \Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 
@@ -20,17 +21,16 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {   
-       
-        $checked=$request->checkbox_val;
+    {
 
-        if($checked==null){
-            $users= User::where('isAdmin','0')->get();
-        }
-        else
-            $users= User::where('isAdmin','1')->get();
+        $checked = $request->checkbox_val;
 
-        return view('adminPanel.users.listUser',compact('users','checked'));
+        if ($checked == null) {
+            $users = User::where('isAdmin', '0')->get();
+        } else
+            $users = User::where('isAdmin', '1')->get();
+
+        return view('adminPanel.users.listUser', compact('users', 'checked'));
     }
 
 
@@ -52,43 +52,40 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $request->validate([
-            'username'=>['min:3','max:15','required'],
-            'email'=>['required','regex:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/'],
-            'password'=>['required','confirmed','min:8'], //Minimum eight characters, at least one letter and one number
-            
+            'username' => ['min:3', 'max:15', 'required'],
+            'email' => ['required', 'regex:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/'],
+            'password' => ['required', 'confirmed', 'min:8'], //Minimum eight characters, at least one letter and one number
+
         ]);
-      
+
 
         $user = new User();
         $user->username = $request->username;
-        $user->email =$request->email;
+        $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        if($request->whatIs=="Admin")
-            $user->isAdmin=1;
-        else 
-            $user->isAdmin=0;
-    
+        if ($request->whatIs == "Admin")
+            $user->isAdmin = 1;
+        else
+            $user->isAdmin = 0;
+
         try {
 
             $user->save();
-            if($user->isAdmin==0)
+            if ($user->isAdmin == 0)
                 MailController::mailSend($request);
- 
-                
         } catch (\Exception $th) {
-            toastr()->error('An error has been occurred while adding the user.','Error');
+            toastr()->error('An error has been occurred while adding the user.', 'Error');
             if ($th->getCode() == 23000) {
-                return back()->withErrors('Email or username has already been taken'); 
+                return back()->withErrors('Email or username has already been taken');
             }
-            return back()->withErrors($th->getMessage()); 
+            return back()->withErrors($th->getMessage());
         }
 
-        toastr()->success('User has been added.','Success');
+        toastr()->success('User has been added.', 'Success');
         return redirect()->route('admin.user.index');
-
-}
+    }
 
     /**
      * Display the specified resource.
@@ -97,9 +94,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {   
+    {
         $user = User::findOrFail($id);
-        return view('adminPanel.users.userdetails',compact('user'));
+        return view('adminPanel.users.userdetails', compact('user'));
         //return $id;
     }
 
@@ -112,8 +109,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        
-        return view('adminPanel.users.editUser',compact('user'));
+
+        return view('adminPanel.users.editUser', compact('user'));
     }
 
     /**
@@ -125,89 +122,130 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-                
-        $user= User::findOrFail($id);
+
+        $user = User::findOrFail($id);
 
         $request->validate([
-            'username'=>'min:5|max:15|required',
-            'name'=>'min:3',
-            'surname'=>'min:3',
-            'email'=>['required','regex:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/']     
+            'username' => 'min:5|max:15|required',
+            'name' => 'min:3',
+            'surname' => 'min:3',
+            'email' => ['required', 'regex:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/']
         ]);
         $user->username = $request->username;
         $user->name = $request->name;
-        $user->surname =$request->surname;
-        $user->phone =$request->phone;
-        $user->email =$request->email;
+        $user->surname = $request->surname;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
 
-        try{
+        try {
             $user->save();
-
         } catch (\Exception $th) {
             if ($th->getCode() == 23000) {
-                return back()->withErrors('Email or username has already been taken'); 
+                return back()->withErrors('Email or username has already been taken');
             }
-            return back()->withErrors($th->getMessage()); 
+            return back()->withErrors($th->getMessage());
         }
 
-        toastr()->success('User has been updated','Success');
+        toastr()->success('User has been updated', 'Success');
         return redirect()->back();
     }
 
 
-    public function changePassword(Request $request, $id){
+    public function changePassword(Request $request, $id)
+    {
 
-        $user= User::findOrFail($id);
+        $user = User::findOrFail($id);
 
         $request->validate([
-            'old_password'=>['required_with:password','nullable','sometimes'],
-            'password'=>['required_with:old_password','nullable','sometimes','confirmed'], //Minimum eight characters, at least one letter and one number      
+            'old_password' => ['required_with:password', 'nullable', 'sometimes'],
+            'password' => ['required_with:old_password', 'nullable', 'sometimes', 'confirmed'], //Minimum eight characters, at least one letter and one number      
         ]);
 
-        
-        if(!Hash::check($request->old_password, $user->password)){
-            toastr()->error('Your password could not be changed.','Error');
+
+        if (!Hash::check($request->old_password, $user->password)) {
+            toastr()->error('Your password could not be changed.', 'Error');
             return back()->withErrors('Your old password was not true');
-        }  
-
-        $user->password = bcrypt($request->password);
-        
-
-        try{
-            $user->save();
-
-        } catch (\Exception $th) {
-            toastr()->error('Your password could not be changed.','Error');
-            return back()->withErrors($th->getMessage()); 
         }
 
-        toastr()->success('Your password has been changed','Success');
+        $user->password = bcrypt($request->password);
+
+
+        try {
+            $user->save();
+        } catch (\Exception $th) {
+            toastr()->error('Your password could not be changed.', 'Error');
+            return back()->withErrors($th->getMessage());
+        }
+
+        toastr()->success('Your password has been changed', 'Success');
         return redirect()->back()->with('message', 'Your password has been changed successfully.');
-
     }
 
-    public function displayPDF($id){
-        $user = User::findOrFail($id);
-        return view('adminPanel.users.test_pdf',compact('user'));
+    public function displayPDF($id)
+    {
+
+        if (Auth::user()->isAdmin) {
+            $user = User::findOrFail($id);
+        } else {
+            $user = Auth::user();
+        }
+
+        return view('adminPanel.users.test_pdf', compact('user'));
     }
 
-    public function generatePDF($id){
+    public function generatePDF($id)
+    {
 
-        $user = User::findOrFail($id);
+        if (Auth::user()->isAdmin) {
+            $user = User::findOrFail($id);
+        } else {
+            $user = Auth::user();
+        }
 
         $pdf = app('dompdf.wrapper');
         $pdf->setOptions(['isRemoteEnabled' => TRUE, 'enable_javascript' => TRUE]);
-        $html = view('adminPanel.users.test_pdf',compact('user'))->render();
+        $html = view('adminPanel.users.test_pdf', compact('user'))->render();
+        $html = preg_replace('/>\s+</', "><", $html);
         $pdf->loadHtml($html);
-      
 
-        return $pdf->download('itsolutionstuff.pdf');  
+
+        return $pdf->download('resume.pdf');
     }
+    public function addUser(Request $request)
+    {
 
-  /*  public function downloadFile($path){
-        return response()->download(public_path($path));   
-        
-    }*/
+        $request->validate([
+            'username' => ['min:3', 'max:15', 'required'],
+            'name' => 'min:3',
+            'surname' => 'min:3',
+            'email' => ['required', 'regex:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/'],
+            'password' => ['required', 'min:8'], //Minimum eight characters, at least one letter and one number
+
+        ]);
+
+
+        $user = new User();
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->isAdmin = 0;
+        $user->name = $request->firstname;
+        $user->surname = $request->lastname;
+        $user->country_of_residence = $request->country_of_residence;
+        $user->phone = $request->phone;
+
+        try {
+            $user->save();
+        } catch (\Exception $th) {
+            toastr()->error('An error has been occurred while registering.', 'Error');
+            if ($th->getCode() == 23000) {
+                return back()->with('error', 'Email or username has already been taken');
+            }
+            return back()->with('error', $th->getMessage());
+        }
+
+        return redirect()->route('login')->with('success', 'Account has been created sucessfully. You can login now!');
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -219,12 +257,10 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        $path = 'uploads/'.$user->username;
+        $path = 'uploads/' . $user->username;
         if (File::exists($path)) File::deleteDirectory($path);
-        toastr()->success('User has been deleted','Success');
+        toastr()->success('User has been deleted', 'Success');
 
         return redirect()->route('admin.user.index');
-
-        
     }
 }

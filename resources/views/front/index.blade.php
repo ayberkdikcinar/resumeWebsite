@@ -52,18 +52,18 @@
 
    <div class="products_exciting_box">
       <center>
-         <h3>{{!!$homepage->top_body_title!!}}</h3>
+         <h3>{!!$homepage->top_body_title!!}</h3>
       </center>
       <div class="container">
          <div class="row">
             <div class="col-md-6 col-sm-6 wow fadeIn" data-wow-delay="0.2s">
                <div class="exciting_box f_pd">
-                  <p>{{!!$homepage->top_body_left_content!!}}</p>
+                  <p>{!!$homepage->top_body_left_content!!}</p>
                </div>
             </div>
             <div class="col-md-6 col-sm-6 wow fadeIn" data-wow-delay="0.4s">
                <div class="exciting_box l_pd">
-                  <p>{{!!$homepage->top_body_right_content!!}}</p>
+                  <p>{!!$homepage->top_body_right_content!!}</p>
                </div>
             </div>
          </div>
@@ -75,12 +75,12 @@
          <div class="row">
             <div class="col-md-6 col-sm-6 wow fadeIn" data-wow-delay="0.2s">
                <div class="exciting_box f_pd">
-                  <h3>{{!!$homepage->bottom_body_title!!}}</h3>
+                  <h3>{!!$homepage->bottom_body_title!!}</h3>
                </div>
             </div>
             <div class="col-md-6 col-sm-6 wow fadeIn" data-wow-delay="0.4s">
                <div class="exciting_box l_pd">
-                  <p>{{!!$homepage->bottom_body_content!!}}</p>
+                  <p>{!!$homepage->bottom_body_content!!}</p>
                </div>
             </div>
          </div>

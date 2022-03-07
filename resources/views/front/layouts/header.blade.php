@@ -39,6 +39,9 @@
                   <div class="navbar-header">
                      <button type="button" id="top-menu" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                      </button>
                      <a href="{{route('index')}}" class="navbar-brand"><img src="{{asset('')}}{{$setting->logo_url}}" alt="" /></a>
                   </div>
@@ -48,7 +51,7 @@
                      <div class="nav-b hidden-xs">
                         <div class="nav-box">
                            <ul>
-                              <li><a href="{{route('howItWorks')}}">How does it works</a></li>
+                              <li><a href="{{route('howItWorks')}}">How it works</a></li>
                               <li><a href="{{route('aboutUs')}}">Legal Bindings</a></li>
                               <li><a href="{{route('contactUs')}}">Contact us</a></li>
                               @auth
@@ -101,8 +104,10 @@
                      <div class="login-sr">
                         <div class="login-signup">
                            <ul>
+                              <li><a class="custom-b" href="{{route('register')}}">Apply</a></li>
                               <li><a class="custom-b" href="{{route('login')}}">Login</a></li>
                            </ul>
+                          
                         </div>
                      </div>
                   </div>
@@ -115,7 +120,7 @@
    </header>
    <div id="sidebar" class="top-nav">
       <ul id="sidebar-nav" class="sidebar-nav">
-         <li><a href="{{route('howItWorks')}}">How does it works</a></li>
+         <li><a href="{{route('howItWorks')}}">How it works</a></li>
          <li><a href="{{route('aboutUs')}}">Legal Bindings</a></li>
          <li><a href="{{route('contactUs')}}">Contact us</a></li>
       </ul>
